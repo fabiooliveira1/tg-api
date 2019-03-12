@@ -14,8 +14,12 @@ class CreateContactSupplies extends Migration
     public function up()
     {
         Schema::create('ContactSuppliers', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->string('FrnCn_idFornecedor', 4);
+            $table->string('FrnCn_idContato', 4);
+            $table->string('FrnCn_UsuRegInc', 20);
+            $table->timestamps('FrnCn_DatIncReg');
+            $table->string('FrnCn_UsuAltReg', 20);
+            $table->timestamps('FrnCn_DatAltReg');
         });
     }
 
