@@ -18,6 +18,7 @@ class CreateBillsGroup extends Migration
             $table->string('GrCt_idRisco');
             $table->String('GrCt_NomeGrupo', 50);
             $table->String('GrCt_DescrGrupo', 100);
+            $table->enum('GrCt_Requerido', '');
             $table->timestamps();
         });
     }
