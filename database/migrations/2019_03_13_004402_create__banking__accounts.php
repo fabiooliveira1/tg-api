@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBillsGroup extends Migration
+class CreateBankingAccounts extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateBillsGroup extends Migration
      */
     public function up()
     {
-        Schema::create('Bills_group', function (Blueprint $table) {
-            $table->increments('GrCt_idGrupo');
-            $table->string('GrCt_idRisco');
-            $table->String('GrCt_NomeGrupo', 50);
-            $table->String('GrCt_DescrGrupo', 100);
+        Schema::create('BankingAccounts', function (Blueprint $table) {
+            $table->string('CtBc_idBanco', 3);
+            $table->string('CtBc_idAgencia', 4);
+            $table->string('CtBc_idContaBancaria', 6);
+            $table->double('CtBc_Saldo', 10,2);
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateBillsGroup extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Bills_group');
+        Schema::dropIfExists('BankingAccounts');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBillsGroup extends Migration
+class CreateRequereds extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateBillsGroup extends Migration
      */
     public function up()
     {
-        Schema::create('Bills_group', function (Blueprint $table) {
-            $table->increments('GrCt_idGrupo');
-            $table->string('GrCt_idRisco');
-            $table->String('GrCt_NomeGrupo', 50);
-            $table->String('GrCt_DescrGrupo', 100);
+        Schema::create('Requereds', function (Blueprint $table) {
+            $table->increments('Rq_idRequeridos');
+            $table->string('Rq_descRequeridos', 50);
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateBillsGroup extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Bills_group');
+        Schema::dropIfExists('Requereds');
     }
 }
