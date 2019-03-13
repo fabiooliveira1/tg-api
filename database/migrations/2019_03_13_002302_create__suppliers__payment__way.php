@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateContacts extends Migration
+class CreateSuppliersPaymentWay extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateContacts extends Migration
      */
     public function up()
     {
-        Schema::create('Contacts', function (Blueprint $table) {
-            $table->increments('Cnt_idContato');
-            $table->string('Cnt_nomeContato', 100);
-            $table->string('Cnt_phoneContato', 12);
-            $table->string('Cnt_emailContato', 100);
+        Schema::create('SuppliersPaymentWay', function (Blueprint $table) {
+            $table->string('Fpf_idFornecedor', 6);
+            $table->string('Fpf_idFormaPagto', 4);
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateContacts extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Contacts');
+        Schema::dropIfExists('SuppliersPaymentWay');
     }
 }

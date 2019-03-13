@@ -27,10 +27,7 @@ class CreateDistributors extends Migration
             $table->string('Forn_Banco', 3);
             $table->string('Forn_Agencia', 5);
             $table->string('Forn_ContaBancaria', 4);
-            $table->string('Forn_UsuIncReg', 20);
-            $table->timestamps('Forn_DatIncReg');
-            $table->string('Forn_UsuAltReg', 20);
-            $table->timestamps('Forn_DatAltReg');
+            $table->timestamps();
         });
     }
 

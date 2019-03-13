@@ -29,10 +29,7 @@ class CreateBills extends Migration
             $table->double('Cta_Multa', 8,2);
             $table->double('Cta_Juros', 8,2);
             $table->string('Cta_Status', 1);
-            $table->string('Cta_UsuIncReg', 20);
-            $table->timestamps('Cta_DatIncReg');
-            $table->string('Cta_UsuAltReg', 20);
-            $table->timestamps('Cta_DatAltReg');
+            $table->timestamps();
         });
     }
 

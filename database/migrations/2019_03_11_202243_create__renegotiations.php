@@ -20,10 +20,7 @@ class CreateRenegotiations extends Migration
             $table->string('Rng_descrProposta', 100);
             $table->string('Rng_Iniciativa', 50);
             $table->string('Rng_Status', 1);
-            $table->string('Rng_UsuIncReg', 20);
-            $table->timestamps('Rng_DatIncReg');
-            $table->string('Rng_UsuAltReg', 20);
-            $table->timestamps('Rng_DatAltReg');
+            $table->timestamps();
         });
     }
 

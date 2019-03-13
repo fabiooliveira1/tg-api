@@ -16,10 +16,7 @@ class CreateRisks extends Migration
         Schema::create('Risks', function (Blueprint $table) {
             $table->increments('Rsc_idRisco');
             $table->string('Rsc_descrRisco', 100);
-            $table->string('Rsc_UsuIncReg', 20);
-            $table->timestamps('Rsc_DatIncReg');
-            $table->string('Rsc_UsuAltReg', 20);
-            $table->timestamps('Rsc_DatAltReg');
+            $table->timestamps();
         });
     }
 

@@ -16,10 +16,7 @@ class CreateContactSupplies extends Migration
         Schema::create('ContactSuppliers', function (Blueprint $table) {
             $table->string('FrnCn_idFornecedor', 4);
             $table->string('FrnCn_idContato', 4);
-            $table->string('FrnCn_UsuRegInc', 20);
-            $table->timestamps('FrnCn_DatIncReg');
-            $table->string('FrnCn_UsuAltReg', 20);
-            $table->timestamps('FrnCn_DatAltReg');
+            $table->timestamps();
         });
     }
 
