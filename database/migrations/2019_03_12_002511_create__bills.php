@@ -15,6 +15,9 @@ class CreateBills extends Migration
     {
         Schema::create('Bills', function (Blueprint $table) {
             $table->increments('Cta_idConta');
+            $table->integer('Cta_idUser');
+            $table->integer('Cta_idGrupo');
+            $table->integer('Cta_idFornecedor');
             $table->string('Cta_descrConta', 100);
             $table->date('Cta_dataInclusao');
             $table->date('Cta_dataEmissao');
@@ -29,6 +32,7 @@ class CreateBills extends Migration
             $table->double('Cta_Multa', 8,2);
             $table->double('Cta_Juros', 8,2);
             $table->string('Cta_Status', 1);
+            $table->string('Cta_idPedidoCompra');
             $table->timestamps();
         });
     }
