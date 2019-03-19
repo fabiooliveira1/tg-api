@@ -27,6 +27,6 @@ class CreatePaymentWay extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Payment_Way');
+        Schema::dropIfExists('Payment_Ways');
     }
 }

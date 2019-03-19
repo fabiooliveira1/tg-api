@@ -31,6 +31,6 @@ class CreateBankingAgency extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('BankingAgency');
+        Schema::dropIfExists('BankingAgencies');
     }
 }
