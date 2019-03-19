@@ -38,6 +38,6 @@ class CreateDistributors extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Distributors');
+        Schema::dropIfExists('Suppliers');
     }
 }

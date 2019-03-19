@@ -13,7 +13,7 @@ class CreateContactSupplies extends Migration
      */
     public function up()
     {
-        Schema::create('ContactSuppliers', function (Blueprint $table) {
+        Schema::create('Contact_Suppliers', function (Blueprint $table) {
             $table->string('FrnCn_idFornecedor', 4);
             $table->string('FrnCn_idContato', 4);
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateContactSupplies extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ContactSupplies');
+        Schema::dropIfExists('Contact_Suppliers');
     }
 }
