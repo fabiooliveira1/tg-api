@@ -19,7 +19,6 @@ class CreateBills extends Migration
             $table->integer('Cta_idGrupo');
             $table->integer('Cta_idFornecedor');
             $table->string('Cta_descrConta', 100);
-            $table->date('Cta_dataInclusao');
             $table->date('Cta_dataEmissao');
             $table->date('Cta_dataVencimento');
             $table->date('Cta_dataPagto');
