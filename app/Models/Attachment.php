@@ -2,17 +2,12 @@
 
 namespace Api\Models;
 
-class Renegotiation extends BaseModel
+class Attachment extends BaseModel
 {
     
-
     public $fillable = [
-        'Rng_idConta',
-        'Rng_valProposta',
-        'Rng_vencProposta',
-        'Rng_descrProposta',
-        'Rng_Iniciativa',
-        'Rng_Status'
+        'Anx_idConta',
+        'Anx_endereco'
     ];
 
     public $dates = ['created_at', 'updated_at'];
@@ -25,13 +20,17 @@ class Renegotiation extends BaseModel
 
     public function hasRelatedRecords()
     {
-        return $this->bills()->count() > 0;
+        return $this->bill()->count() > 0 || purchaseOrder()->count() > 0;
     }
 
-    public function bills()
+    public function bill()
     {
         return $this->hasOne(Bill::class, 'Cta_idConta');
     }
 
-   
+    public function purchaseOrder()
+    {
+        return $this->hasOne(PurchaseOrder::class);
+    }
+
 }
