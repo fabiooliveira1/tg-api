@@ -7,6 +7,7 @@ class Bank extends BaseModel
 {
 
     public $fillable = [
+        'Bc_idBanco',
         'Bc_nomeBanco'
     ];
 
@@ -15,6 +16,11 @@ class Bank extends BaseModel
     public static function boot()
     {
         parent::boot();
+
+        // static::updating(function ($model) {
+        //     if($model->Cta_Status == 'Pago')
+        //         throw new \Exception('Não é possível apagar contas já pagas!', 422);
+        // });
 
     }
 
@@ -26,19 +32,9 @@ class Bank extends BaseModel
         return true;
     }
 
-    public function hasRelatedRecords()
-    {
-        return $this->agency()->count() > 0 || accountBank()->count() > 0;
-    }
-
     public function agency()
     {
-        return $this->hasOne(Agency::class);
-    }
-
-    public function accountBank()
-    {
-        return $this->hasMany(AccountBank::class);
+        return $this->hasMany(Agency::class);
     }
 
 }

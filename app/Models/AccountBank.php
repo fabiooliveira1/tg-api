@@ -25,11 +25,6 @@ class AccountBank extends BaseModel
         return $this->simulation()->count() > 0;
     }
 
-    public function bank()
-    {
-        return $this->hasOne(Bank::class, 'CtBc_idBanco');
-    }
-
     public function agencyBank()
     {
         return $this->belongsTo(AgencyBank::class, 'CtBc_idAgencia');
@@ -37,6 +32,6 @@ class AccountBank extends BaseModel
 
     public function simulation()
     {
-        return $this->hasOne(Simulation::class);
+        return $this->hasMany(Simulation::class);
     }
 }

@@ -10,6 +10,8 @@ class Renegotiation extends BaseModel
         'Rng_idConta',
         'Rng_valProposta',
         'Rng_vencProposta',
+        'Rng_valAntigo',
+        'Rng_vencAntigo',
         'Rng_descrProposta',
         'Rng_Iniciativa',
         'Rng_Status'
@@ -21,16 +23,16 @@ class Renegotiation extends BaseModel
     {
         parent::boot();
 
+        static::deleting(function ($model) {
+            if($model->Rng_Status == 'Aprovado')
+                throw new \Exception('Não é possível apagar renegociações aprovadas!', 422);
+        });
+
     }
 
-    public function hasRelatedRecords()
+    public function bill()
     {
-        return $this->bills()->count() > 0;
-    }
-
-    public function bills()
-    {
-        return $this->hasOne(Bill::class, 'Cta_idConta');
+        return $this->belongsTo(Bill::class, 'Cta_idConta');
     }
 
    

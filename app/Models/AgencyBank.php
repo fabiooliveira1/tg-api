@@ -28,11 +28,6 @@ class AgencyBank extends BaseModel
         return true;
     }
 
-    public function hasRelatedRecords()
-    {
-        return $this->accountsBank()->count() > 0;
-    }
-
     public function bank()
     {
         return $this->belongsTo(Bank::class, 'AgBc_idBanco');

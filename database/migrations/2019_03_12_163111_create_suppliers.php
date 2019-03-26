@@ -16,7 +16,8 @@ class CreateSuppliers extends Migration
         Schema::create('Suppliers', function (Blueprint $table) {
             $table->increments('Forn_idFornecedor');
             $table->string('Forn_CNPJ', 14);
-            $table->string('Forn_idRisco', 3);
+            $table->integer('Forn_idRisco');
+            $table->string('Forn_RazaoSocial', 100);
             $table->string('Forn_NomeFantasia', 100);
             $table->string('Forn_InscrEstadual', 12);
             $table->string('Forn_Endereco', 35);

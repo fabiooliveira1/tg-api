@@ -15,7 +15,7 @@ class CreateBillsGroup extends Migration
     {
         Schema::create('Bills_group', function (Blueprint $table) {
             $table->increments('GrCt_idGrupo');
-            $table->string('GrCt_idRisco');
+            $table->integer('GrCt_idRisco');
             $table->String('GrCt_NomeGrupo', 50);
             $table->String('GrCt_DescrGrupo', 100);
             $table->timestamps();

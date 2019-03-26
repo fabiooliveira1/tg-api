@@ -21,11 +21,16 @@ class Bill extends BaseModel
         'Cta_idPedidoCompra'
     ];
     
-    public $dates = ['created_at', 'updated_at', 'Cta_dataInclusao', 'Cta_dataEmissao', 'Cta_dataVencimento', 'Cta_dataPagto', 'Cta_dataBaixa'];
+    public $dates = ['created_at', 'updated_at', 'Cta_dataEmissao', 'Cta_dataVencimento', 'Cta_dataPagto', 'Cta_dataBaixa'];
 
     public static function boot()
     {
         parent::boot();
+
+        static::deleting(function ($model) {
+            if($model->Cta_Status == 'Pago')
+                throw new \Exception('Não é possível apagar contas já pagas!', 422);
+        });
         
     }
 
@@ -37,41 +42,36 @@ class Bill extends BaseModel
 
         return true;
     }
+    // Rever regras
+    // public function hasRelatedRecords()
+    // {
+    //     return $this->purchaseOrder()->count() > 0 || attachment()->count() > 0 ||
+    //     simulation()->count() > 0 || supplier()->count > 0 || renegotiation()->count() > 0;
+    // }
 
-    public function hasRelatedRecords()
-    {
-        return $this->purchaseOrder()->count() > 0 || attachment()->count() > 0 ||
-        simulation()->count() > 0 || supplier()->count > 0 || renegotiation()->count() > 0;
-    }
-
-    public function purchaseOrder()
-    {
-        return $this->hasMany(PurchaseOrder::class);
-    }
-
-    public function attachment()
+    public function attachments()
     {
         return $this->hasMany(Attachment::class);
     }
 
-    public function renegotiation()
+    public function renegotiations()
     {
-        return $this->hasOne(Renegotiation::class);
+        return $this->hasMany(Renegotiation::class);
     }
 
     public function user()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function supplier()
     {
-        return $this->hasOne(Supplier::class);
+        return $this->belongsTo(Supplier::class);
     }
 
     public function billGroup()
     {
-        return $this->hasOne(BillGroup::class);
+        return $this->belongsTo(BillGroup::class);
     }
 
 }

@@ -7,6 +7,8 @@ class Supplier extends BaseModel
 
     public $fillable = [
        'Forn_CNPJ',
+       'Forn_idRisco',
+       'Forn_RazaoSocial',
        'Forn_NomeFantasia',
        'Forn_InscrEstadual',
        'Forn_Endereco',
@@ -27,13 +29,19 @@ class Supplier extends BaseModel
 
     }
 
-    public function hasRelatedRecords()
+    public function deleteRelations()
     {
-        return $this->risks()->count() > 0 || bills()->count() > 0 || contactSuppliers()->count() > 0 ||
-        suppliersPaymentWays()->count() > 0;
+        $this->contactSuppliers()->delete();
+
+        return true;
     }
 
-    public function risks()
+    public function hasRelatedRecords()
+    {
+        return $this->bills()->count() > 0;
+    }
+
+    public function risk()
     {
         return $this->hasOne(Risk::class);
     }
@@ -43,14 +51,14 @@ class Supplier extends BaseModel
         return $this->hasMany(Bill::class);
     }
 
-    public function contactSuppliers()
+    public function contacts()
     {
-        return $this->hasMany(ContactSupplier::class);
+        return $this->hasMany(Contact::class);
     }
 
-    public function suppliersPaymentWays()
+    public function paymentWays()
     {
-        return $this->hasMany(SupplierPaymentWay::class);
+        return $this->hasMany(PaymentWay::class);
     }
     
 }
