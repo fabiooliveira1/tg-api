@@ -26,7 +26,7 @@ class CreateBills extends Migration
             $table->string('Cta_codBarra');
             $table->double('Cta_valConta', 8,2);
             $table->double('Cta_totalConta', 8,2);
-            $table->date('Cta_tempoProtesto');
+            $table->integer('Cta_tempoProtesto');
             $table->double('Cta_valProtesto', 8,2);
             $table->double('Cta_Multa', 8,2);
             $table->double('Cta_Juros', 8,2);

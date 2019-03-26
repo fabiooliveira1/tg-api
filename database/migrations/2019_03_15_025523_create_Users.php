@@ -17,7 +17,9 @@ class CreateUsers extends Migration
             $table->string('User_idUsuario', 20);
             $table->string('User_nivelAcesso', 10);
             $table->string('User_matricula', 20);
-            $table->string('User_Senha', 10);
+            $table->string('User_senha', 10);
+            $table->string('User_nome', 50);
+            $table->string('User_email', 100);
             $table->timestamps();
         });
     }

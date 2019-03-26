@@ -15,7 +15,6 @@ class CreateContacts extends Migration
     {
         Schema::create('Contacts', function (Blueprint $table) {
             $table->increments('Cnt_idContato');
-            $table->integer('Forn_idFornecedor');
             $table->string('Cnt_nomeContato', 100);
             $table->string('Cnt_phoneContato', 12);
             $table->string('Cnt_emailContato', 100);
