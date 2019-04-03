@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Api\Bill;
+namespace App\Http\Controllers\Api\Renegotiation;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\BillsRepository;
-use App\Models\Bill;
+use App\Repositories\RenegotiationsRepository;
+use App\Models\Renegotiation;
 use Illuminate\Foundation\Http\Request;
 // use \DB; EXEMPLO DE TRANSACTION
 
-class BillsController extends Controller
+class RenegotiationsController extends Controller
 {
-    private function getBillsRepository()
+    private function getRenegotiationsRepository()
     {
-        return app(BillsRepository::class);
+        return app(RenegotiationsRepository::class);
     }
 
     /**
@@ -22,10 +22,11 @@ class BillsController extends Controller
      */
     public function index(Request $request)
     {
-            $model = $this->getBillsRepository()->filter($request);
+            $model = $this->getRenegotiationsRepository()->filter($request);
 
             logger($model->toSql());
             logger($model->getBindings());
+
             if ($request->filled('page')) {
                 return $model->paginate($request->get('paginate') ?? 10);
             }
@@ -57,24 +58,24 @@ class BillsController extends Controller
 
     /**
      * Create a new controller instance.
-     * @param bill Bill
-     * @return bill object || null
+     * @param renegotiation Bill
+     * @return renegotiation object || null
      */
-    public function show(Bill $bill = null)
+    public function show(Renegotiation $renegotiation = null)
     {
-        return $bill;
+        return $renegotiation;
     }
 
     /**
      * Create a new controller instance.
-     * @param request BillRequest
+     * @param request RenegotiatonRequest
      * @return Boolean || Array
      */
-    public function create(BillRequest $request)
+    public function create(RenegotiationRequest $request)
     {
-        $bill = $this->getBillsRepository()->create($request);
+        $renegotiation = $this->getRenegotiationsRepository()->create($request);
 
-        return $bill;
+        return $renegotiation;
         /**
          * [ errors: ['value' => 'O campo value é obrigatório e deve ser um número']]
          */
@@ -82,14 +83,14 @@ class BillsController extends Controller
 
     /**
      * Create a new controller instance.
-     * @param request BillRequest
+     * @param request RenegotiationRequest
      * @return Boolean || Array
      */
-    public function update(Bill $bill, BillRequest $request)
+    public function update(Renegotiation $renegotiation, RenegotiationRequest $request)
     {
-        $bill = $this->getBillsRepository()->update($bill, $request);
+        $renegotiation = $this->getRenegotiationsRepository()->update($renegotiation, $request);
 
-        return $bill;
+        return $renegotiation;
         /**
          * [ errors: ['value' => 'O campo value é obrigatório e deve ser um número']]
          */
