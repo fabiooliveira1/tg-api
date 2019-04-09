@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\Bill;
 use App\Http\Controllers\Controller;
 use App\Repositories\BillsRepository;
 use App\Models\Bill;
-use Illuminate\Foundation\Http\Request;
+use Illuminate\Http\Request;
 // use \DB; EXEMPLO DE TRANSACTION
 
 class BillsController extends Controller

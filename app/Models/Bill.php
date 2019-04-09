@@ -1,9 +1,13 @@
 <?php
 
-namespace Api\Models;
+namespace App\Models;
+
+use App\Models\BaseModel;
 
 class Bill extends BaseModel
 {
+
+    protected $table = 'Bills'; 
 
     public $fillable = [
         'Cta_idUser',
