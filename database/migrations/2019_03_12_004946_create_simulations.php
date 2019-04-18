@@ -18,7 +18,7 @@ class CreateSimulations extends Migration
             $table->date('Sim_dataPagtoSimulacao');
             $table->double('Sim_valSimulacao', 8,2);
             $table->double('Sim_valTotal', 8,2);
-            $table->string('Sim_status',20);
+            $table->string('Sim_status',20)->nullable();
             $table->timestamps();
         });
     }

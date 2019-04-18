@@ -21,17 +21,17 @@ class CreateBills extends Migration
             $table->string('Cta_descrConta', 100);
             $table->date('Cta_dataEmissao');
             $table->date('Cta_dataVencimento');
-            $table->date('Cta_dataPagto');
-            $table->date('Cta_dataBaixa');
+            $table->date('Cta_dataPagto')->nullable();
+            $table->date('Cta_dataBaixa')->nullable();
             $table->string('Cta_codBarra');
             $table->double('Cta_valConta', 8,2);
             $table->double('Cta_totalConta', 8,2);
             $table->integer('Cta_tempoProtesto');
             $table->double('Cta_valProtesto', 8,2);
-            $table->double('Cta_Multa', 8,2);
-            $table->double('Cta_Juros', 8,2);
-            $table->string('Cta_Status', 1);
-            $table->string('Cta_idPedidoCompra');
+            $table->double('Cta_Multa', 8,2)->nullable();
+            $table->double('Cta_Juros', 8,2)->nullable();
+            $table->string('Cta_Status', 1)->nullable();
+            $table->string('Cta_idPedidoCompra')->nullable();
             $table->timestamps();
         });
     }

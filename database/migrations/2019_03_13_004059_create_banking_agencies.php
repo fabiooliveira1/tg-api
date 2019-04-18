@@ -17,9 +17,9 @@ class CreateBankingAgencies extends Migration
             $table->string('AgBc_idBanco', 3);
             $table->string('AgBc_idAgencia', 4);
             $table->string('AgBc_nomeAgencia', 50);
-            $table->string('AgBc_nomeGerente', 50);
-            $table->string('AgBc_phoneGerente', 15);
-            $table->string('AgBc_emailGerente', 50);
+            $table->string('AgBc_nomeGerente', 50)->nullable();
+            $table->string('AgBc_phoneGerente', 15)->nullable();
+            $table->string('AgBc_emailGerente', 50)->nullable();
             $table->timestamps();
         });
     }

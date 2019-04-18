@@ -20,9 +20,9 @@ class CreateRenegotiations extends Migration
             $table->date('Rng_vencProposta');
             $table->double('Rng_valAntigo', 8,2);
             $table->date('Rng_vencAntigo');
-            $table->string('Rng_descrProposta', 100);
-            $table->string('Rng_Iniciativa', 50);
-            $table->string('Rng_Status', 1);
+            $table->string('Rng_descrProposta', 100)->nullable();
+            $table->string('Rng_Iniciativa', 50)->nullable();
+            $table->string('Rng_Status', 1)->nullable();
             $table->timestamps();
         });
     }
