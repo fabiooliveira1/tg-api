@@ -16,7 +16,7 @@ class CreateAttachments extends Migration
         Schema::create('Attachments', function (Blueprint $table) {
             $table->increments('Anx_idAnexo');
             $table->integer('Anx_idConta');
-            $table->blob('Anx_conteudo');
+            $table->binary('Anx_conteudo');
             $table->timestamps();
         });
     }
