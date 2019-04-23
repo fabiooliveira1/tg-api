@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BillRequest extends FormRequest
+class AccountBankRequest extends FormRequest
 {
 
     /**
@@ -15,7 +15,7 @@ class BillRequest extends FormRequest
     public function rules()
     {
         return [
-            'Cta_valConta' => 'required'
+            'value' => 'required|number,nullable'
         ];
     }
 

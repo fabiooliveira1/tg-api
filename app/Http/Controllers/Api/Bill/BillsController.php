@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\BillsRepository;
 use App\Models\Bill;
 use Illuminate\Http\Request;
+use App\Http\Requests\BillRequest;
 // use \DB; EXEMPLO DE TRANSACTION
 
 class BillsController extends Controller
@@ -21,7 +22,7 @@ class BillsController extends Controller
      * @return paginate object || array
      */
     public function index(Request $request)
-    {
+    {       
             $model = $this->getBillsRepository()->filter($request);
 
             logger($model->toSql());
@@ -72,6 +73,7 @@ class BillsController extends Controller
      */
     public function create(BillRequest $request)
     {
+        
         $bill = $this->getBillsRepository()->create($request);
 
         return $bill;

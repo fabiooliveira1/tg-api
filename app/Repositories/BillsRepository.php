@@ -25,4 +25,13 @@ class BillsRepository extends BaseRepository
 
         return $model;
     }
+
+    public function create($request)
+    {   
+        $model = $this->getModel();
+        $model = $request->all();
+        
+        return $model;
+    }
+
 }
