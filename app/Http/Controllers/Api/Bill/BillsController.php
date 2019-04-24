@@ -72,8 +72,31 @@ class BillsController extends Controller
      * @return Boolean || Array
      */
 
-    public function create()
+    public function create(Bill $bill, Billrequest $request)
     {
+        // $bill->Cta_idConta = $request->Cta_idConta;
+        $bill->Cta_idUser = $request->Cta_idUser;
+        $bill->Cta_idGrupo = $request->Cta_idGrupo;
+        $bill->Cta_idFornecedor = $request->Cta_idFornecedor;
+        $bill->Cta_descrConta = $request->Cta_descrConta;
+        $bill->Cta_dataEmissao = $request->Cta_dataEmissao;
+        $bill->Cta_dataVencimento = $request->Cta_dataVencimento;
+        $bill->Cta_dataPagto = $request->Cta_dataPagto;
+        $bill->Cta_dataBaixa = $request->Cta_dataBaixa;
+        $bill->Cta_codBarra = $request->Cta_codBarra;
+        $bill->Cta_valConta = $request->Cta_valConta;
+        $bill->Cta_totalConta = $request->Cta_totalConta;
+        $bill->Cta_tempoProtesto = $request->Cta_tempoProtesto;
+        $bill->Cta_valProtesto = $request->Cta_valProtesto;
+        $bill->Cta_Multa = $request->Cta_Multa;
+        $bill->Cta_Juros = $request->Cta_Juros;
+        $bill->Cta_Status = $request->Cta_Status;
+        $bill->Cta_idPedidoCompra = $request->Cta_idPedidoCompra;
+        $bill->save();
+
+        $bill->create();
+        return redirect('/');
+
         // $this->validate($request, [
         //     'Cta_idUser' => 'required|max:11',
         //     'Cta_idGrupo' => 'required|max:11',
@@ -126,29 +149,29 @@ class BillsController extends Controller
 
         // return Bill::create($request->all());
 
-        $post = [
-            'Cta_idConta' => request('Cta_idConta'),
-            'Cta_idUser' => request('Cta_idUser'),
-            'Cta_idGrupo' => request('Cta_idGrupo'),
-            'Cta_idFornecedor' => request('Cta_idFornecedor'),
-            'Cta_descrConta' => request('Cta_descrConta'),
-            'Cta_dataEmissao' => request('Cta_dataEmissao'),
-            'Cta_dataVencimento' => request('Cta_dataVencimento'),
-            'Cta_dataPagto' => request('Cta_dataPagto'),
-            'Cta_dataBaixa' => request('Cta_dataBaixa'),
-            'Cta_codBarra' => request('Cta_codBarra'),
-            'Cta_valConta' => request('Cta_valConta'),
-            'Cta_totalConta' => request('Cta_totalConta'),
-            'Cta_tempoProtesto' => request('Cta_tempoProtesto'),
-            'Cta_valProtesto' => request('Cta_valProtesto'),
-            'Cta_Multa' => request('Cta_Multa'),
-            'Cta_Juros' => request('Cta_Juros'),
-            'Cta_Status' => request('Cta_Status'),
-            'Cta_idPedidoCompra' => request('Cta_idPedidoCompra')
-        ];
+        // $post = [
+        //     'Cta_idConta' => request('Cta_idConta'),
+        //     'Cta_idUser' => request('Cta_idUser'),
+        //     'Cta_idGrupo' => request('Cta_idGrupo'),
+        //     'Cta_idFornecedor' => request('Cta_idFornecedor'),
+        //     'Cta_descrConta' => request('Cta_descrConta'),
+        //     'Cta_dataEmissao' => request('Cta_dataEmissao'),
+        //     'Cta_dataVencimento' => request('Cta_dataVencimento'),
+        //     'Cta_dataPagto' => request('Cta_dataPagto'),
+        //     'Cta_dataBaixa' => request('Cta_dataBaixa'),
+        //     'Cta_codBarra' => request('Cta_codBarra'),
+        //     'Cta_valConta' => request('Cta_valConta'),
+        //     'Cta_totalConta' => request('Cta_totalConta'),
+        //     'Cta_tempoProtesto' => request('Cta_tempoProtesto'),
+        //     'Cta_valProtesto' => request('Cta_valProtesto'),
+        //     'Cta_Multa' => request('Cta_Multa'),
+        //     'Cta_Juros' => request('Cta_Juros'),
+        //     'Cta_Status' => request('Cta_Status'),
+        //     'Cta_idPedidoCompra' => request('Cta_idPedidoCompra')
+        // ];
 
-        Bill::create($post);
-        return redirect('/');
+        // Bill::create($post);
+        // return redirect('/');
     }
 
     /**
