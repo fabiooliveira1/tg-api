@@ -7,7 +7,8 @@ use App\Models\BaseModel;
 class Bill extends BaseModel
 {
 
-    protected $table = 'Bills'; 
+    protected $table = 'Bills';
+    protected $primaryKey = 'Cta_idConta';
 
     public $fillable = [
         'Cta_idUser',
@@ -24,7 +25,7 @@ class Bill extends BaseModel
         'Cta_Status',
         'Cta_idPedidoCompra'
     ];
-    
+
     public $dates = ['created_at', 'updated_at', 'Cta_dataEmissao', 'Cta_dataVencimento', 'Cta_dataPagto', 'Cta_dataBaixa'];
 
     public static function boot()
@@ -35,7 +36,7 @@ class Bill extends BaseModel
             if($model->Cta_Status == 'Pago')
                 throw new \Exception('Não é possível apagar contas já pagas!', 422);
         });
-        
+
     }
 
     public function deleteRelations()
