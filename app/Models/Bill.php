@@ -23,7 +23,11 @@ class Bill extends BaseModel
         'Cta_Multa',
         'Cta_Juros',
         'Cta_Status',
-        'Cta_idPedidoCompra'
+        'Cta_idPedidoCompra',
+        'Cta_dataEmissao',
+        'Cta_dataVencimento',
+        'Cta_dataPagto',
+        'Cta_dataBaixa'
     ];
 
     public $dates = ['created_at', 'updated_at', 'Cta_dataEmissao', 'Cta_dataVencimento', 'Cta_dataPagto', 'Cta_dataBaixa'];

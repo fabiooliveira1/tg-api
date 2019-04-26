@@ -2,26 +2,37 @@
 
 namespace App\Repositories;
 
+use App\Models\Bill;
+
 class BaseRepository
 {
-    public function getModel () {
+    public function getModel()
+    {
         return null;
     }
 
-    public function create(array $request)
+    public function create($request)
     {
-        return $this->getModel()->create($data);
-    }
-
-    public function update($id, array $request)
-    {
-        $model = $this->getModel()::find($id);
-        $model->fill($request);
+        $model = $this->getModel();
+        $model->fill($request->all());
         return $model->save();
     }
 
-    public function filter($request)
+    public function update($request)
     {
-        return $this->getModel();
+        $model = Bill::find($request);
+        $model->fill($request->all());
+        return $model->save();
     }
+
+    public function delete($request)
+    {
+        $model = Bill::findOrFail($request);
+        return $model->delete();
+    }
+
+    // public function filter($request)
+    // {
+    //     return $this->getModel();
+    // }
 }
