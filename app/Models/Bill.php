@@ -43,14 +43,15 @@ class Bill extends BaseModel
 
     }
 
-    public function deleteRelations()
-    {
-        $this->attachment()->delete();
-        $this->renegotiation()->delete();
-        $this->simulation()->delete();
+    // public function deleteRelations()
+    // {
+    //     $this->attachment()->delete();
+    //     $this->renegotiation()->delete();
+    //     $this->simulation()->delete();
 
-        return true;
-    }
+    //     return true;
+    // }
+    
     // Rever regras
     // public function hasRelatedRecords()
     // {

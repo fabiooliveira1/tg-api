@@ -20,14 +20,14 @@ class BaseRepository
 
     public function update($request)
     {
-        $model = Bill::find($request);
-        $model->fill($request->all());
+        $model = $this->getModel()::find($request);
+        $model-> fill($request->all());
         return $model->save();
     }
 
     public function delete($request)
     {
-        $model = Bill::findOrFail($request);
+        $model = $this->getModel()::findOrFail($request);
         return $model->delete();
     }
 
