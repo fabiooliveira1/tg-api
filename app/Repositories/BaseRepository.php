@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Bill;
+use App\Http\Requests\BillRequest;
 
 class BaseRepository
 {
@@ -20,7 +21,7 @@ class BaseRepository
 
     public function update($request)
     {
-        $model = Bill::find($request);
+        $model = Bill::findOrFail($request);
         $model->fill($request->all());
         return $model->save();
     }
