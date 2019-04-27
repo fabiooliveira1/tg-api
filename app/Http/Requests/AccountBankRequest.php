@@ -15,14 +15,21 @@ class AccountBankRequest extends FormRequest
     public function rules()
     {
         return [
-            'value' => 'required|number,nullable'
+        'CtBc_idBanco' => 'required',
+        'CtBc_idAgencia' => 'required',
+        'CtBc_idContaBancaria' => 'required',
+        'CtBc_Saldo' => 'required'
+            
         ];
     }
 
-    // public function messages()
-    // {
-    //     return [
-    //         'value:required' => 'Valor é preciso'
-    //     ];
-    // }
+    public function messages()
+    {
+        return [
+            'CtBc_idBanco:required' => 'Código do banco necessário!',
+            'CtBc_idAgencia:required' => 'Número da agência necessário!',
+            'CtBc_idContaBancaria:required' => 'Número da conta bancária necessário!',
+            'CtBc_Saldo:required' => 'Necessário informar o saldo inicial!'
+        ];
+    }
 }
