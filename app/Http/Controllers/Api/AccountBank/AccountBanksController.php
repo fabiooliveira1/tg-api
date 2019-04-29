@@ -7,7 +7,7 @@ use App\Repositories\AccountBanksRepository;
 
 class AccountBanksController extends BaseController
 {
-  public $requestName = 'AccountBanksRequest';
+  public $requestName = 'AccountBankRequest';
 
   public function getRepository()
   {
