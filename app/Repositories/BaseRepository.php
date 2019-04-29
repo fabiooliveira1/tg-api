@@ -2,9 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Models\Bill;
-use App\Http\Requests\BillRequest;
-
 class BaseRepository
 {
     public function getModel()

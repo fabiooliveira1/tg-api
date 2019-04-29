@@ -2,14 +2,20 @@
 
 namespace Api\Models;
 
+use App\Models\BaseModel;
+
 class AccountBank extends BaseModel
 {
 
+    protected $table = 'BankingAccounts';
+    protected $primaryKey = 'CtBc_idBanco';
+
     public $fillable = [
-        'CtBc_idBanco',
         'CtBc_idAgencia',
         'CtBc_idContaBancaria',
-        'CtBc_Saldo'
+        'CtBc_Saldo',
+        'created_at',
+        'updated_at'
     ];
 
     public $dates = ['created_at', 'updated_at'];
@@ -17,7 +23,6 @@ class AccountBank extends BaseModel
     public static function boot()
     {
         parent::boot();
-
     }
 
     public function hasRelatedRecords()

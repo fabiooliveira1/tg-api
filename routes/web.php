@@ -145,5 +145,4 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function ($route) {
         $route->put('/{user}', 'UserController@update');
         $route->delete('/{user}', 'UserController@delete');
     });
-
 });

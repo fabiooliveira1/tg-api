@@ -14,10 +14,10 @@ class CreateBankingAccounts extends Migration
     public function up()
     {
         Schema::create('BankingAccounts', function (Blueprint $table) {
-            $table->string('CtBc_idBanco', 3);
+            $table->increments('CtBc_idBanco');
             $table->string('CtBc_idAgencia', 4);
             $table->string('CtBc_idContaBancaria', 6);
-            $table->double('CtBc_Saldo', 10,2);
+            $table->double('CtBc_Saldo', 10, 2);
             $table->timestamps();
         });
     }

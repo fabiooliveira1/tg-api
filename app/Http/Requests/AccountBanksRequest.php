@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AccountBankRequest extends FormRequest
+class AccountBanksRequest extends FormRequest
 {
 
     /**
@@ -15,11 +15,10 @@ class AccountBankRequest extends FormRequest
     public function rules()
     {
         return [
-        'CtBc_idBanco' => 'required',
-        'CtBc_idAgencia' => 'required',
-        'CtBc_idContaBancaria' => 'required',
-        'CtBc_Saldo' => 'required'
-            
+            'CtBc_idBanco' => 'required',
+            'CtBc_idAgencia' => 'required',
+            'CtBc_idContaBancaria' => 'required',
+            'CtBc_Saldo' => 'required'
         ];
     }
 
