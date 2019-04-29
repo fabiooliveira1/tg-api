@@ -1,9 +1,13 @@
 <?php
 
 namespace App\Models;
+
 use App\Models\BaseModel;
-class Contact extends BaseModel
+
+class Contacts extends BaseModel
 {
+    protected $table = 'Contacts';
+    protected $primaryKey = 'Cnt_idContato';
 
     public $fillable = [
         'Forn_idFornecedor',
@@ -17,7 +21,6 @@ class Contact extends BaseModel
     public static function boot()
     {
         parent::boot();
-
     }
 
 
@@ -30,5 +33,4 @@ class Contact extends BaseModel
     {
         return $this->belongsTo(Supplier::class, 'Forn_idFornecedor');
     }
-
 }

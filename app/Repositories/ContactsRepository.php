@@ -7,7 +7,8 @@ use App\Models\Contacts;
 
 class ContactsRepository extends BaseRepository
 {
-    public function getModel () {
+    public function getModel()
+    {
         return app(Contacts::class);
     }
 
@@ -25,5 +26,4 @@ class ContactsRepository extends BaseRepository
 
         return $model;
     }
-
 }

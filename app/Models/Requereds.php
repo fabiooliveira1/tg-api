@@ -4,6 +4,8 @@ namespace App\Models;
 use App\Models\BaseModel;
 class Requereds extends BaseModel
 {
+    protected $table = 'Requereds';
+    protected $primaryKey = 'Rq_idRequeridos';
 
     public $fillable = [
         'Rq_DescrRequeridos'

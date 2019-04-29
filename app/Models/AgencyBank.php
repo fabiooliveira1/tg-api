@@ -5,6 +5,8 @@ namespace App\Models;
 use App\Models\BaseModel;
 class AgencyBank extends BaseModel
 {
+    protected $table = 'BankingAgencies';
+    protected $primaryKey = 'AgBc_idAgencia';
 
     public $fillable = [
         'AgBc_idBanco',

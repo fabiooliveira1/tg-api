@@ -4,7 +4,8 @@ namespace App\Models;
 use App\Models\BaseModel;
 class Renegotiation extends BaseModel
 {
-
+    protected $table = 'Renegotiations';
+    protected $primaryKey = 'Rng_idProposta';
 
     public $fillable = [
         'Rng_idConta',

@@ -6,7 +6,8 @@ use App\Models\BaseModel;
 
 class Attachment extends BaseModel
 {
-
+    protected $table = 'Attachments';
+    protected $primaryKey = 'Anx_idConta';
 
     public $fillable = [
         'Anx_idConta',

@@ -4,6 +4,8 @@ namespace App\Models;
 use App\Models\BaseModel;
 class Supplier extends BaseModel
 {
+    protected $table = 'Suppliers';
+    protected $primaryKey = 'Forn_idFornecedor';
 
     public $fillable = [
        'Forn_CNPJ',

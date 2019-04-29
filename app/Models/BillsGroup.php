@@ -5,6 +5,8 @@ use App\Models\BaseModel;
 
 class BillsGroup extends BaseModel
 {
+    protected $table = 'Bills_group';
+    protected $primaryKey = 'GrCt_idGrupo';
 
     public $fillable = [
         'GrCt_idRisco',

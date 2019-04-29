@@ -4,6 +4,8 @@ namespace App\Models;
 use App\Models\BaseModel;
 class Simulation extends BaseModel
 {
+    protected $table = 'Simulations';
+    protected $primaryKey = 'Sim_idSimulacao';
 
     public $fillable = [
         'Sim_valSimulacao',

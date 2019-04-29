@@ -4,6 +4,8 @@ namespace App\Models;
 use App\Models\BaseModel;
 class PaymentWay extends BaseModel
 {
+    protected $table = 'Payment_Ways';
+    protected $primaryKey = 'FrPg_idFormaPgto';
 
     public $fillable = [
         'FrPg_descrFormaPgto'

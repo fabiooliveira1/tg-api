@@ -4,6 +4,8 @@ namespace App\Models;
 use App\Models\BaseModel;
 class Risk extends BaseModel
 {
+    protected $table = 'Risks';
+    protected $primaryKey = 'Rsc_idRisco';
 
     public $fillable = [
         'Rsc_descrRisco'

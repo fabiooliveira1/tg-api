@@ -6,6 +6,8 @@ use App\Models\BaseModel;
 
 class User extends BaseModel
 {
+    protected $table = 'Users';
+    protected $primaryKey = 'User_idUsuario';
 
     public $fillable = [
         'User_nivelAcesso',
