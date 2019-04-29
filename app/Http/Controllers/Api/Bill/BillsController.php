@@ -2,100 +2,16 @@
 
 namespace App\Http\Controllers\Api\Bill;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\BaseController;
 use App\Repositories\BillsRepository;
-use App\Models\Bill;
-use Illuminate\Http\Request;
-use App\Http\Requests\BillRequest;
 use function Psy\debug;
 
-// use \DB; EXEMPLO DE TRANSACTION
-
-class BillsController extends Controller
+class BillsController extends BaseController
 {
-    private function getBillsRepository()
+    public $requestName = 'BillRequest';
+
+    public function getRepository()
     {
         return app(BillsRepository::class);
-    }
-
-    /**
-     * Create a new controller instance.
-     * @param request Request
-     * @return paginate object || array
-     */
-    public function index(Request $request)
-    {
-        $model = $this->getBillsRepository()->filter($request);
-
-        logger($model->toSql());
-        logger($model->getBindings());
-        if ($request->filled('page')) {
-            return $model->paginate($request->get('paginate') ?? 10);
-        }
-        return $model->get();
-    }
-    // ========================================================
-    // EXEMPLO DE TRANSACTION
-    // public function index(Request $request)
-    // {
-    //     DB::beginTransaction();
-    //     try {
-    //         $model = $this->getBillsRepository()->filter($request);
-
-    //         logger($model->toSql());
-    //         logger($model->getBindings());
-    //         if ($request->filled('page')) {
-    //             return $model->paginate($request->get('paginate') ?? 10);
-    //         }
-
-    //         DB::commit();
-    //         return $model->get();
-    //     } catch(\Exception $e) {
-    //         DB::rolback();
-    //         logger($e->getMessage());
-    //         return response('Não OK', 422);
-    //     }
-    // }
-
-    /**
-     * Create a new controller instance.
-     * @param bill Bill
-     * @return bill object || null
-     */
-    public function show(Bill $bill = null)
-    {
-        return $bill;
-    }
-
-    /**
-     * Create a new controller instance.
-     * @param request BillRequest
-     * @return Boolean || Array
-     */
-
-    public function create(BillRequest $request)
-    {
-        return json_encode($this->getBillsRepository()->create($request));
-    }
-
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-
-    public function update($id, Request $request)
-    {
-        $model = $this->getModel()::find($id);
-        // $model->fill($request->all());
-        return json_encode($model);
-
-
-        // return json_encode($this->getBillsRepository()->update($request));
-    }
-
-    public function delete($request)
-    {
-        return json_encode($this->getBillsRepository()->delete($request));
     }
 }
