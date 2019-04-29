@@ -1,9 +1,12 @@
 <?php
 
-namespace Api\Models;
+namespace App\Models;
+
 use App\Models\BaseModel;
+
 class Attachment extends BaseModel
 {
+
 
     public $fillable = [
         'Anx_idConta',
@@ -15,12 +18,10 @@ class Attachment extends BaseModel
     public static function boot()
     {
         parent::boot();
-
     }
 
     public function bill()
     {
         return $this->hasOne(Bill::class, 'Cta_idConta');
     }
-
 }
