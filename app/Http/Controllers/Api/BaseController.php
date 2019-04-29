@@ -64,6 +64,7 @@ class BaseController extends Controller
 
   public function callRequest()
   {
+    logger('e ae rapaziada');
     return App::make('App\\Http\\Requests\\' . $this->requestName);
   }
 }

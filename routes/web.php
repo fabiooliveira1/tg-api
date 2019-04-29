@@ -13,11 +13,11 @@
 Route::group(['namespace' => 'Api', 'prefix' => 'api'], function ($route) {
     //Rota de Contas
     Route::group(['namespace' => 'Bill', 'prefix' => 'bill'], function ($route) {
-        $route->get('/', 'BillsController@index');
-        $route->get('/{bill}', 'BillsController@show');
-        $route->post('/', 'BillsController@create');
-        $route->put('/{bill}', 'BillsController@update');
-        $route->delete('/{bill}', 'BillsController@delete');
+        $route->get('', 'BillsController@index');
+        $route->post('', 'BillsController@create');
+        $route->get('{bill}', 'BillsController@show');
+        $route->put('{bill}', 'BillsController@update');
+        $route->delete('{bill}', 'BillsController@delete');
     });
 
     //Rota de Contas bancárias
