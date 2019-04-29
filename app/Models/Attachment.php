@@ -1,10 +1,10 @@
 <?php
 
 namespace Api\Models;
-
+use App\Models\BaseModel;
 class Attachment extends BaseModel
 {
-    
+
     public $fillable = [
         'Anx_idConta',
         'Anx_conteudo'

@@ -1,10 +1,10 @@
 <?php
 
 namespace Api\Models;
-
+use App\Models\BaseModel;
 class Contact extends BaseModel
 {
-   
+
     public $fillable = [
         'Forn_idFornecedor',
         'Cnt_nomeContato',

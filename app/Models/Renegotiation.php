@@ -1,10 +1,10 @@
 <?php
 
 namespace Api\Models;
-
+use App\Models\BaseModel;
 class Renegotiation extends BaseModel
 {
-    
+
 
     public $fillable = [
         'Rng_idConta',
@@ -35,5 +35,5 @@ class Renegotiation extends BaseModel
         return $this->belongsTo(Bill::class, 'Cta_idConta');
     }
 
-   
+
 }

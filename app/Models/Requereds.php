@@ -1,7 +1,7 @@
 <?php
 
 namespace Api\Models;
-
+use App\Models\BaseModel;
 class Requereds extends BaseModel
 {
 
@@ -14,9 +14,9 @@ class Requereds extends BaseModel
     public static function boot()
     {
         parent::boot();
-        
+
     }
-    
+
     public function AccountGroups()
     {
         return $this->belongsTo(AccountGroup::class);

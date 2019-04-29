@@ -1,10 +1,10 @@
 <?php
 
 namespace Api\Models;
-
+use App\Models\BaseModel;
 class Simulation extends BaseModel
 {
-    
+
     public $fillable = [
         'Sim_valSimulacao',
         'Sim_dataPagtoSimulacao',

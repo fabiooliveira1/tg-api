@@ -11,19 +11,19 @@ class RequeredsRepository extends BaseRepository
         return app(Requereds::class);
     }
 
-    // public function filter($request)
-    // {
-    //     $model = $this->getModel();
+    public function filter($request)
+    {
+        $model = $this->getModel();
 
-    //     if ($request->filled('status')) {
-    //         $model->whereSim_status($request->get('status'));
-    //     }
+        // if ($request->filled('status')) {
+        //     $model->whereSim_status($request->get('status'));
+        // }
 
-    //     if ($request->filled('status_s')) {
-    //         $model->whereIn('Sim_status', $request->get('status_s'));
-    //     }
+        // if ($request->filled('status_s')) {
+        //     $model->whereIn('Sim_status', $request->get('status_s'));
+        // }
 
-    //     return $model;
-    // }
+        return $model;
+    }
 
 }

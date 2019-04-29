@@ -14,7 +14,7 @@ class CreateSuppliers extends Migration
     public function up()
     {
         Schema::create('Suppliers', function (Blueprint $table) {
-            $table->increments('Forn_idFornecedor');
+            $table->increments('Forn_idFornecedor')->unique();
             $table->string('Forn_CNPJ', 14);
             $table->integer('Forn_idRisco');
             $table->string('Forn_RazaoSocial', 100);

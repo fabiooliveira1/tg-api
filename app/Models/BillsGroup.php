@@ -1,11 +1,11 @@
 <?php
 
 namespace Api\Models;
-
+use App\Models\BaseModel;
 
 class BillsGroup extends BaseModel
 {
-    
+
     public $fillable = [
         'GrCt_idRisco',
         'GrCt_NomeGrupo',
@@ -18,7 +18,7 @@ class BillsGroup extends BaseModel
     {
         parent::boot();
 
-        
+
     }
 
     public function bill()

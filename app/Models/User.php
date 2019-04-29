@@ -2,10 +2,11 @@
 
 namespace Api\Models;
 
+use App\Models\BaseModel;
 
 class User extends BaseModel
 {
-    
+
     public $fillable = [
         'User_nivelAcesso',
         'User_matricula',
@@ -19,13 +20,10 @@ class User extends BaseModel
     public static function boot()
     {
         parent::boot();
-
     }
 
     public function bills()
     {
         return $this->hasMany(Bill::class);
     }
-
-
 }

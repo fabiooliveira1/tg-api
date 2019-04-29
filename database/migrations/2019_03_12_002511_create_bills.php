@@ -14,7 +14,7 @@ class CreateBills extends Migration
     public function up()
     {
         Schema::create('Bills', function (Blueprint $table) {
-            $table->increments('Cta_idConta');
+            $table->increments('Cta_idConta')->unique();
             $table->integer('Cta_idUser');
             $table->integer('Cta_idGrupo');
             $table->integer('Cta_idFornecedor');

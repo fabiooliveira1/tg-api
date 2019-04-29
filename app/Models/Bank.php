@@ -2,13 +2,18 @@
 
 namespace Api\Models;
 
+use App\Models\BaseModel;
 
 class Bank extends BaseModel
 {
+    protected $table = 'Banks';
+    protected $primaryKey = 'Bc_idBanco';
 
     public $fillable = [
         'Bc_idBanco',
-        'Bc_nomeBanco'
+        'Bc_nomeBanco',
+        'created_at',
+        'updated_at'
     ];
 
     public $dates = ['created_at', 'updated_at'];
@@ -36,5 +41,4 @@ class Bank extends BaseModel
     {
         return $this->hasMany(Agency::class);
     }
-
 }

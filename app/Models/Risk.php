@@ -1,7 +1,7 @@
 <?php
 
 namespace Api\Models;
-
+use App\Models\BaseModel;
 class Risk extends BaseModel
 {
 
@@ -29,7 +29,7 @@ class Risk extends BaseModel
     public function billsGroups()
     {
         return $this->belongsToMany(BillsGroup::class);
-    }  
+    }
 
-    
+
 }

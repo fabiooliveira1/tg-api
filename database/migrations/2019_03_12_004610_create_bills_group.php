@@ -14,7 +14,7 @@ class CreateBillsGroup extends Migration
     public function up()
     {
         Schema::create('Bills_group', function (Blueprint $table) {
-            $table->increments('GrCt_idGrupo');
+            $table->increments('GrCt_idGrupo')->unique();
             $table->integer('GrCt_idRisco');
             $table->String('GrCt_NomeGrupo', 50);
             $table->String('GrCt_DescrGrupo', 100);

@@ -15,13 +15,13 @@ class SimulationsRepository extends BaseRepository
     {
         $model = $this->getModel();
 
-        if ($request->filled('status')) {
-            $model->whereSim_status($request->get('status'));
-        }
+        // if ($request->filled('status')) {
+        //     $model->whereSim_status($request->get('status'));
+        // }
 
-        if ($request->filled('status_s')) {
-            $model->whereIn('Sim_status', $request->get('status_s'));
-        }
+        // if ($request->filled('status_s')) {
+        //     $model->whereIn('Sim_status', $request->get('status_s'));
+        // }
 
         return $model;
     }

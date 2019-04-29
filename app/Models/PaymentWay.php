@@ -1,10 +1,10 @@
 <?php
 
 namespace Api\Models;
-
+use App\Models\BaseModel;
 class PaymentWay extends BaseModel
 {
-    
+
     public $fillable = [
         'FrPg_descrFormaPgto'
     ];

@@ -1,7 +1,7 @@
 <?php
 
 namespace Api\Models;
-
+use App\Models\BaseModel;
 class Supplier extends BaseModel
 {
 
@@ -60,5 +60,5 @@ class Supplier extends BaseModel
     {
         return $this->hasMany(PaymentWay::class);
     }
-    
+
 }

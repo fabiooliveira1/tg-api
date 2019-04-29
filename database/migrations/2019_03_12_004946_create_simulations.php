@@ -14,7 +14,7 @@ class CreateSimulations extends Migration
     public function up()
     {
         Schema::create('Simulations', function (Blueprint $table) {
-            $table->increments('Sim_idSimulacao');
+            $table->increments('Sim_idSimulacao')->unique();
             $table->date('Sim_dataPagtoSimulacao');
             $table->double('Sim_valSimulacao', 8,2);
             $table->double('Sim_valTotal', 8,2);

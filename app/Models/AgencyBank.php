@@ -1,7 +1,7 @@
 <?php
 
 namespace Api\Models;
-
+use App\Models\BaseModel;
 class AgencyBank extends BaseModel
 {
 

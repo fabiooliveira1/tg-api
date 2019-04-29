@@ -34,10 +34,10 @@ class BaseController extends Controller
   public function create()
   {
     $request = $this->callRequest();
-    
+
     try {
       return json_encode($this->getRepository()->create($request));
-    } catch(\Exception $e) {
+    } catch (\Exception $e) {
       return $e->getMessage();
     }
   }
@@ -48,7 +48,7 @@ class BaseController extends Controller
 
     try {
       return json_encode($this->getRepository()->update($id, $request));
-    } catch(\Exception $e) {
+    } catch (\Exception $e) {
       return $e->getMessage();
     }
   }
@@ -57,7 +57,7 @@ class BaseController extends Controller
   {
     try {
       return json_encode($this->getRepository()->delete($id));
-    } catch(\Exception $e) {
+    } catch (\Exception $e) {
       return $e->getMessage();
     }
   }
