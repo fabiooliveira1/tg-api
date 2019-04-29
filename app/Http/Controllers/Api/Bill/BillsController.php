@@ -7,6 +7,8 @@ use App\Repositories\BillsRepository;
 use App\Models\Bill;
 use Illuminate\Http\Request;
 use App\Http\Requests\BillRequest;
+use function Psy\debug;
+
 // use \DB; EXEMPLO DE TRANSACTION
 
 class BillsController extends Controller
@@ -30,7 +32,6 @@ class BillsController extends Controller
         if ($request->filled('page')) {
             return $model->paginate($request->get('paginate') ?? 10);
         }
-
         return $model->get();
     }
     // ========================================================
@@ -78,13 +79,19 @@ class BillsController extends Controller
     }
 
     /**
-     * Create a new controller instance.
-     * @param request BillRequest
-     * @return Boolean || Array
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
      */
-    public function update($request)
+
+    public function update($id, Request $request)
     {
-        return json_encode($this->getBillsRepository()->update($request));
+        $model = $this->getModel()::find($id);
+        // $model->fill($request->all());
+        return json_encode($model);
+
+
+        // return json_encode($this->getBillsRepository()->update($request));
     }
 
     public function delete($request)

@@ -37,10 +37,9 @@ class Bill extends BaseModel
         parent::boot();
 
         static::deleting(function ($model) {
-            if($model->Cta_Status == 'Pago')
+            if ($model->Cta_Status == 'Pago')
                 throw new \Exception('Não é possível apagar contas já pagas!', 422);
         });
-
     }
 
     // public function deleteRelations()
@@ -51,7 +50,7 @@ class Bill extends BaseModel
 
     //     return true;
     // }
-    
+
     // Rever regras
     // public function hasRelatedRecords()
     // {
@@ -83,5 +82,4 @@ class Bill extends BaseModel
     {
         return $this->belongsTo(BillGroup::class);
     }
-
 }

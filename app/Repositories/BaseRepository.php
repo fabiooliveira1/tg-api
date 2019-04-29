@@ -12,6 +12,11 @@ class BaseRepository
         return null;
     }
 
+    public function filter($request)
+    {
+        return $this->getModel()::find($request);
+    }
+
     public function create($request)
     {
         $model = $this->getModel();
@@ -19,21 +24,17 @@ class BaseRepository
         return $model->save();
     }
 
-    public function update($request)
+    public function update($id)
     {
-        $model = $this->getModel()::find($request);
-        $model->fill($request->all());
-        return $model->save();
+        $model = $this->getModel()::find($id);
+        // $model->fill($request->all());
+        return $model;
+        // return $model;
     }
 
-    public function delete($request)
+    public function delete($id)
     {
-        $model = $this->getModel()::findOrFail($request);
+        $model = $this->getModel()::find($id);
         return $model->delete();
     }
-
-    // public function filter($request)
-    // {
-    //     return $this->getModel();
-    // }
 }
