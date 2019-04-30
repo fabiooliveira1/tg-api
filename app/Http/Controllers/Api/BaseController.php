@@ -8,7 +8,7 @@ use App;
 
 class BaseController extends Controller
 {
-
+//teste comentario.
   public $requestName;
 
   public function getRepository()
