@@ -9,7 +9,9 @@ class BillsGroup extends BaseModel
     protected $primaryKey = 'GrCt_idGrupo';
 
     public $fillable = [
+        // 'GrCt_idGrupo',
         'GrCt_idRisco',
+        'GrCt_idRequeridos',
         'GrCt_NomeGrupo',
         'GrCt_DescrGrupo'
     ];

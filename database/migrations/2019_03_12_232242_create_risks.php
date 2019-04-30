@@ -14,9 +14,12 @@ class CreateRisks extends Migration
     public function up()
     {
         Schema::create('Risks', function (Blueprint $table) {
-            $table->increments('Rsc_idRisco')->unique();
+            $table->increments('Rsc_idRisco')->unsigned()->unique();
+
             $table->string('Rsc_descrRisco', 100);
             $table->timestamps();
+
+            // $table->primary('Rsc_idRisco');
         });
     }
 

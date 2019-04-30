@@ -1,26 +1,30 @@
 <?php
 
 namespace App\Models;
+
 use App\Models\BaseModel;
+
 class Supplier extends BaseModel
 {
     protected $table = 'Suppliers';
     protected $primaryKey = 'Forn_idFornecedor';
 
     public $fillable = [
-       'Forn_CNPJ',
-       'Forn_idRisco',
-       'Forn_RazaoSocial',
-       'Forn_NomeFantasia',
-       'Forn_InscrEstadual',
-       'Forn_Endereco',
-       'Forn_Bairro',
-       'Forn_Cidade',
-       'Forn_UF',
-       'Forn_CEP',
-       'Forn_Banco',
-       'Forn_Agencia',
-       'Forn_ContaBancaria'
+        // 'Forn_idFornecedor',
+        'Forn_idRisco',
+        'Forn_idFormaPgto',
+        'Forn_CNPJ',
+        'Forn_RazaoSocial',
+        'Forn_NomeFantasia',
+        'Forn_InscrEstadual',
+        'Forn_Endereco',
+        'Forn_Bairro',
+        'Forn_Cidade',
+        'Forn_UF',
+        'Forn_CEP',
+        'Forn_Banco',
+        'Forn_Agencia',
+        'Forn_ContaBancaria'
     ];
 
     public $dates = ['created_at', 'updated_at'];
@@ -28,7 +32,6 @@ class Supplier extends BaseModel
     public static function boot()
     {
         parent::boot();
-
     }
 
     public function deleteRelations()
@@ -62,5 +65,4 @@ class Supplier extends BaseModel
     {
         return $this->hasMany(PaymentWay::class);
     }
-
 }

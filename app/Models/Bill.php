@@ -11,10 +11,18 @@ class Bill extends BaseModel
     protected $primaryKey = 'Cta_idConta';
 
     public $fillable = [
+        // 'Cta_idConta',
         'Cta_idUser',
         'Cta_idGrupo',
         'Cta_idFornecedor',
+        'Cta_idPedidoCompra',
+        'Cta_idAnexo',
+        'Cta_idPedidoCompra',
         'Cta_descrConta',
+        'Cta_dataEmissao',
+        'Cta_dataVencimento',
+        'Cta_dataPagto',
+        'Cta_dataBaixa',
         'Cta_codBarra',
         'Cta_valConta',
         'Cta_totalConta',
@@ -22,12 +30,7 @@ class Bill extends BaseModel
         'Cta_valProtesto',
         'Cta_Multa',
         'Cta_Juros',
-        'Cta_Status',
-        'Cta_idPedidoCompra',
-        'Cta_dataEmissao',
-        'Cta_dataVencimento',
-        'Cta_dataPagto',
-        'Cta_dataBaixa'
+        'Cta_Status'
     ];
 
     public $dates = ['created_at', 'updated_at', 'Cta_dataEmissao', 'Cta_dataVencimento', 'Cta_dataPagto', 'Cta_dataBaixa'];

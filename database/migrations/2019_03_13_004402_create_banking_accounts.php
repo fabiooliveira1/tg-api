@@ -14,11 +14,14 @@ class CreateBankingAccounts extends Migration
     public function up()
     {
         Schema::create('BankingAccounts', function (Blueprint $table) {
-            $table->increments('CtBc_idBanco');
-            $table->string('CtBc_idAgencia', 4);
-            $table->string('CtBc_idContaBancaria', 6);
+            $table->increments('CtBc_idContaBancaria')->unsigned()->unique();
+            $table->integer('CtBc_idAgencia')->unsigned();
+
             $table->double('CtBc_Saldo', 10, 2);
             $table->timestamps();
+
+            // $table->primary(['CtBc_idContaBancaria', 'CtBc_idAgencia']);
+            // $table->foreign('CtBc_idAgencia')->references('AgBc_idAgencia')->on('BankingAgencies');
         });
     }
 

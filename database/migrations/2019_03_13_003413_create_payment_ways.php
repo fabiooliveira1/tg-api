@@ -14,9 +14,12 @@ class CreatePaymentWays extends Migration
     public function up()
     {
         Schema::create('Payment_Ways', function (Blueprint $table) {
-            $table->increments('FrPg_idFormaPgto')->unique();
+            $table->increments('FrPg_idFormaPgto')->unsigned()->unique();
+
             $table->string('FrPg_descrFormaPgto', 52);
             $table->timestamps();
+
+            // $table->primary( 'FrPg_idFormaPgto');
         });
     }
 

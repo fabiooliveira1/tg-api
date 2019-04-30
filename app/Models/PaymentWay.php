@@ -1,13 +1,16 @@
 <?php
 
 namespace App\Models;
+
 use App\Models\BaseModel;
+
 class PaymentWay extends BaseModel
 {
     protected $table = 'Payment_Ways';
     protected $primaryKey = 'FrPg_idFormaPgto';
 
     public $fillable = [
+        // 'FrPg_idFormaPgto',
         'FrPg_descrFormaPgto'
     ];
 
@@ -16,12 +19,10 @@ class PaymentWay extends BaseModel
     public static function boot()
     {
         parent::boot();
-
     }
 
     public function suppliers()
     {
         return $this->hasMany(Supplier::class);
     }
-
 }

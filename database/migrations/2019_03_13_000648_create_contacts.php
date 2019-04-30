@@ -14,11 +14,14 @@ class CreateContacts extends Migration
     public function up()
     {
         Schema::create('Contacts', function (Blueprint $table) {
-            $table->increments('Cnt_idContato')->unique();
+            $table->increments('Cnt_idContato')->unsigned()->unique();
+
             $table->string('Cnt_nomeContato', 100);
             $table->string('Cnt_phoneContato', 12);
             $table->string('Cnt_emailContato', 100);
             $table->timestamps();
+
+            // $table->primary('Cnt_idContato');
         });
     }
 

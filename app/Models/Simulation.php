@@ -8,8 +8,11 @@ class Simulation extends BaseModel
     protected $primaryKey = 'Sim_idSimulacao';
 
     public $fillable = [
-        'Sim_valSimulacao',
+        // 'Sim_idSimulacao',
+        'Sim_idContaBancaria',
+        'Sim_idConta',
         'Sim_dataPagtoSimulacao',
+        'Sim_valSimulacao',
         'Sim_valTotal',
         'Sim_status'
     ];

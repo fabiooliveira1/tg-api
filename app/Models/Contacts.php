@@ -10,6 +10,7 @@ class Contacts extends BaseModel
     protected $primaryKey = 'Cnt_idContato';
 
     public $fillable = [
+        'Cnt_idContato',
         'Forn_idFornecedor',
         'Cnt_nomeContato',
         'Cnt_phoneContato',

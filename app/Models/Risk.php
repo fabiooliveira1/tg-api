@@ -1,13 +1,16 @@
 <?php
 
 namespace App\Models;
+
 use App\Models\BaseModel;
+
 class Risk extends BaseModel
 {
     protected $table = 'Risks';
     protected $primaryKey = 'Rsc_idRisco';
 
     public $fillable = [
+        // 'Rsc_idRisco',
         'Rsc_descrRisco'
     ];
 
@@ -20,7 +23,7 @@ class Risk extends BaseModel
 
     public function hasRelatedRecords()
     {
-        return $this->suppliers()->count() > 0 || billsGroups()-> count() > 0;
+        return $this->suppliers()->count() > 0 || billsGroups()->count() > 0;
     }
 
     public function suppliers()
@@ -32,6 +35,4 @@ class Risk extends BaseModel
     {
         return $this->belongsToMany(BillsGroup::class);
     }
-
-
 }

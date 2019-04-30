@@ -14,10 +14,14 @@ class CreateAttachments extends Migration
     public function up()
     {
         Schema::create('Attachments', function (Blueprint $table) {
-            $table->increments('Anx_idAnexo')->unique();
-            $table->integer('Anx_idConta');
+            $table->increments('Anx_idAnexo');
+            $table->integer('Anx_idConta')->unsigned();
+
             $table->binary('Anx_conteudo');
             $table->timestamps();
+
+            // $table->primary('Anx_idAnexo');
+            $table->foreign('Anx_idConta')->references('Cta_idConta')->on('Bills');
         });
     }
 

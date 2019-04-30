@@ -10,11 +10,13 @@ class User extends BaseModel
     protected $primaryKey = 'User_idUsuario';
 
     public $fillable = [
+        // 'User_idUsuario',
         'User_nivelAcesso',
         'User_matricula',
         'User_senha',
         'User_nome',
-        'User_email'
+        'User_email',
+        'email_verified_at'
     ];
 
     public $dates = ['created_at', 'updated_at'];

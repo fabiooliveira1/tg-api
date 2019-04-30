@@ -8,6 +8,7 @@ class Requereds extends BaseModel
     protected $primaryKey = 'Rq_idRequeridos';
 
     public $fillable = [
+        // 'Rq_idRequeridos',
         'Rq_DescrRequeridos'
     ];
 

@@ -14,9 +14,12 @@ class CreateBanks extends Migration
     public function up()
     {
         Schema::create('Banks', function (Blueprint $table) {
-            $table->integer('Bc_idBanco')->unique();
+            $table->integer('Bc_idBanco')->unsigned()->unique();
+
             $table->string('Bc_nomeBanco', 50);
             $table->timestamps();
+
+            // $table->primary('Bc_idBanco');
         });
     }
 
