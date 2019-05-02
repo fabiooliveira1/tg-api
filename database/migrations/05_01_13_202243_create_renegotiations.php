@@ -14,7 +14,7 @@ class CreateRenegotiations extends Migration
     public function up()
     {
         Schema::create('Renegotiations', function (Blueprint $table) {
-            $table->increments('Rng_idProposta')->unsigned()->unique();
+            $table->increments('Rng_idProposta')->primaryKey();
             $table->integer('Rng_idConta')->unsigned();
 
             $table->double('Rng_valProposta', 8, 2);
@@ -26,8 +26,7 @@ class CreateRenegotiations extends Migration
             $table->string('Rng_Status', 1)->nullable();
             $table->timestamps();
 
-            // $table->primary('Rng_idProposta');
-            // $table->foreign('Rng_idConta')->references('Cta_idConta')->on('Bills');
+            $table->foreign('Rng_idConta')->references('Cta_idConta')->on('Bills');
         });
     }
 

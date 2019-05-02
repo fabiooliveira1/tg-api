@@ -10,7 +10,6 @@ class Renegotiation extends BaseModel
     protected $primaryKey = 'Rng_idProposta';
 
     public $fillable = [
-        // 'Rng_idProposta',
         'Rng_idConta',
         'Rng_valProposta',
         'Rng_vencProposta',
@@ -33,8 +32,15 @@ class Renegotiation extends BaseModel
         });
     }
 
-    public function bill()
+    // public function deleteRelations()
+    // {
+    //     $this-> bills()->delete();
+
+    //     return true;
+    // }
+
+    public function bills()
     {
-        return $this->belongsTo(Bill::class, 'Cta_idConta');
+        return $this->belongsTo(Bill::class, 'Cta_idConta', 'Rng_idProposta');
     }
 }

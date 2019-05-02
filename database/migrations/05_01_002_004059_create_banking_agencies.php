@@ -14,17 +14,17 @@ class CreateBankingAgencies extends Migration
     public function up()
     {
         Schema::create('BankingAgencies', function (Blueprint $table) {
-            $table->increments('AgBc_idAgencia')->unsigned()->unique();
+            $table->increments('AgBc_idAgencia')->primaryKey();
             $table->integer('AgBc_idBanco')->unsigned();
 
+            $table->string('AgBc_numAgencia', 50)->unique();
             $table->string('AgBc_nomeAgencia', 50);
             $table->string('AgBc_nomeGerente', 50)->nullable();
             $table->string('AgBc_phoneGerente', 15)->nullable();
             $table->string('AgBc_emailGerente', 50)->nullable();
             $table->timestamps();
 
-            // $table->primary(['AgBc_idAgencia', 'AgBc_idBanco']);
-            // $table->foreign('AgBc_idBanco')->references('Bc_idBanco')->on('Banks');
+            $table->foreign('AgBc_idBanco')->references('Bc_idBanco')->on('Banks');
         });
     }
 

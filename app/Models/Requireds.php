@@ -1,14 +1,15 @@
 <?php
 
 namespace App\Models;
+
 use App\Models\BaseModel;
-class Requereds extends BaseModel
+
+class Requireds extends BaseModel
 {
-    protected $table = 'Requereds';
+    protected $table = 'Requireds';
     protected $primaryKey = 'Rq_idRequeridos';
 
     public $fillable = [
-        // 'Rq_idRequeridos',
         'Rq_DescrRequeridos'
     ];
 
@@ -17,12 +18,10 @@ class Requereds extends BaseModel
     public static function boot()
     {
         parent::boot();
-
     }
 
-    public function AccountGroups()
+    public function billsGroups()
     {
-        return $this->belongsTo(AccountGroup::class);
+        return $this->hasMany(BillsGroup::class, 'GrCt_idGrupo', 'Rq_idRequeridos');
     }
-
 }

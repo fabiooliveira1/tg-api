@@ -14,17 +14,14 @@ class CreateBillsGroup extends Migration
     public function up()
     {
         Schema::create('Bills_group', function (Blueprint $table) {
-            $table->increments('GrCt_idGrupo')->unsigned()->unique();
+            $table->increments('GrCt_idGrupo')->primaryKey();
             $table->integer('GrCt_idRisco')->unsigned();
-            $table->integer('GrCt_idRequeridos')->unsigned();
 
             $table->String('GrCt_NomeGrupo', 50);
             $table->String('GrCt_DescrGrupo', 100);
             $table->timestamps();
 
-            // $table->primary(['GrCt_idGrupo', 'GrCt_idRisco', 'GrCt_idRequeridos']);
-            // $table->foreign('GrCt_idRisco')->references('Rsc_idRisco')->on('Risks');
-            // $table->foreign('GrCt_idRequeridos')->references('Rq_idRequeridos')->on('Requereds');
+            $table->foreign('GrCt_idRisco')->references('Rsc_idRisco')->on('Risks');
         });
     }
 

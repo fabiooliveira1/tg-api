@@ -28,7 +28,7 @@ class Deal extends BaseModel
         'comments',
         'imported_from',
         'assigned_at',
-        'imported_id',
+        'imported_id'
     ];
 
     public $dates = ['created_at', 'updated_at', 'closed_at'];

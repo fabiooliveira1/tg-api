@@ -10,7 +10,6 @@ class Risk extends BaseModel
     protected $primaryKey = 'Rsc_idRisco';
 
     public $fillable = [
-        // 'Rsc_idRisco',
         'Rsc_descrRisco'
     ];
 
@@ -21,18 +20,18 @@ class Risk extends BaseModel
         parent::boot();
     }
 
-    public function hasRelatedRecords()
-    {
-        return $this->suppliers()->count() > 0 || billsGroups()->count() > 0;
-    }
+    // public function hasRelatedRecords()
+    // {
+    //     return $this->suppliers()->count() > 0 || billsGroups()->count() > 0;
+    // }
 
     public function suppliers()
     {
-        return $this->belongsToMany(Supplier::class, 'Forn_idRisco');
+        return $this->hasMany(Supplier::class, 'Forn_idRisco', 'Rsc_idRisco');
     }
 
     public function billsGroups()
     {
-        return $this->belongsToMany(BillsGroup::class);
+        return $this->hasMany(BillsGroup::class, 'GrCt_idGrupo', 'Rsc_idRisco');
     }
 }

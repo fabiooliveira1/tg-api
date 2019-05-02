@@ -2,13 +2,14 @@
 
 namespace App\Repositories;
 
-use App\Models\Requereds;
+use App\Models\Requireds;
 // use Carbon\Carbon;
 
-class RequeredsRepository extends BaseRepository
+class RequiredsRepository extends BaseRepository
 {
-    public function getModel () {
-        return app(Requereds::class);
+    public function getModel()
+    {
+        return app(Requireds::class);
     }
 
     public function filter($request)
@@ -25,5 +26,4 @@ class RequeredsRepository extends BaseRepository
 
         return $model;
     }
-
 }

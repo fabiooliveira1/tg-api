@@ -7,16 +7,15 @@ use App\Models\BaseModel;
 class User extends BaseModel
 {
     protected $table = 'Users';
-    protected $primaryKey = 'User_idUsuario';
+    protected $primaryKey = 'User_matricula';
 
     public $fillable = [
-        // 'User_idUsuario',
         'User_nivelAcesso',
         'User_matricula',
         'User_senha',
         'User_nome',
-        'User_email',
-        'email_verified_at'
+        'User_email'
+        // 'email_verified_at'
     ];
 
     public $dates = ['created_at', 'updated_at'];
@@ -28,6 +27,6 @@ class User extends BaseModel
 
     public function bills()
     {
-        return $this->hasMany(Bill::class);
+        return $this->hasMany(Bill::class, 'Cta_idConta', 'User_idUsuario');
     }
 }

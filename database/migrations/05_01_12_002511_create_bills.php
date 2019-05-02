@@ -14,13 +14,10 @@ class CreateBills extends Migration
     public function up()
     {
         Schema::create('Bills', function (Blueprint $table) {
-            $table->increments('Cta_idConta')->unsigned()->unique();
-            // $table->integer('Cta_idUser')->unsigned();
-            // $table->integer('Cta_idGrupo')->unsigned();
-            // $table->integer('Cta_idFornecedor')->unsigned();
-            // $table->integer('Cta_idPedidoCompra')->nullable();
-            // $table->integer('Cta_idAnexo')->nullable();
-            // $table->integer('Cta_idPedidoCompra')->nullable();
+            $table->increments('Cta_idConta')->primaryKey();
+            $table->integer('Cta_idUser')->unsigned();
+            $table->integer('Cta_idGrupo')->unsigned();
+            $table->integer('Cta_idFornecedor')->unsigned();
 
             $table->string('Cta_descrConta', 100);
             $table->date('Cta_dataEmissao');
@@ -37,9 +34,9 @@ class CreateBills extends Migration
             $table->string('Cta_Status', 1)->nullable();
             $table->timestamps();
 
-            // $table->primary('Cta_idConta');
-            // $table->primary(array('Sim_idSimulacao', 'Sim_idContaBancaria','Sim_idConta'));
-            // $table->foreign('Sim_idContaBancaria')->references('CtBc_idContaBancaria')->on('BankingAccounts');
+            $table->foreign('Cta_idUser')->references('User_idUsuario')->on('Users');
+            $table->foreign('Cta_idGrupo')->references('GrCt_idGrupo')->on('Bills_group');
+            $table->foreign('Cta_idFornecedor')->references('Forn_idFornecedor')->on('Suppliers');
         });
     }
 

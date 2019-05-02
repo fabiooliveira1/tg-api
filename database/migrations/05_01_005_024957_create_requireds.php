@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRisks extends Migration
+class CreateRequireds extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateRisks extends Migration
      */
     public function up()
     {
-        Schema::create('Risks', function (Blueprint $table) {
-            $table->increments('Rsc_idRisco')->unsigned()->unique();
+        Schema::create('Requireds', function (Blueprint $table) {
+            $table->increments('Rq_idRequeridos')->primaryKey();
 
-            $table->string('Rsc_descrRisco', 100);
+            $table->string('Rq_DescrRequeridos', 50);
             $table->timestamps();
 
-            // $table->primary('Rsc_idRisco');
         });
     }
 
@@ -30,6 +29,6 @@ class CreateRisks extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Risks');
+        Schema::dropIfExists('Requireds');
     }
 }

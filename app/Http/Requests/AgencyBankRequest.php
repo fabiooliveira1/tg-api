@@ -15,18 +15,18 @@ class AgencyBankRequest extends FormRequest
     public function rules()
     {
         return [
-            'AgBc_idBanco' => 'required',
-            'AgBc_idAgencia' => 'required'
-            
+            'AgBc_idBanco'      => 'required',
+            'AgBc_numAgencia'   => 'required',
+            'AgBc_nomeAgencia'  => 'required'
         ];
     }
 
     public function messages()
     {
         return [
-            'AgBc_idBanco:required' => 'Código do banco necessário!',
-            'AgBc_idAgencia:required' => 'Número da agência necessário!'
-            
+            'AgBc_idBanco.required' => 'Código do banco necessário!',
+            'AgBc_numAgencia.required' => 'Número da agência necessário!',
+            'AgBc_nomeAgencia.required' => 'Nome da agência necessário!'
         ];
     }
 }

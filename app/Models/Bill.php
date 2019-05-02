@@ -11,13 +11,9 @@ class Bill extends BaseModel
     protected $primaryKey = 'Cta_idConta';
 
     public $fillable = [
-        // 'Cta_idConta',
         'Cta_idUser',
         'Cta_idGrupo',
         'Cta_idFornecedor',
-        'Cta_idPedidoCompra',
-        'Cta_idAnexo',
-        'Cta_idPedidoCompra',
         'Cta_descrConta',
         'Cta_dataEmissao',
         'Cta_dataVencimento',
@@ -47,9 +43,9 @@ class Bill extends BaseModel
 
     // public function deleteRelations()
     // {
-    //     $this->attachment()->delete();
-    //     $this->renegotiation()->delete();
-    //     $this->simulation()->delete();
+    //     $this->users()->delete();
+    //     $this->billGroups()->delete();
+    //     $this->suppliers()->delete();
 
     //     return true;
     // }
@@ -63,26 +59,26 @@ class Bill extends BaseModel
 
     public function attachments()
     {
-        return $this->hasMany(Attachment::class);
+        return $this->hasMany(Attachment::class, 'Anx_idConta', 'Cta_idConta');
     }
 
     public function renegotiations()
     {
-        return $this->hasMany(Renegotiation::class);
+        return $this->hasMany(Renegotiation::class, 'Rng_idProposta', 'Cta_idConta');
     }
 
-    public function user()
+    public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'Cta_idUser', 'Cta_idConta');
     }
 
-    public function supplier()
+    public function suppliers()
     {
-        return $this->belongsTo(Supplier::class);
+        return $this->belongsTo(Supplier::class, 'Cta_idFornecedor', 'Cta_idConta');
     }
 
-    public function billGroup()
+    public function billGroups()
     {
-        return $this->belongsTo(BillGroup::class);
+        return $this->belongsTo(BillGroup::class, 'Cta_idGrupo', 'Cta_idConta');
     }
 }

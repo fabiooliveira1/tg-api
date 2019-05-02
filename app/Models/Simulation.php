@@ -1,16 +1,16 @@
 <?php
 
 namespace App\Models;
+
 use App\Models\BaseModel;
+
 class Simulation extends BaseModel
 {
     protected $table = 'Simulations';
     protected $primaryKey = 'Sim_idSimulacao';
 
     public $fillable = [
-        // 'Sim_idSimulacao',
         'Sim_idContaBancaria',
-        'Sim_idConta',
         'Sim_dataPagtoSimulacao',
         'Sim_valSimulacao',
         'Sim_valTotal',
@@ -24,7 +24,7 @@ class Simulation extends BaseModel
         parent::boot();
 
         static::deleting(function ($model) {
-            if($model->Sim_status == 'Aprovado')
+            if ($model->Sim_status == 'Aprovado')
                 throw new \Exception('Não é possível apagar simulações já aprovadas!', 422);
         });
 
@@ -33,14 +33,20 @@ class Simulation extends BaseModel
         });
     }
 
-    public function accountBank()
+    // public function deleteRelations()
+    // {
+    //     $this-> accountBanks()->delete();
+
+    //     return true;
+    // }
+
+    public function accountBanks()
     {
-        return $this->hasOne(AccountBank::class, 'CtBc_idContaBancaria');
+        return $this->hasOne(AccountBank::class, 'CtBc_idContaBancaria', 'Sim_idSimulacao');
     }
 
     public function bills()
     {
-        return $this->hasMany(Bill::class, 'Cta_idConta');
+        return $this->hasMany(Bill::class, 'Cta_idConta', 'Sim_idSimulacao');
     }
-
 }

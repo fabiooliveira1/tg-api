@@ -26,11 +26,11 @@ class UserRequest extends FormRequest
     public function messages()
     {
         return [
-            'User_nivelAcesso:required' => 'Necessário informar o nivel de acesso',
-            'User_matricula:required' => 'Necessário informar a matricula',
-            'User_senha:required' => 'Necessário informar a senha',
-            'User_nome:required' => 'Necessário informar o nome',
-            'User_email:required' => 'Necessário informar o email'
+            'User_nivelAcesso.required' => 'Necessário informar o nivel de acesso',
+            'User_matricula.required' => 'Necessário informar a matricula',
+            'User_senha.required' => 'Necessário informar a senha',
+            'User_nome.required' => 'Necessário informar o nome',
+            'User_email.required' => 'Necessário informar o email'
         ];
     }
 }

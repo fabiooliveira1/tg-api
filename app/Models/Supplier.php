@@ -10,9 +10,7 @@ class Supplier extends BaseModel
     protected $primaryKey = 'Forn_idFornecedor';
 
     public $fillable = [
-        // 'Forn_idFornecedor',
         'Forn_idRisco',
-        'Forn_idFormaPgto',
         'Forn_CNPJ',
         'Forn_RazaoSocial',
         'Forn_NomeFantasia',
@@ -34,35 +32,35 @@ class Supplier extends BaseModel
         parent::boot();
     }
 
-    public function deleteRelations()
-    {
-        $this->contactSuppliers()->delete();
+    // public function deleteRelations()
+    // {
+    //     $this->risks()->delete();
 
-        return true;
-    }
+    //     return true;
+    // }
 
     public function hasRelatedRecords()
     {
         return $this->bills()->count() > 0;
     }
 
-    public function risk()
+    public function risks()
     {
-        return $this->hasOne(Risk::class);
+        return $this->hasOne(Risk::class, 'Forn_idRisco', 'Forn_idFornecedor');
     }
 
     public function bills()
     {
-        return $this->hasMany(Bill::class);
+        return $this->hasMany(Bill::class, 'Cta_idConta', 'Forn_idFornecedor');
     }
 
     public function contacts()
     {
-        return $this->hasMany(Contact::class);
+        return $this->hasMany(Contact::class, 'Cnt_idContato', 'Forn_idFornecedor');
     }
 
     public function paymentWays()
     {
-        return $this->hasMany(PaymentWay::class);
+        return $this->hasMany(PaymentWay::class, 'FrPg_idFormaPgto', 'Forn_idFornecedor');
     }
 }

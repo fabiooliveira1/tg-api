@@ -22,7 +22,7 @@ class RiskRequest extends FormRequest
     public function messages()
     {
         return [
-            'Rsc_descrRisco:required' => 'Necessário informar a descrição!'
+            'Rsc_descrRisco.required' => 'Necessário informar a descrição!'
         ];
     }
 }

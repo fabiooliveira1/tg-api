@@ -22,7 +22,7 @@ class PaymentWayRequest extends FormRequest
     public function messages()
     {
         return [
-            'FrPg_descrFormaPgto:required' => 'Necessário informa a forma de pagamento!'
+            'FrPg_descrFormaPgto.required' => 'Necessário informa a forma de pagamento!'
         ];
     }
 }

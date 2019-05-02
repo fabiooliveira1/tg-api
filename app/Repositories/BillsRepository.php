@@ -6,7 +6,8 @@ use App\Models\Bill;
 
 class BillsRepository extends BaseRepository
 {
-    public function getModel () {
+    public function getModel()
+    {
         return app(Bill::class);
     }
 
@@ -14,15 +15,14 @@ class BillsRepository extends BaseRepository
     {
         $model = $this->getModel();
 
-        if ($request->filled('status')) {
-            $model->whereCtaStatus($request->get('status'));
-        }
+        // if ($request->filled('status')) {
+        //     $model->whereCtaStatus($request->get('status'));
+        // }
 
-        if ($request->filled('status_s')) {
-            $model->whereIn('cta_status', $request->get('status_s'));
-        }
+        // if ($request->filled('status_s')) {
+        //     $model->whereIn('cta_status', $request->get('status_s'));
+        // }
 
         return $model;
     }
-
 }

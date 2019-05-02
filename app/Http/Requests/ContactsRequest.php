@@ -15,7 +15,7 @@ class ContactsRequest extends FormRequest
     public function rules()
     {
         return [
-            'Forn_idFornecedor' => 'required',
+            'Cnt_idFornecedor' => 'required',
             'Cnt_nomeContato' => 'required',
             'Cnt_phoneContato' => 'required',
             'Cnt_emailContato' => 'required'
@@ -25,10 +25,10 @@ class ContactsRequest extends FormRequest
     public function messages()
     {
         return [
-            'Forn_idFornecedor:required' => 'Necessário informar o Fornecedor!',
-            'Cnt_nomeContato:required' => 'Necessário informar o nome!',
-            'Cnt_phoneContato:required' => 'Necessário informar o telefone!',
-            'Cnt_emailContato:required' => 'Necessário informar o email!'
+            'Cnt_idFornecedor.required' => 'Necessário informar o Fornecedor!',
+            'Cnt_nomeContato.required' => 'Necessário informar o nome!',
+            'Cnt_phoneContato.required' => 'Necessário informar o telefone!',
+            'Cnt_emailContato.required' => 'Necessário informar o email!'
         ];
     }
 }

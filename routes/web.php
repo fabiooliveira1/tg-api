@@ -65,15 +65,6 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function ($route) {
         $route->delete('/{billsGroup}', 'BillsGroupsController@delete');
     });
 
-    // //Rota de Grupo de contas
-    // Route::group(['namespace' => 'BillsGroup', 'prefix' => 'billsGroup'], function ($route) {
-    //     $route->get('/', 'BillsGroupsController@index');
-    //     $route->get('/{billsGroup}', 'BillsGroupsController@show');
-    //     $route->post('/', 'BillsGroupsController@create');
-    //     $route->put('/{billsGroup}', 'BillsGroupsController@update');
-    //     $route->delete('/{billsGroup}', 'BillsGroupsController@delete');
-    // });
-
     //Rota de Contatos
     Route::group(['namespace' => 'Contacts', 'prefix' => 'contacts'], function ($route) {
         $route->get('/', 'ContactsController@index');
@@ -102,12 +93,12 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function ($route) {
     });
 
     //Rota de Requeridos
-    Route::group(['namespace' => 'Requereds', 'prefix' => 'requereds'], function ($route) {
-        $route->get('/', 'RequeresController@index');
-        $route->get('/{requereds}', 'RequeresController@show');
-        $route->post('/', 'RequeresController@create');
-        $route->put('/{requereds}', 'RequeresController@update');
-        $route->delete('/{requereds}', 'RequeresController@delete');
+    Route::group(['namespace' => 'Requireds', 'prefix' => 'requireds'], function ($route) {
+        $route->get('/', 'RequiresController@index');
+        $route->get('/{requireds}', 'RequiresController@show');
+        $route->post('/', 'RequiresController@create');
+        $route->put('/{requireds}', 'RequiresController@update');
+        $route->delete('/{requireds}', 'RequiresController@delete');
     });
 
     //Rota de Risco

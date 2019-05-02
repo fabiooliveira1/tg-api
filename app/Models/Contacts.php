@@ -10,8 +10,7 @@ class Contacts extends BaseModel
     protected $primaryKey = 'Cnt_idContato';
 
     public $fillable = [
-        'Cnt_idContato',
-        'Forn_idFornecedor',
+        'Cnt_idFornecedor',
         'Cnt_nomeContato',
         'Cnt_phoneContato',
         'Cnt_emailContato'
@@ -24,14 +23,20 @@ class Contacts extends BaseModel
         parent::boot();
     }
 
+    // public function deleteRelations()
+    // {
+    //     $this->suppliers()->delete();
 
-    public function hasRelatedRecords()
-    {
-        return $this->supplier()->count() > 0;
-    }
+    //     return true;
+    // }
 
-    public function supplier()
+    // public function hasRelatedRecords()
+    // {
+    //     return $this->supplier()->count() > 0;
+    // }
+
+    public function suppliers()
     {
-        return $this->belongsTo(Supplier::class, 'Forn_idFornecedor');
+        return $this->belongsTo(Supplier::class, 'Forn_idFornecedor', 'Cnt_idContato');
     }
 }

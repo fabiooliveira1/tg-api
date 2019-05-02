@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRequereds extends Migration
+class CreateBanks extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateRequereds extends Migration
      */
     public function up()
     {
-        Schema::create('Requereds', function (Blueprint $table) {
-            $table->increments('Rq_idRequeridos')->unsigned()->unique();
+        Schema::create('Banks', function (Blueprint $table) {
+            $table->increments('Bc_idBanco')->primaryKey();
 
-            $table->string('Rq_DescrRequeridos', 50);
+            $table->string('Bc_numBanco', 50)->unique();
+            $table->string('Bc_nomeBanco', 50);
             $table->timestamps();
-
-            // $table->primary('Rq_idRequeridos');
         });
     }
 
@@ -30,6 +29,6 @@ class CreateRequereds extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Requereds');
+        Schema::dropIfExists('Banks');
     }
 }

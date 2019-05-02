@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePaymentWays extends Migration
+class CreateAttachments extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreatePaymentWays extends Migration
      */
     public function up()
     {
-        Schema::create('Payment_Ways', function (Blueprint $table) {
-            $table->increments('FrPg_idFormaPgto')->unsigned()->unique();
+        Schema::create('Attachments', function (Blueprint $table) {
+            $table->increments('Anx_idAnexo')->primaryKey();
+            $table->integer('Anx_idConta')->unsigned();
 
-            $table->string('FrPg_descrFormaPgto', 52);
+            $table->binary('Anx_conteudo');
             $table->timestamps();
 
-            // $table->primary( 'FrPg_idFormaPgto');
+            $table->foreign('Anx_idConta')->references('Cta_idConta')->on('Bills');
         });
     }
 
@@ -30,6 +31,6 @@ class CreatePaymentWays extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Payment_Ways');
+        Schema::dropIfExists('Attachments');
     }
 }

@@ -15,18 +15,20 @@ class SimulationRequest extends FormRequest
     public function rules()
     {
         return [
-            'Sim_valSimulacao' => 'required',
-            'Sim_dataPagtoSimulacao' => 'required',
-            'Sim_valTotal' => 'required'
+            'Sim_idContaBancaria'       => 'required',
+            'Sim_valSimulacao'          => 'required',
+            'Sim_dataPagtoSimulacao'    => 'required',
+            'Sim_valTotal'              => 'required'
         ];
     }
 
     public function messages()
     {
         return [
-            'Sim_valSimulacao:required' => 'Necessário informar o valor simulado',
-            'Sim_dataPagtoSimulacao:required' => 'Necessário informar a data simulada',
-            'Sim_valTotal:required' => 'Necessário informar o valor total'
+            'Sim_idContaBancaria.required'      => 'Necessário informar o id da conta',
+            'Sim_valSimulacao.required'         => 'Necessário informar o valor simulado',
+            'Sim_dataPagtoSimulacao.required'   => 'Necessário informar a data simulada',
+            'Sim_valTotal.required'             => 'Necessário informar o valor total'
         ];
     }
 }

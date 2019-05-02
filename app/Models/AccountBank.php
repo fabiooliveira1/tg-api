@@ -8,14 +8,12 @@ class AccountBank extends BaseModel
 {
 
     protected $table = 'BankingAccounts';
-    protected $primaryKey = 'CtBc_idBanco';
+    protected $primaryKey = 'CtBc_numContaBancaria';
 
     public $fillable = [
+        'CtBc_numContaBancaria',
         'CtBc_idAgencia',
-        'CtBc_idContaBancaria',
-        'CtBc_Saldo',
-        'created_at',
-        'updated_at'
+        'CtBc_Saldo'
     ];
 
     public $dates = ['created_at', 'updated_at'];
@@ -25,18 +23,25 @@ class AccountBank extends BaseModel
         parent::boot();
     }
 
+    // public function deleteRelations()
+    // {
+    //     $this->agencyBanks()->delete();
+
+    //     return true;
+    // }
+
     public function hasRelatedRecords()
     {
-        return $this->simulation()->count() > 0;
+        return $this->simulations()->count() > 0;
     }
 
-    public function agencyBank()
+    public function agencyBanks()
     {
-        return $this->belongsTo(AgencyBank::class, 'CtBc_idAgencia');
+        return $this->belongsTo(AgencyBank::class, 'CtBc_idAgencia', 'CtBc_numContaBancaria');
     }
 
-    public function simulation()
+    public function simulations()
     {
-        return $this->hasMany(Simulation::class);
+        return $this->hasMany(Simulation::class, 'Sim_idSimulacao', 'CtBc_numContaBancaria');
     }
 }

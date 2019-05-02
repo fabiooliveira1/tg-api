@@ -8,7 +8,6 @@ use App;
 
 class BaseController extends Controller
 {
-//teste comentario.
   public $requestName;
 
   public function getRepository()
@@ -44,21 +43,34 @@ class BaseController extends Controller
 
   public function update($id)
   {
-    $request = $this->callRequest();
+    $verif = $this->show($id);
 
-    try {
-      return json_encode($this->getRepository()->update($id, $request));
-    } catch (\Exception $e) {
-      return $e->getMessage();
+    if ($verif) {
+
+      $request = $this->callRequest();
+
+      try {
+        return json_encode($this->getRepository()->update($id, $request));
+      } catch (\Exception $e) {
+        return $e->getMessage();
+      }
+    } else {
+      return "Não encontrado";
     }
   }
 
   public function delete($id)
   {
-    try {
-      return json_encode($this->getRepository()->delete($id));
-    } catch (\Exception $e) {
-      return $e->getMessage();
+    $verif = $this->show($id);
+
+    if ($verif) {
+      try {
+        return json_encode($this->getRepository()->delete($id));
+      } catch (\Exception $e) {
+        return $e->getMessage();
+      }
+    } else {
+      return "Não encontrado";
     }
   }
 

@@ -10,7 +10,6 @@ class Attachment extends BaseModel
     protected $primaryKey = 'Anx_idConta';
 
     public $fillable = [
-        'Anx_idConta',
         'Anx_conteudo'
     ];
 

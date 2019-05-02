@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+
 use App\Models\BaseModel;
 
 class BillsGroup extends BaseModel
@@ -9,9 +10,7 @@ class BillsGroup extends BaseModel
     protected $primaryKey = 'GrCt_idGrupo';
 
     public $fillable = [
-        // 'GrCt_idGrupo',
         'GrCt_idRisco',
-        'GrCt_idRequeridos',
         'GrCt_NomeGrupo',
         'GrCt_DescrGrupo'
     ];
@@ -21,23 +20,27 @@ class BillsGroup extends BaseModel
     public static function boot()
     {
         parent::boot();
-
-
     }
 
-    public function bill()
+    // public function deleteRelations()
+    // {
+    //     $this->risks()->delete();
+
+    //     return true;
+    // }
+
+    public function bills()
     {
-        return $this->belongsTo(Bill::class);
+        return $this->hasMany(Bill::class, 'Cta_idConta', 'GrCt_idGrupo');
     }
 
-    public function risk()
+    public function risks()
     {
-        return $this->hasOne(Risk::class);
+        return $this->hasOne(Risk::class, 'GrCt_idRisco', 'GrCt_idGrupo');
     }
 
-    public function requereds()
+    public function requireds()
     {
-        return $this->hasMany(Requered::class);
+        return $this->hasMany(Requered::class, 'Rq_idRequeridos', 'GrCt_idGrupo');
     }
-
 }

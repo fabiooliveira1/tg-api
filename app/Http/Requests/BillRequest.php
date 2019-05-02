@@ -11,37 +11,37 @@ class BillRequest extends Request
      */
     public function rules()
     {
-        
+
         return [
-            
-            'Cta_idUser' => 'required',
-            'Cta_idGrupo' => 'required',
-            'Cta_idFornecedor' => 'required',
-            'Cta_descrConta' => 'required|max:100',
-            'Cta_dataEmissao' => 'required|date',
-            'Cta_dataVencimento' => 'required|date',
-            'Cta_codBarra' => 'required|max:200',
-            'Cta_valConta' => 'required',
-            'Cta_totalConta' => 'required',
-            'Cta_tempoProtesto' => 'required|integer',
-            'Cta_valProtesto' => 'required'
+
+            'Cta_idUser'            => 'required',
+            'Cta_idGrupo'           => 'required',
+            'Cta_idFornecedor'      => 'required',
+            'Cta_descrConta'        => 'required',
+            'Cta_dataEmissao'       => 'required',
+            'Cta_dataVencimento'    => 'required',
+            'Cta_codBarra'          => 'required',
+            'Cta_valConta'          => 'required',
+            'Cta_totalConta'        => 'required',
+            'Cta_tempoProtesto'     => 'required',
+            'Cta_valProtesto'       => 'required'
         ];
     }
 
     public function messages()
     {
         return [
-            'Cta_idUser.required' => 'Precisa informar o id do usuário',
-            'Cta_idGrupo.required' => 'Necessário informar o id do grupo',
-            'Cta_idFornecedor.required' => 'Necessário informar o id do fornecedor',
-            'Cta_descrConta.required' => 'Informar a descrição com no máximo 100 caracteres',
-            'Cta_dataEmissao.required' => 'Necessário informar a data de emissão',
-            'Cta_dataVencimento.required' => 'Necessário informar a data de vencimento',
-            'Cta_codBarra.required' => 'Informar o código de barras com no máximo 200 caracteres',
-            'Cta_valConta.required' => 'Precisa informar o valor da conta',
-            'Cta_totalConta.required' => 'Precisa informar o valor total',
-            'Cta_tempoProtesto.required' => 'Necessário informar o tempo para protesto',
-            'Cta_valProtesto.required' => 'Necessário informar o valor do protesto'
+            'Cta_idUser.required'           => 'Precisa informar o id do usuário',
+            'Cta_idGrupo.required'          => 'Necessário informar o id do grupo',
+            'Cta_idFornecedor.required'     => 'Necessário informar o id do fornecedor',
+            'Cta_descrConta.required'       => 'Informar a descrição com no máximo 100 caracteres',
+            'Cta_dataEmissao.required'      => 'Necessário informar a data de emissão',
+            'Cta_dataVencimento.required'   => 'Necessário informar a data de vencimento',
+            'Cta_codBarra.required'         => 'Informar o código de barras com no máximo 200 caracteres',
+            'Cta_valConta.required'         => 'Precisa informar o valor da conta',
+            'Cta_totalConta.required'       => 'Precisa informar o valor total',
+            'Cta_tempoProtesto.required'    => 'Necessário informar o tempo para protesto',
+            'Cta_valProtesto.required'      => 'Necessário informar o valor do protesto'
         ];
     }
 }

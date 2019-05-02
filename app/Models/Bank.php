@@ -7,13 +7,12 @@ use App\Models\BaseModel;
 class Bank extends BaseModel
 {
     protected $table = 'Banks';
-    protected $primaryKey = 'Bc_idBanco';
+    // protected $primaryKey = 'Bc_idBanco';
+    protected $primaryKey = 'Bc_numBanco';
 
     public $fillable = [
-        'Bc_idBanco',
-        'Bc_nomeBanco',
-        'created_at',
-        'updated_at'
+        'Bc_numBanco',
+        'Bc_nomeBanco'
     ];
 
     public $dates = ['created_at', 'updated_at'];
@@ -29,16 +28,8 @@ class Bank extends BaseModel
 
     }
 
-    public function deleteRelations()
+    public function agencyBanks()
     {
-        $this->agency()->delete();
-        $this->accountBank()->delete();
-
-        return true;
-    }
-
-    public function agency()
-    {
-        return $this->hasMany(Agency::class);
+        return $this->hasMany(AgencyBank::class, 'AgBc_idBanco', 'Bc_numBanco');
     }
 }

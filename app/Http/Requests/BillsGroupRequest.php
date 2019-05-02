@@ -15,18 +15,18 @@ class BillsGroupRequest extends FormRequest
     public function rules()
     {
         return [
-            'GrCt_idRisco' => 'required',
-            'GrCt_NomeGrupo' => 'required',
-            'GrCt_DescrGrupo' => 'required'
+            'GrCt_idRisco'      => 'required',
+            'GrCt_NomeGrupo'    => 'required',
+            'GrCt_DescrGrupo'   => 'required'
         ];
     }
 
     public function messages()
     {
         return [
-            'GrCt_idRisco:required' => 'Necessário informar o código do Risco!',
-            'GrCt_NomeGrupo:required' => 'Necessário informar o nome do grupo',
-            'GrCt_DescrGrupo:required' => 'Necessário informar a descrição'
+            'GrCt_idRisco.required'     => 'Necessário informar o código do Risco!',
+            'GrCt_NomeGrupo.required'   => 'Necessário informar o nome do grupo',
+            'GrCt_DescrGrupo.required'  => 'Necessário informar a descrição'
         ];
     }
 }

@@ -3,14 +3,16 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+
 class AgencyBank extends BaseModel
 {
     protected $table = 'BankingAgencies';
-    protected $primaryKey = 'AgBc_idAgencia';
+    // protected $primaryKey = 'AgBc_idAgencia';
+    protected $primaryKey = 'AgBc_numAgencia';
 
     public $fillable = [
         'AgBc_idBanco',
-        'AgBc_idAgencia',
+        'AgBc_numAgencia',
         'AgBc_nomeAgencia',
         'AgBc_nomeGerente',
         'AgBc_phoneGerente',
@@ -33,12 +35,11 @@ class AgencyBank extends BaseModel
 
     public function bank()
     {
-        return $this->belongsTo(Bank::class, 'AgBc_idBanco');
+        return $this->belongsTo(Bank::class, 'AgBc_idBanco', 'AgBc_numAgencia');
     }
 
     public function accountsBank()
     {
-        return $this->hasMany(AccountsBank::class);
+        return $this->hasMany(AccountBank::class, 'CtBc_numContaBancaria', 'AgBc_numAgencia');
     }
-
 }

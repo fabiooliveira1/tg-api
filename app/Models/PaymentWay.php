@@ -10,7 +10,6 @@ class PaymentWay extends BaseModel
     protected $primaryKey = 'FrPg_idFormaPgto';
 
     public $fillable = [
-        // 'FrPg_idFormaPgto',
         'FrPg_descrFormaPgto'
     ];
 
@@ -23,6 +22,6 @@ class PaymentWay extends BaseModel
 
     public function suppliers()
     {
-        return $this->hasMany(Supplier::class);
+        return $this->hasMany(Supplier::class, 'Forn_idFornecedor', 'FrPg_idFormaPgto');
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RequeredsRequest extends FormRequest
+class RequiredsRequest extends FormRequest
 {
 
     /**
@@ -22,7 +22,7 @@ class RequeredsRequest extends FormRequest
     public function messages()
     {
         return [
-            'Rq_DescrRequeridos:required' => 'Necessário informar a descrição'
+            'Rq_DescrRequeridos.required' => 'Necessário informar a descrição'
         ];
     }
 }
