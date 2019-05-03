@@ -34,7 +34,7 @@ class BillsGroupRequest extends FormRequest
         return [
             'GrCt_idRisco.required'     => 'Necessário informar o código do Risco!',
             'GrCt_NomeGrupo.required'   => 'Necessário informar o nome do grupo',
-            'GrCt_NomeGrupo.unique'   => 'O nome do grupo já existe',
+            'GrCt_NomeGrupo.unique'     => 'O nome do grupo já existe',
             'GrCt_DescrGrupo.required'  => 'Necessário informar a descrição'
         ];
     }

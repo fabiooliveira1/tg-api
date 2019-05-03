@@ -37,7 +37,7 @@ class BillRequest extends Request
     public function messages()
     {
         return [
-            'Cta_idConta.unique'    => 'Esta conta já existe',
+            'Cta_idConta.unique'            => 'Esta conta já existe',
             'Cta_idUser.required'           => 'Precisa informar o id do usuário',
             'Cta_idGrupo.required'          => 'Necessário informar o id do grupo',
             'Cta_idFornecedor.required'     => 'Necessário informar o id do fornecedor',

@@ -33,9 +33,9 @@ class RiskRequest extends FormRequest
     public function messages()
     {
         return [
-            'Rsc_descrRisco.required' => 'Necessário informar a descrição!',
-            'Rsc_descrRisco.unique' => 'O risco já existe!',
-            'Rsc_idRisco.required' => 'Este risco já existe!'
+            'Rsc_descrRisco.required'   => 'Necessário informar a descrição!',
+            'Rsc_descrRisco.unique'     => 'O risco já existe!',
+            'Rsc_idRisco.required'      => 'Este risco já existe!'
         ];
     }
 }
