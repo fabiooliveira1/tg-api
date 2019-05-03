@@ -20,25 +20,24 @@ class AgencyBank extends BaseModel
 
     public $dates = ['created_at', 'updated_at'];
 
-    public static function boot()
-    {
-        parent::boot();
-    }
-
-    public function deleteRelations()
-    {
-        $this->accountsBank()->delete();
-
-        return true;
-    }
-
     public function bank()
     {
-        return $this->belongsTo(Bank::class, 'AgBc_idBanco', 'AgBc_numAgencia');
+        return $this->belongsTo(Bank::class, 'Bc_idBanco', 'AgBc_idBanco');
     }
 
     public function accountsBank()
     {
-        return $this->hasMany(AccountBank::class, 'CtBc_numContaBancaria', 'AgBc_numAgencia');
+        return $this->hasMany(AccountBank::class, 'CtBc_idAgencia', 'AgBc_idAgencia');
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function($agency) { // before delete() method call this
+            $agency->accountsBank()->delete();
+            // do the rest of the cleanup...
+       });
+
     }
 }

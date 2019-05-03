@@ -20,15 +20,13 @@ class Bank extends BaseModel
     {
         parent::boot();
 
-        // static::updating(function ($model) {
-        //     if($model->Cta_Status == 'Pago')
-        //         throw new \Exception('Não é possível apagar contas já pagas!', 422);
-        // });
-
+        static::deleting(function($bank) { // before delete() method call this
+             $bank->agencyBanks()->delete();
+       });
     }
 
     public function agencyBanks()
     {
-        return $this->hasMany(AgencyBank::class, 'AgBc_idBanco', 'Bc_numBanco');
+        return $this->hasMany(AgencyBank::class, 'AgBc_idBanco', 'Bc_idBanco');
     }
 }

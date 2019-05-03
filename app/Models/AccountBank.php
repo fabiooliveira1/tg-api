@@ -23,13 +23,6 @@ class AccountBank extends BaseModel
         parent::boot();
     }
 
-    // public function deleteRelations()
-    // {
-    //     $this->agencyBanks()->delete();
-
-    //     return true;
-    // }
-
     public function hasRelatedRecords()
     {
         return $this->simulations()->count() > 0;
@@ -37,11 +30,11 @@ class AccountBank extends BaseModel
 
     public function agencyBanks()
     {
-        return $this->belongsTo(AgencyBank::class, 'CtBc_idAgencia', 'CtBc_numContaBancaria');
+        return $this->belongsTo(AgencyBank::class, 'AgBc_idAgencia', 'CtBc_idAgencia');
     }
 
     public function simulations()
     {
-        return $this->hasMany(Simulation::class, 'Sim_idSimulacao', 'CtBc_numContaBancaria');
+        return $this->hasMany(Simulation::class, 'Sim_idContaBancaria', 'CtBc_idContaBancaria');
     }
 }

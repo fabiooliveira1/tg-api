@@ -36,19 +36,18 @@ class Bill extends BaseModel
         parent::boot();
 
         static::deleting(function ($model) {
-            if ($model->Cta_Status == 'Pago')
+            if ($model->Cta_Status == 'P'){
                 throw new \Exception('Não é possível apagar contas já pagas!', 422);
+            }
+            else{
+                static::deleting(function($bill) { // before delete() method call this
+                   // $bill->attachments()->delete();
+                    $bill->renegotiations()->delete();
+                    // do the rest of the cleanup...
+               });
+            }
         });
     }
-
-    // public function deleteRelations()
-    // {
-    //     $this->users()->delete();
-    //     $this->billGroups()->delete();
-    //     $this->suppliers()->delete();
-
-    //     return true;
-    // }
 
     // Rever regras
     // public function hasRelatedRecords()
@@ -64,7 +63,7 @@ class Bill extends BaseModel
 
     public function renegotiations()
     {
-        return $this->hasMany(Renegotiation::class, 'Rng_idProposta', 'Cta_idConta');
+        return $this->hasMany(Renegotiation::class, 'Rng_idConta', 'Cta_idConta');
     }
 
     public function users()
