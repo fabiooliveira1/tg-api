@@ -14,15 +14,24 @@ class PaymentWayRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $validacao = [
             'FrPg_descrFormaPgto' => 'required'
         ];
+
+        $alter = ['FrPg_descrFormaPgto' => 'required|unique:Payment_Ways'];
+
+        if ($this->isMethod('PUT')) {
+            return $validacao;
+        } else {
+            return array_replace($validacao, $alter);
+        }
     }
 
     public function messages()
     {
         return [
-            'FrPg_descrFormaPgto.required' => 'Necessário informa a forma de pagamento!'
+            'FrPg_descrFormaPgto.required' => 'Necessário informa a forma de pagamento!',
+            'FrPg_descrFormaPgto.unique' => 'A forma de pagamento já existe!'
         ];
     }
 }
