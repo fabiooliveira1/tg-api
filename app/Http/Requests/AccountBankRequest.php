@@ -14,17 +14,26 @@ class AccountBankRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $validacao = [
             'CtBc_numContaBancaria' => 'required',
             'CtBc_idAgencia'        => 'required',
             'CtBc_Saldo'            => 'required'
         ];
+
+        $alter = ['CtBc_numContaBancaria'   => 'required|unique:BankingAccounts'];
+
+        if ($this->isMethod('PUT')) {
+            return $validacao;
+        } else {
+            return array_replace($validacao, $alter);
+        }
     }
 
     public function messages()
     {
         return [
             'CtBc_numContaBancaria.required'    => 'Código do banco necessário!',
+            'CtBc_numContaBancaria.unique'      => 'Este numero de conta bancária já existe',
             'CtBc_Saldo.required'               => 'Necessário informar o saldo inicial',
             'CtBc_idAgencia.required'           => 'Número da agência necessário!'
         ];

@@ -11,18 +11,29 @@ class BankRequest extends FormRequest
      *
      * @return array
      */
+
     public function rules()
     {
-        return [
+
+        $validacao = [
             'Bc_numBanco'   => 'required',
             'Bc_nomeBanco'  => 'required'
         ];
+
+        $alter = ['Bc_numBanco'   => 'required|unique:Banks'];
+
+        if ($this->isMethod('PUT')) {
+            return $validacao;
+        } else {
+            return array_replace($validacao, $alter);
+        }
     }
 
     public function messages()
     {
         return [
             'Bc_numBanco.required'  => 'Necessário informar o numero do banco',
+            'Bc_numBanco.unique'    => 'Este numero de banco já existe',
             'Bc_nomeBanco.required' => 'Necessário informar o nome do banco'
         ];
     }

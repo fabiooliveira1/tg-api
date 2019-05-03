@@ -14,7 +14,7 @@ class SupplierRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $validacao = [
             'Forn_CNPJ'             => 'required',
             'Forn_idRisco'          => 'required',
             'Forn_RazaoSocial'      => 'required',
@@ -23,12 +23,25 @@ class SupplierRequest extends FormRequest
             'Forn_Agencia'          => 'required',
             'Forn_ContaBancaria'    => 'required'
         ];
+
+        $alter = [
+            'Sim_idSimulacao'   => 'unique:Suppliers',
+            'Forn_CNPJ'         => 'required|unique:Suppliers'
+        ];
+
+        if ($this->isMethod('PUT')) {
+            return $validacao;
+        } else {
+            return array_replace($validacao, $alter);
+        }
     }
 
     public function messages()
     {
         return [
+            'Sim_idSimulacao.unique'        => 'O fornecedor já existe',
             'Forn_CNPJ.required'            => 'Necessário informar o CNPJ',
+            'Forn_CNPJ.unique'              => 'O CNPJ do fornecedor já existe',
             'Forn_idRisco.required'         => 'Necessário informar o risco',
             'Forn_RazaoSocial.required'     => 'Necessário informar a razão social',
             'Forn_InscrEstadual.required'   => 'Necessário informar a inscrição estadual',

@@ -11,9 +11,7 @@ class BillRequest extends Request
      */
     public function rules()
     {
-
-        return [
-
+        $validacao = [
             'Cta_idUser'            => 'required',
             'Cta_idGrupo'           => 'required',
             'Cta_idFornecedor'      => 'required',
@@ -26,11 +24,20 @@ class BillRequest extends Request
             'Cta_tempoProtesto'     => 'required',
             'Cta_valProtesto'       => 'required'
         ];
+
+        $alter = ['Cta_idConta' => 'unique:Bills'];
+
+        if ($this->isMethod('PUT')) {
+            return $validacao;
+        } else {
+            return array_replace($validacao, $alter);
+        }
     }
 
     public function messages()
     {
         return [
+            'Cta_idConta.unique'            => 'Esta conta já existe',
             'Cta_idUser.required'           => 'Precisa informar o id do usuário',
             'Cta_idGrupo.required'          => 'Necessário informar o id do grupo',
             'Cta_idFornecedor.required'     => 'Necessário informar o id do fornecedor',

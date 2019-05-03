@@ -8,7 +8,7 @@ class AccountBank extends BaseModel
 {
 
     protected $table = 'BankingAccounts';
-    protected $primaryKey = 'CtBc_numContaBancaria';
+    protected $primaryKey = 'CtBc_idContaBancaria';
 
     public $fillable = [
         'CtBc_numContaBancaria',

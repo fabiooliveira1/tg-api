@@ -14,12 +14,22 @@ class SimulationRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $validacao = [
             'Sim_idContaBancaria'       => 'required',
             'Sim_valSimulacao'          => 'required',
             'Sim_dataPagtoSimulacao'    => 'required',
             'Sim_valTotal'              => 'required'
         ];
+
+        $alter = [
+            'Sim_idSimulacao' => 'unique:Simulations',
+        ];
+
+        if ($this->isMethod('PUT')) {
+            return $validacao;
+        } else {
+            return array_replace($validacao, $alter);
+        }
     }
 
     public function messages()
@@ -28,7 +38,8 @@ class SimulationRequest extends FormRequest
             'Sim_idContaBancaria.required'      => 'Necessário informar o id da conta',
             'Sim_valSimulacao.required'         => 'Necessário informar o valor simulado',
             'Sim_dataPagtoSimulacao.required'   => 'Necessário informar a data simulada',
-            'Sim_valTotal.required'             => 'Necessário informar o valor total'
+            'Sim_valTotal.required'             => 'Necessário informar o valor total',
+            'Sim_idSimulacao.unique'            => 'Esta simulacao já existe'
         ];
     }
 }

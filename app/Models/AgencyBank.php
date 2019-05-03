@@ -7,8 +7,7 @@ use App\Models\BaseModel;
 class AgencyBank extends BaseModel
 {
     protected $table = 'BankingAgencies';
-    // protected $primaryKey = 'AgBc_idAgencia';
-    protected $primaryKey = 'AgBc_numAgencia';
+    protected $primaryKey = 'AgBc_idAgencia';
 
     public $fillable = [
         'AgBc_idBanco',

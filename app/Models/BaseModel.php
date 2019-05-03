@@ -10,14 +10,12 @@ abstract class BaseModel extends Model
     {
         parent::boot();
 
-        static::deleting(function($model)
-        {
-            if($model->hasRelatedRecords())
+        static::deleting(function ($model) {
+            if ($model->hasRelatedRecords())
                 throw new \Exception('You can\'t remove this record since it has related items.', 422);
         });
 
-        static::deleted(function($model)
-        {
+        static::deleted(function ($model) {
             $model->deleteRelations();
             $model->deleteAssets();
         });

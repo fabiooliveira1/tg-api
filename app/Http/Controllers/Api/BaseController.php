@@ -43,40 +43,26 @@ class BaseController extends Controller
 
   public function update($id)
   {
-    $verif = $this->show($id);
+    $request = $this->callRequest();
 
-    if ($verif) {
-
-      $request = $this->callRequest();
-
-      try {
-        return json_encode($this->getRepository()->update($id, $request));
-      } catch (\Exception $e) {
-        return $e->getMessage();
-      }
-    } else {
-      return "Não encontrado";
+    try {
+      return json_encode($this->getRepository()->update($id, $request));
+    } catch (\Exception $e) {
+      return $e->getMessage();
     }
   }
 
   public function delete($id)
   {
-    $verif = $this->show($id);
-
-    if ($verif) {
-      try {
-        return json_encode($this->getRepository()->delete($id));
-      } catch (\Exception $e) {
-        return $e->getMessage();
-      }
-    } else {
-      return "Não encontrado";
+    try {
+      return json_encode($this->getRepository()->delete($id));
+    } catch (\Exception $e) {
+      return $e->getMessage();
     }
   }
 
   public function callRequest()
   {
-    logger('e ae rapaziada');
     return App::make('App\\Http\\Requests\\' . $this->requestName);
   }
 }
