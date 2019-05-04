@@ -26,7 +26,7 @@ class CreateRenegotiations extends Migration
             $table->string('Rng_Status', 1)->nullable();
             $table->timestamps();
 
-            $table->foreign('Rng_idConta')->references('Cta_idConta')->on('Bills');
+            $table->foreign('Rng_idConta')->references('Cta_idConta')->on('Bills')->onDelete('cascade');
         });
     }
 

@@ -27,20 +27,13 @@ class Renegotiation extends BaseModel
         parent::boot();
 
         static::deleting(function ($model) {
-            if ($model->Rng_Status == 'Aprovado')
+            if ($model->Rng_Status == 'A')
                 throw new \Exception('Não é possível apagar renegociações aprovadas!', 422);
         });
     }
 
-    // public function deleteRelations()
-    // {
-    //     $this-> bills()->delete();
-
-    //     return true;
-    // }
-
     public function bills()
     {
-        return $this->belongsTo(Bill::class, 'Cta_idConta', 'Rng_idProposta');
+        return $this->belongsTo(Bill::class, 'Cta_idConta', 'Rng_idConta');
     }
 }

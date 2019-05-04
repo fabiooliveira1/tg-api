@@ -24,7 +24,7 @@ class CreateBankingAgencies extends Migration
             $table->string('AgBc_emailGerente', 50)->nullable();
             $table->timestamps();
 
-            $table->foreign('AgBc_idBanco')->references('Bc_idBanco')->on('Banks');
+            $table->foreign('AgBc_idBanco')->references('Bc_idBanco')->on('Banks')->onDelete('cascade');
         });
     }
 

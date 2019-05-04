@@ -20,7 +20,7 @@ class CreateAttachments extends Migration
             $table->binary('Anx_conteudo');
             $table->timestamps();
 
-            $table->foreign('Anx_idConta')->references('Cta_idConta')->on('Bills');
+            $table->foreign('Anx_idConta')->references('Cta_idConta')->on('Bills')->onDelete('cascade');
         });
     }
 

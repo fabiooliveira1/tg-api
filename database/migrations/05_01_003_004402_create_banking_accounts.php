@@ -21,7 +21,7 @@ class CreateBankingAccounts extends Migration
             $table->double('CtBc_Saldo', 10, 2);
             $table->timestamps();
 
-            $table->foreign('CtBc_idAgencia')->references('AgBc_idAgencia')->on('BankingAgencies');
+            $table->foreign('CtBc_idAgencia')->references('AgBc_idAgencia')->on('BankingAgencies')->onDelete('cascade');
         });
     }
 
