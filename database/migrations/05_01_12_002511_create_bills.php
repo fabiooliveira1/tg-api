@@ -19,6 +19,7 @@ class CreateBills extends Migration
             $table->integer('Cta_idGrupo')->unsigned();
             $table->integer('Cta_idFornecedor')->unsigned();
 
+            $table->string('Cta_numConta', 50);
             $table->string('Cta_descrConta', 100);
             $table->date('Cta_dataEmissao');
             $table->date('Cta_dataVencimento');

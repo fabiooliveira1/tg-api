@@ -11,6 +11,7 @@ class Bill extends BaseModel
     protected $primaryKey = 'Cta_idConta';
 
     public $fillable = [
+        'Cta_numConta',
         'Cta_idUser',
         'Cta_idGrupo',
         'Cta_idFornecedor',
@@ -31,7 +32,7 @@ class Bill extends BaseModel
 
     public $dates = ['created_at', 'updated_at', 'Cta_dataEmissao', 'Cta_dataVencimento', 'Cta_dataPagto', 'Cta_dataBaixa'];
 
-    
+
 
     // Rever regras
     // public function hasRelatedRecords()
@@ -70,17 +71,15 @@ class Bill extends BaseModel
         parent::boot();
 
         static::deleting(function ($model) {
-            if ($model->Cta_Status == 'P'){
+            if ($model->Cta_Status == 'P') {
                 throw new \Exception('Não é possível apagar contas já pagas!', 422);
-            }
-            else{
-                static::deleting(function($bill) { // before delete() method call this
+            } else {
+                static::deleting(function ($bill) { // before delete() method call this
                     $bill->attachments()->delete();
                     $bill->renegotiations()->delete();
                     // do the rest of the cleanup...
-               });
+                });
             }
         });
     }
-    
 }
