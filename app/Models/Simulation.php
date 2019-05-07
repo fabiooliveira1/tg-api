@@ -24,7 +24,7 @@ class Simulation extends BaseModel
         parent::boot();
 
         static::deleting(function ($model) {
-            if ($model->Sim_status == 'Aprovado')
+            if ($model->Sim_status == 'A')
                 throw new \Exception('Não é possível apagar simulações já aprovadas!', 422);
         });
 
@@ -32,13 +32,6 @@ class Simulation extends BaseModel
             // Envia email $model
         });
     }
-
-    // public function deleteRelations()
-    // {
-    //     $this-> accountBanks()->delete();
-
-    //     return true;
-    // }
 
     public function accountBanks()
     {
