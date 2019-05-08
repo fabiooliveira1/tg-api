@@ -20,11 +20,7 @@ class Risk extends BaseModel
         parent::boot();
     }
 
-    // public function hasRelatedRecords()
-    // {
-    //     return $this->suppliers()->count() > 0 || billsGroups()->count() > 0;
-    // }
-
+    
     public function suppliers()
     {
         return $this->hasMany(Supplier::class, 'Forn_idRisco', 'Rsc_idRisco');
