@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\Notifications\SendEmail;
+use Illuminate\Support\Facades\Mail;
 
 class Renegotiation extends BaseModel
 {
@@ -11,6 +13,7 @@ class Renegotiation extends BaseModel
 
     public $fillable = [
         'Rng_idConta',
+        'Rng_idContato',
         'Rng_valProposta',
         'Rng_vencProposta',
         'Rng_valAntigo',
@@ -26,14 +29,30 @@ class Renegotiation extends BaseModel
     {
         parent::boot();
 
+        static::created(function ($model) {
+            $data = [
+                'to' => $model->contact->Cnt_emailContato,
+                'nameContact' => $model->contact->Cnt_nomeContato,
+                'nameSupplier' => $model->contact->supplier->Forn_NomeFantasia,
+                'numBill' => $model->bill->Cta_numConta
+            ];
+
+            Mail::send(new SendEmail($data));
+        });
+
         static::deleting(function ($model) {
             if ($model->Rng_Status == 'A')
                 throw new \Exception('Não é possível apagar renegociações aprovadas!', 422);
         });
     }
 
-    public function bills()
+    public function bill()
     {
         return $this->belongsTo(Bill::class, 'Cta_idConta', 'Rng_idConta');
+    }
+
+    public function contact()
+    {
+        return $this->belongsTo(Contact::class, 'Cnt_idContato', 'Rng_idProposta');
     }
 }

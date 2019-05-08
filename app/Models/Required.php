@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\BaseModel;
 
-class Requireds extends BaseModel
+class Required extends BaseModel
 {
     protected $table = 'Requireds';
     protected $primaryKey = 'Rq_idRequeridos';

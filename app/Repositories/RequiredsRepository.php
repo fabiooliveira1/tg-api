@@ -9,7 +9,7 @@ class RequiredsRepository extends BaseRepository
 {
     public function getModel()
     {
-        return app(Requireds::class);
+        return app(Required::class);
     }
 
     public function filter($request)

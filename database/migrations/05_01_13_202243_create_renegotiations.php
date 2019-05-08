@@ -16,6 +16,7 @@ class CreateRenegotiations extends Migration
         Schema::create('Renegotiations', function (Blueprint $table) {
             $table->increments('Rng_idProposta')->primaryKey();
             $table->integer('Rng_idConta')->unsigned();
+            $table->integer('Rng_idContato')->unsigned();
 
             $table->double('Rng_valProposta', 8, 2);
             $table->date('Rng_vencProposta');

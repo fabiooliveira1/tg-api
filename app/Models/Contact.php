@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\BaseModel;
 
-class Contacts extends BaseModel
+class Contact extends BaseModel
 {
     protected $table = 'Contacts';
     protected $primaryKey = 'Cnt_idContato';
@@ -35,7 +35,7 @@ class Contacts extends BaseModel
     //     return $this->supplier()->count() > 0;
     // }
 
-    public function suppliers()
+    public function supplier()
     {
         return $this->belongsTo(Supplier::class, 'Forn_idFornecedor', 'Cnt_idContato');
     }

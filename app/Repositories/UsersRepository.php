@@ -7,7 +7,8 @@ use App\Models\User;
 
 class UsersRepository extends BaseRepository
 {
-    public function getModel () {
+    public function getModel()
+    {
         return app(User::class);
     }
 
@@ -25,5 +26,4 @@ class UsersRepository extends BaseRepository
 
         return $model;
     }
-
 }

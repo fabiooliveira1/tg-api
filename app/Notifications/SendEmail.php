@@ -23,14 +23,11 @@ class SendEmail extends Mailable
     $address = 'from@example.com';
     $name = 'M2 Print';
 
-    $subject = 'Renegociação de conta a pagar - Conta: {{ Num.Conta }}';
-
-    $to = 'from@example.com';
-    $nameForn = 'Variavel Fornecedor';
+    $subject = 'Renegociação de contas a pagar - Conta:' . $this->data['numBill'];
 
     return $this->view('mail')
       ->from($address, $name)
-      ->to($to, $name)
+      ->to($this->data['to'], $this->data['nameSupplier'])
       ->subject($subject);
   }
 }
