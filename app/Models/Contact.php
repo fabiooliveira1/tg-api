@@ -39,4 +39,9 @@ class Contact extends BaseModel
     {
         return $this->belongsTo(Supplier::class, 'Forn_idFornecedor', 'Cnt_idContato');
     }
+
+    public function renegotiations()
+    {
+        return $this->hasMany(Renegotiation::class, 'Cnt_idContato', 'Rng_idContato');
+    }
 }

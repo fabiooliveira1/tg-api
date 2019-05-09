@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\BaseModel;
 
-class RequiredsGroup extends BaseModel
+class ContactSupplier extends BaseModel
 {
     protected $table = 'ContactSupplier';
     protected $primaryKey = 'idContact_Supplier';
@@ -19,7 +19,6 @@ class RequiredsGroup extends BaseModel
     public static function boot()
     {
         parent::boot();
-
     }
 
     // public function accountBanks()

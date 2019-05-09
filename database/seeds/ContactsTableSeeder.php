@@ -13,7 +13,7 @@ class ContactsTableSeeder extends Seeder
      */
     public function run()
     {
-        $this->store(1, 1, 'Marco', '15 98810-9999', 'Marco@fatec.com');
+        $this->store(1, 1, 'Marco', '15 98810-9999', 'from@example.com');
         $this->store(2, 1, 'Bruno', '15 98810-8888', 'Bruno@fatec.com');
         $this->store(3, 2, 'Aleksander', '15 98810-7777', 'Aleksander@fatec.com');
         $this->store(4, 2, 'Fabio A', '15 98810-6666', 'Fabio_A@fatec.com');

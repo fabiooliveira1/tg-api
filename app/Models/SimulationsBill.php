@@ -21,6 +21,4 @@ class SimulationsBill extends BaseModel
     {
         parent::boot();
     }
-
-
 }

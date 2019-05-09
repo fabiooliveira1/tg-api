@@ -25,5 +25,9 @@ class DatabaseSeeder extends Seeder
         $this->call(BillsTableSeeder::class);
         $this->call(RenegotiationsTableSeeder::class);
         $this->call(AttachmentsTableSeeder::class);
+        $this->call(ContactSuppliersTableSeeder::class);
+        $this->call(PaymentSuppliersTableSeeder::class);
+        $this->call(RequiredGroupsTableSeeder::class);
+        $this->call(SimulationBillsTableSeeder::class);
     }
 }
