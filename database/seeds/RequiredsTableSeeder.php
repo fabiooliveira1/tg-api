@@ -13,11 +13,20 @@ class RequiredsTableSeeder extends Seeder
      */
     public function run()
     {
-        $this->store(1, 'Nosso numero');
-        $this->store(2, 'Valor');
-        $this->store(3, 'Data Vencimento');
-        $this->store(4, 'Valor Total');
-        $this->store(5, 'Codigo de barras');
+        $this->store(1, 'Cta_numConta');
+        $this->store(2, 'Cta_descrConta');
+        $this->store(3, 'Cta_dataEmissao');
+        $this->store(4, 'Cta_dataVencimento');
+        $this->store(5, 'Cta_dataPagto');
+        $this->store(6, 'Cta_dataBaixa');
+        $this->store(7, 'Cta_codBarra');
+        $this->store(8, 'Cta_valConta');
+        $this->store(9, 'Cta_totalConta');
+        $this->store(10, 'Cta_tempoProtesto');
+        $this->store(11, 'Cta_valProtesto');
+        $this->store(12, 'Cta_Multa');
+        $this->store(13, 'Cta_Juros');
+        $this->store(14, 'Cta_Status');
     }
 
     public function store($id, $desc)
