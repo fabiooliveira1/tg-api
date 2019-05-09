@@ -29,9 +29,9 @@ class Renegotiation extends BaseModel
     {
         parent::boot();
 
-        static::created(function (Renegotiation $model) {
+        static::created(function ($model) {
 
-            dd($model->contact);
+            // dd($model->contact);
 
             $data = [
                 'to' => $model->contact->Cnt_emailContato,
@@ -51,11 +51,11 @@ class Renegotiation extends BaseModel
 
     public function bill()
     {
-        return $this->belongsTo(Bill::class, 'Cta_idConta', 'Rng_idConta');
+        return $this->hasOne(Bill::class, 'Cta_idConta', 'Rng_idConta');
     }
 
     public function contact()
     {
-        return $this->belongsTo(Contact::class, 'Cnt_idContato', 'Rng_idContato');
+        return $this->hasOne(Contact::class, 'Cnt_idContato', 'Rng_idContato');
     }
 }
