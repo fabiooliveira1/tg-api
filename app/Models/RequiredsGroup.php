@@ -22,13 +22,15 @@ class RequiredsGroup extends BaseModel
 
     }
 
-    // public function accountBanks()
-    // {
-    //     return $this->hasOne(AccountBank::class, 'CtBc_idContaBancaria', 'Sim_idSimulacao');
-    // }
+    public function required(){
 
-    // public function bills()
-    // {
-    //     return $this->hasMany(Bill::class, 'Cta_idConta', 'Sim_idSimulacao');
-    // }
+        return $this->belongTo(Required::class, 'idRequireds', 'Rq_idRequeridos');
+
+    }
+
+    public function billGroup(){
+
+        return $this->belongTo(BillsGroup::class, 'idGroup', 'GrCt_idGrupo');
+
+    }
 }

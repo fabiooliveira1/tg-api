@@ -21,14 +21,15 @@ class PaymentSupplier extends BaseModel
         parent::boot();
     }
 
-    
-    // public function suppliers()
-    // {
-    //     return $this->hasMany(Supplier::class, 'Forn_idRisco', 'Rsc_idRisco');
-    // }
+    public function supplier(){
 
-    // public function billsGroups()
-    // {
-    //     return $this->hasMany(BillsGroup::class, 'GrCt_idGrupo', 'Rsc_idRisco');
-    // }
+        return $this->belongTo(Supplier::class, 'idSupplier', 'Forn_idFornecedor');
+
+    }
+
+    public function paymentWay(){
+
+        return $this->belongTo(PaymentWay::class, 'idPaymentWay', 'FrPg_idFormaPgto');
+
+    }
 }

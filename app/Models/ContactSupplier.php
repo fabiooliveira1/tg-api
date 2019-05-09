@@ -21,13 +21,15 @@ class ContactSupplier extends BaseModel
         parent::boot();
     }
 
-    // public function accountBanks()
-    // {
-    //     return $this->hasOne(AccountBank::class, 'CtBc_idContaBancaria', 'Sim_idSimulacao');
-    // }
+    public function contact(){
 
-    // public function bills()
-    // {
-    //     return $this->hasMany(Bill::class, 'Cta_idConta', 'Sim_idSimulacao');
-    // }
+        return $this->belongTo(Contact::class, 'idContact', 'Cnt_idContato');
+
+    }
+
+    public function supplier(){
+
+        return $this->belongTo(Supplier::class, 'idSupplier', 'Forn_idFornecedor');
+
+    }
 }

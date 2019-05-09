@@ -21,4 +21,16 @@ class SimulationsBill extends BaseModel
     {
         parent::boot();
     }
+
+    public function simulation(){
+
+        return $this->belongTo(Simulation::class, 'idSimulations', 'Sim_idSimulacao');
+
+    }
+
+    public function bill(){
+
+        return $this->belongTo(Bill::class,'idBill','Cta_idConta');
+
+    }
 }
