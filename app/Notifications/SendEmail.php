@@ -20,12 +20,12 @@ class SendEmail extends Mailable
 
   public function build()
   {
-    $address = 'from@example.com';
+    $address = 'M2_Print@example.com';
     $name = 'M2 Print';
 
-    $subject = 'Renegociação de contas a pagar - Conta:' . $this->data['numBill'];
+    $subject = 'Renegociação de contas a pagar - ' . $this->data['descBill'];
 
-    return $this->view('mail')
+    return $this->view('mail', compact('data'))
       ->from($address, $name)
       ->to($this->data['to'], $this->data['nameSupplier'])
       ->subject($subject);

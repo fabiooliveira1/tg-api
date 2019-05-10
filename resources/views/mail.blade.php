@@ -364,8 +364,8 @@
                 <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                   <tr>
                     <td>
-                      <p>Caro Fornecedor,</p>
-                      <p>Com relação a obrigação da M2 Print para com a vossa empresa, gostariamos de oferecer uma proposta de pagamento.</p>
+                      <p>Caro, {{ $data['nameContact'] }},</p>
+                      <p>Com relação a obrigação da M2 Print para com a empresa {{ $data['nameSupplier'] }}, gostariamos de oferecer uma proposta de pagamento.</p>
                       <p>Se desejar visualizar nossa condição, acesse através do botão abaixo</p>
                       <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                         <tbody>

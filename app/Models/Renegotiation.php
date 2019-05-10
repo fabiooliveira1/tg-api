@@ -31,13 +31,12 @@ class Renegotiation extends BaseModel
 
         static::created(function ($model) {
 
-            // dd($model->contact);
-
             $data = [
                 'to' => $model->contact->Cnt_emailContato,
                 'nameContact' => $model->contact->Cnt_nomeContato,
                 'nameSupplier' => $model->contact->supplier->Forn_NomeFantasia,
-                'numBill' => $model->bill->Cta_numConta
+                'numBill' => $model->bill->Cta_numConta,
+                'descBill' => $model->bill->Cta_descrConta
             ];
 
             Mail::send(new SendEmail($data));
