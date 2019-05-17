@@ -63,4 +63,15 @@ class Supplier extends BaseModel
     {
         return $this->hasMany(PaymentWay::class, 'FrPg_idFormaPgto', 'Forn_idFornecedor');
     }
+
+    public function paymentSupplier(){
+
+        return $this->belongsToMany(PaymentWay::class, 'PaymentSupplier', 'idPaymentWay', 'idSupplier');
+
+    }
+
+    public function contactSupplier()
+    {
+        return $this->belongsToMany(Contact::class, 'ContactSupplier', 'idContact', 'idSupplier');
+    }
 }

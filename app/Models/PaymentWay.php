@@ -24,4 +24,10 @@ class PaymentWay extends BaseModel
     {
         return $this->hasMany(Supplier::class, 'Forn_idFornecedor', 'FrPg_idFormaPgto');
     }
+
+    public function supplierPayment(){
+
+        return $this->belongsToMany(Supplier::Class, 'PaymentSupplier' ,'idSupplier', 'idPaymentWay');
+
+    }
 }

@@ -24,13 +24,13 @@ class RequiredsGroup extends BaseModel
 
     public function required(){
 
-        return $this->belongTo(Required::class, 'idRequireds', 'Rq_idRequeridos');
+        return $this->belongTo(Required::class, 'Rq_idRequeridos', 'idRequireds');
 
     }
 
     public function billGroup(){
 
-        return $this->belongTo(BillsGroup::class, 'idGroup', 'GrCt_idGrupo');
+        return $this->belongsToMany(BillsGroup::class, 'idGroup', 'GrCt_idGrupo');
 
     }
 }

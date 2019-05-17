@@ -39,4 +39,10 @@ class Contact extends BaseModel
     {
         return $this->hasOne(Supplier::class, 'Forn_idFornecedor', 'Cnt_idContato');
     }
+
+    public function contactSupplier(){
+
+        return $this->belongsToMany(Supplier::class, 'ContactSupplier', 'idSupplier', 'idContact');
+
+    }
 }
