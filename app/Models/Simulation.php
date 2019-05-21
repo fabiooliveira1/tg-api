@@ -40,11 +40,6 @@ class Simulation extends BaseModel
 
     public function bills()
     {
-        return $this->hasMany(Bill::class, 'Cta_idConta', 'Sim_idSimulacao');
-    }
-
-    public function simulationsBill()
-    {
-        return $this->belongsToMany(Bill::class, 'SimulationsBill','idBill', 'idSimulations');
+        return $this->belongsToMany(Bill::class, 'SimulationsBill', 'idSimulations', 'idBill');
     }
 }

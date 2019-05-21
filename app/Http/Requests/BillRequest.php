@@ -11,33 +11,19 @@ class BillRequest extends Request
      */
     public function rules()
     {
+        $rs = request();
         $validacao = [
-            'Cta_idUser'            => 'required',
-            'Cta_idGrupo'           => 'required',
-            'Cta_idFornecedor'      => 'required',
-            'Cta_descrConta'        => 'required',
-            'Cta_dataEmissao'       => 'required',
-            'Cta_dataVencimento'    => 'required',
-            'Cta_codBarra'          => 'required',
-            'Cta_valConta'          => 'required',
-            'Cta_totalConta'        => 'required',
-            'Cta_tempoProtesto'     => 'required',
-            'Cta_valProtesto'       => 'required'
+            'requireds' => 'required'
         ];
-
-        $alter = ['Cta_idConta' => 'unique:Bills'];
-
-        if ($this->isMethod('PUT')) {
-            return $validacao;
-        } else {
-            return array_replace($validacao, $alter);
+        // $requireds ['Cta_valConta', ]
+        foreach($this->requireds as $r) {
+            $validacao[r] = 'required';
         }
     }
 
     public function messages()
     {
         return [
-            'Cta_idConta.unique'            => 'Esta conta já existe',
             'Cta_idUser.required'           => 'Precisa informar o id do usuário',
             'Cta_idGrupo.required'          => 'Necessário informar o id do grupo',
             'Cta_idFornecedor.required'     => 'Necessário informar o id do fornecedor',

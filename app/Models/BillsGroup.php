@@ -41,11 +41,6 @@ class BillsGroup extends BaseModel
 
     public function requireds()
     {
-        return $this->hasMany(Required::class, 'Rq_idRequeridos', 'GrCt_idGrupo');
-    }
-
-    public function requiredGroup()
-    {
-        return $this->belongsToMany(Required::class, 'RequiredsGroup', 'idRequireds', 'idGroup');
+        return $this->belongsToMany(Required::class, 'RequiredsGroup', 'idGroup', 'idRequireds');
     }
 }

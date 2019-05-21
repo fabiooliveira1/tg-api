@@ -35,14 +35,4 @@ class Contact extends BaseModel
     //     return $this->supplier()->count() > 0;
     // }
 
-    public function supplier()
-    {
-        return $this->hasOne(Supplier::class, 'Forn_idFornecedor', 'Cnt_idContato');
-    }
-
-    public function contactSupplier(){
-
-        return $this->belongsToMany(Supplier::class, 'ContactSupplier', 'idSupplier', 'idContact');
-
-    }
 }
