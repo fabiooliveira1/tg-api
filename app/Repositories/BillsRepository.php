@@ -25,12 +25,4 @@ class BillsRepository extends BaseRepository
 
         return $model;
     }
-
-    public function sync($model, $requireds)
-    {
-        // $required = [1, 2, 3, 4 ,5]
-        $model->requireds->sync($requireds);
-
-        return $model->with('requireds');
-    }
 }

@@ -26,12 +26,12 @@ class SimulationsRepository extends BaseRepository
         return $model;
     }
     
-    public function sync($model, $requireds)
+    public function sync($model, $bill)
     {
         // $required = [1, 2, 3, 4 ,5]
-        $model->requireds->sync($requireds);
+        $model->bill->sync($bill);
 
-        return $model->with('requireds');
+        return $model->with('Cta_idConta');
     }
 
 }
