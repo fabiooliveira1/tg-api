@@ -11,6 +11,9 @@
 |
 */
 Route::group(['namespace' => 'Api', 'prefix' => 'api'], function ($route) {
+    // Init route for vuex store
+    Route::get('init', 'InitController@index');
+
     //Rota de Contas
     Route::group(['namespace' => 'Bill', 'prefix' => 'bill'], function ($route) {
         $route->get('', 'BillsController@index');

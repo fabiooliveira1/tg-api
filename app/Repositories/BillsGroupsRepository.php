@@ -26,12 +26,23 @@ class BillsGroupsRepository extends BaseRepository
         return $model;
     }
 
-    public function sync($model, $requireds)
+    public function create($request)
     {
-        // $required = [1, 2, 3, 4 ,5]
-        $model->requireds->sync($requireds);
+        $model = $this->getModel();
+        $model->fill($request->all());
+        $model->save();
+        $model->requireds()->sync($request->get('requireds'));
 
-        return $model->with('requireds');
+        return true;
     }
 
+    public function update($id, $request)
+    {
+        $model = $this->findById($id);
+        $model->fill($request->all());
+        $model->save();
+        $model->requireds()->sync($request->get('requireds'));
+
+        return true;
+    }
 }

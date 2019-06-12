@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\Requireds;
+use App\Models\Required;
 // use Carbon\Carbon;
 
 class RequiredsRepository extends BaseRepository

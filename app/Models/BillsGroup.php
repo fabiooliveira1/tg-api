@@ -20,14 +20,26 @@ class BillsGroup extends BaseModel
     public static function boot()
     {
         parent::boot();
+
+        static::deleting(function ($model) {
+            if ($model->hasRelatedRecords()) {
+                throw \Exception('Has related records');
+            }
+            $model->deleteRelations();
+        });
     }
 
-    // public function deleteRelations()
-    // {
-    //     $this->risks()->delete();
+    public function hasRelatedRecords()
+    {
+        return $this->bills()->count() > 0;
+    }
 
-    //     return true;
-    // }
+    public function deleteRelations()
+    {
+        $this->requireds()->detach();
+
+        return true;
+    }
 
     public function bills()
     {

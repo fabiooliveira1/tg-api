@@ -37,7 +37,7 @@ class BaseController extends Controller
     try {
       return json_encode($this->getRepository()->create($request));
     } catch (\Exception $e) {
-      return $e->getMessage();
+      return response($e->getMessage(), 422);
     }
   }
 
@@ -48,7 +48,7 @@ class BaseController extends Controller
     try {
       return json_encode($this->getRepository()->update($id, $request));
     } catch (\Exception $e) {
-      return $e->getMessage();
+      return response($e->getMessage(), 422);
     }
   }
 
@@ -57,7 +57,7 @@ class BaseController extends Controller
     try {
       return json_encode($this->getRepository()->delete($id));
     } catch (\Exception $e) {
-      return $e->getMessage();
+      return response($e->getMessage(), 422);
     }
   }
 
