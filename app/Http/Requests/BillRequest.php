@@ -11,14 +11,15 @@ class BillRequest extends Request
      */
     public function rules()
     {
-        $rs = request();
-        $validacao = [
+        $validation = [
             'requireds' => 'required'
         ];
-        // $requireds ['Cta_valConta', ]
-        foreach($this->requireds as $r) {
-            $validacao[r] = 'required';
+        $requireds = $this->requireds ?? [];
+
+        foreach($requireds as $r) {
+            $validation[$r] = 'required';
         }
+        return $validation;
     }
 
     public function messages()

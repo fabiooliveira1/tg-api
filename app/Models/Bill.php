@@ -36,39 +36,43 @@ class Bill extends BaseModel
     {
         parent::boot();
 
+        static::creating(function ($model) {
+            $model->Cta_Status = 'A';
+        });
         static::deleting(function ($model) {
             if ($model->Cta_Status == 'P') {
-                throw new \Exception('Não é possível apagar contas já pagas!', 422);
-            } else {
-                static::deleting(function ($bill) { // before delete() method call this
-                    $bill->attachments()->delete();
-                    $bill->renegotiations()->delete();
-                    // do the rest of the cleanup...
-                });
+                throw new \Exception('Não é possível apagar contas já pagas!');
             }
+
+            if ($model->hasRelatedRecords()) {
+                throw \Exception('Has related records');
+            }
+
+            $model->attachments()->delete();
+            $model->renegotiations()->delete();
+            // do the rest of the cleanup...
         });
     }
 
     // Rever regras
-    // public function hasRelatedRecords()
-    // {
-    //     return $this->purchaseOrder()->count() > 0 || attachment()->count() > 0 ||
-    //     simulation()->count() > 0 || supplier()->count > 0 || renegotiation()->count() > 0;
-    // }
-
-    public function users()
+    public function hasRelatedRecords()
     {
-        return $this->belongsTo(User::class, 'Cta_idUser', 'Cta_idConta');
+        return $this->simulations()->count() > 0;
     }
 
-    public function suppliers()
+    public function user()
     {
-        return $this->belongsTo(Supplier::class, 'Cta_idFornecedor', 'Cta_idConta');
+        return $this->belongsTo(User::class, 'Cta_idUser', 'User_idUsuario');
     }
 
-    public function billGroups()
+    public function supplier()
     {
-        return $this->belongsTo(BillGroup::class, 'Cta_idGrupo', 'Cta_idConta');
+        return $this->belongsTo(Supplier::class, 'Cta_idFornecedor', 'Forn_idFornecedor');
+    }
+
+    public function billsGroup()
+    {
+        return $this->belongsTo(BillsGroup::class, 'Cta_idGrupo', 'GrCt_idGrupo');
     }
 
     public function attachments()
