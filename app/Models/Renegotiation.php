@@ -29,6 +29,9 @@ class Renegotiation extends BaseModel
     {
         parent::boot();
 
+        static::creating(function ($model) {
+            $model->Rng_Status = 'P';
+        });
         static::created(function ($model) {
 
             $data = [
@@ -36,7 +39,8 @@ class Renegotiation extends BaseModel
                 'nameContact' => $model->contact->Cnt_nomeContato,
                 'nameSupplier' => $model->contact->supplier->Forn_NomeFantasia,
                 'numBill' => $model->bill->Cta_numConta,
-                'descBill' => $model->bill->Cta_descrConta
+                'descBill' => $model->bill->Cta_descrConta,
+                'token' => $model->Rng_idProposta
             ];
 
             Mail::send(new SendEmail($data));

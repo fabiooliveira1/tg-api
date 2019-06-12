@@ -22,12 +22,11 @@ class RenegotiationRequest extends FormRequest
             'Rng_vencAntigo'    => 'required'
         ];
 
-        $alter = ['Rng_idProposta' => 'unique:Renegotiations'];
 
         if ($this->isMethod('PUT')) {
-            return $validacao;
+            return ['Rng_Status' => 'required'];
         } else {
-            return array_replace($validacao, $alter);
+            return $validacao;
         }
     }
 

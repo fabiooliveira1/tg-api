@@ -374,7 +374,7 @@
                               <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                 <tbody>
                                   <tr>
-                                    <td> <a href="" target="_blank">Visualizar Proposta</a> </td>
+                                    <td> <a href="{{'http://localhost:8080/renegociacao/'.$data['token']}}" target="_blank">Visualizar Proposta</a> </td>
                                   </tr>
                                 </tbody>
                               </table>

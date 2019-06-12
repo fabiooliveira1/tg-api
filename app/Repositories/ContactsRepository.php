@@ -16,9 +16,9 @@ class ContactsRepository extends BaseRepository
     {
         $model = $this->getModel();
 
-        // if ($request->filled('status')) {
-        //     $model->whereRng_Status($request->get('status'));
-        // }
+        if ($request->filled('Cnt_idFornecedor')) {
+            $model = $model->where('Cnt_idFornecedor', $request->get('Cnt_idFornecedor'));
+        }
 
         // if ($request->filled('status_s')) {
         //     $model->whereIn('Rng_Status', $request->get('status_s'));

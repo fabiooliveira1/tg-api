@@ -20,6 +20,7 @@ class SendEmail extends Mailable
 
   public function build()
   {
+    $data = $this->data;
     $address = 'M2_Print@example.com';
     $name = 'M2 Print';
 

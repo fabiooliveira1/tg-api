@@ -23,6 +23,11 @@ class Contact extends BaseModel
         parent::boot();
     }
 
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class, 'Cnt_idFornecedor', 'Forn_idFornecedor');
+    }
+
     // public function deleteRelations()
     // {
     //     $this->suppliers()->delete();

@@ -92,6 +92,7 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function ($route) {
         $route->get('/{renegotiation}', 'RenegotiationController@show');
         // $route->get('/{renegotiation}', 'EmailController@sendEmail');
         $route->post('/', 'RenegotiationController@create');
+        $route->put('/{renegotiation}/end', 'RenegotiationController@end');
         $route->put('/{renegotiation}', 'RenegotiationController@update');
         $route->delete('/{renegotiation}', 'RenegotiationController@delete');
     });
