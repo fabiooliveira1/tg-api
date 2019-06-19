@@ -14,22 +14,20 @@ class SimulationRequest extends FormRequest
      */
     public function rules()
     {
-        $validacao = [
+        if ($this->isMethod('PUT')) {
+            return [
+                'id' => 'required',
+                'Sim_status' => 'required'
+            ];
+        }
+
+        return [
             'Sim_idContaBancaria'       => 'required',
             'Sim_valSimulacao'          => 'required',
             'Sim_dataPagtoSimulacao'    => 'required',
-            'Sim_valTotal'              => 'required'
+            'Sim_valTotal'              => 'required',
+            'bills'                     => 'required'
         ];
-
-        $alter = [
-            'Sim_idSimulacao' => 'unique:Simulations',
-        ];
-
-        if ($this->isMethod('PUT')) {
-            return $validacao;
-        } else {
-            return array_replace($validacao, $alter);
-        }
     }
 
     public function messages()
@@ -39,7 +37,9 @@ class SimulationRequest extends FormRequest
             'Sim_valSimulacao.required'         => 'Necessário informar o valor simulado',
             'Sim_dataPagtoSimulacao.required'   => 'Necessário informar a data simulada',
             'Sim_valTotal.required'             => 'Necessário informar o valor total',
-            'Sim_idSimulacao.unique'            => 'Esta simulacao já existe'
+            'id.required'          => 'Necessário informar o id',
+            'Sim_status.required'               => 'Necessário informar o status',
+            'bills.required'                    => 'Necessário informar as contas simuladas'
         ];
     }
 }

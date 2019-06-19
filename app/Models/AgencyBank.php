@@ -22,7 +22,7 @@ class AgencyBank extends BaseModel
 
     public function bank()
     {
-        return $this->belongsTo(Bank::class, 'Bc_idBanco', 'AgBc_idBanco');
+        return $this->belongsTo(Bank::class, 'AgBc_idBanco', 'Bc_idBanco');
     }
 
     public function accountsBank()

@@ -28,14 +28,18 @@ class Simulation extends BaseModel
                 throw new \Exception('Não é possível apagar simulações já aprovadas!', 422);
         });
 
+        static::creating(function ($model) {
+            $model->Sim_status = 'P';
+        });
+
         static::created(function ($model) {
             // Envia email $model
         });
     }
 
-    public function accountBanks()
+    public function bankAccount()
     {
-        return $this->hasOne(AccountBank::class, 'CtBc_idContaBancaria', 'Sim_idSimulacao');
+        return $this->hasOne(AccountBank::class, 'CtBc_idContaBancaria', 'Sim_idContaBancaria');
     }
 
     public function bills()

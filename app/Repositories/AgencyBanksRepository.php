@@ -15,9 +15,9 @@ class AgencyBanksRepository extends BaseRepository
     {
         $model = $this->getModel();
 
-        // if ($request->filled('status')) {
-        //     $model->whereRng_Status($request->get('status'));
-        // }
+        if ($request->filled('AgBc_idBanco')) {
+            $model = $model->where('AgBc_idBanco', $request->get('AgBc_idBanco'));
+        }
 
         // if ($request->filled('status_s')) {
         //     $model->whereIn('Rng_Status', $request->get('status_s'));

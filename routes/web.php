@@ -120,6 +120,7 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function ($route) {
         $route->get('/', 'SimulationController@index');
         $route->get('/{simulation}', 'SimulationController@show');
         $route->post('/', 'SimulationController@create');
+        $route->put('/{simulation}/end', 'SimulationController@end');
         $route->put('/{simulation}', 'SimulationController@update');
         $route->delete('/{simulation}', 'SimulationController@delete');
     });

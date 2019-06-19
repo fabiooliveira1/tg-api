@@ -15,9 +15,9 @@ class AccountBanksRepository extends BaseRepository
     {
         $model = $this->getModel();
 
-        // if ($request->filled('status')) {
-        //     $model->whereCtaStatus($request->get('status'));
-        // }
+        if ($request->filled('CtBc_idAgencia')) {
+            $model = $model->where('CtBc_idAgencia', $request->get('CtBc_idAgencia'));
+        }
 
         // if ($request->filled('status_s')) {
         //     $model->whereIn('cta_status', $request->get('status_s'));
