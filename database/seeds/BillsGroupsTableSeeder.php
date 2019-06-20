@@ -13,11 +13,11 @@ class BillsGroupsTableSeeder extends Seeder
      */
     public function run()
     {
-        $this->store(1, 3, 'Contas Essenciais'     , 'Contas de materiais diretamente ligados ao produto');
-        $this->store(2, 2, 'Despesas Regulares'    , 'Contas de Logística, transporte'); 
-        $this->store(3, 1, 'Contas Secundarias'    , 'Contas de materiais improdutivos');  
-        $this->store(4, 2, 'Tributos Municipais'   , 'Impostos');
-        $this->store(5, 1, 'Transferência Bancária', 'Contas por transferências bancárias DOC/TED'); 
+        $this->store(1, 3, 'Contas Essenciais', 'Contas de materiais diretamente ligados ao produto');
+        $this->store(2, 2, 'Despesas Regulares', 'Contas de Logística, transporte');
+        $this->store(3, 1, 'Contas Secundarias', 'Contas de materiais improdutivos');
+        $this->store(4, 1, 'Tributos Municipais', 'Impostos');
+        $this->store(5, 1, 'Transferência Bancária', 'Contas por transferências bancárias DOC/TED');
     }
 
     public function store($id, $idRisk, $name, $desc)
