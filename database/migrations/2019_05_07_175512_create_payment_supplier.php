@@ -21,7 +21,6 @@ class CreatePaymentSupplier extends Migration
 
             $table->foreign('idPaymentWay')->references('FrPg_idFormaPgto')->on('Payment_Ways');
             $table->foreign('idSupplier')->references('Forn_idFornecedor')->on('Suppliers');
-            
         });
     }
 
