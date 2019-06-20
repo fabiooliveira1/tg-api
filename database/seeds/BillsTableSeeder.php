@@ -31,7 +31,7 @@ class BillsTableSeeder extends Seeder
             10,
             5,
             2,
-            'A'
+            'Aberta'
         );
 
         $this->store(
@@ -52,7 +52,7 @@ class BillsTableSeeder extends Seeder
             10,
             5,
             2,
-            'B'
+            'Aberta'
         );
 
         $this->store(
@@ -73,7 +73,7 @@ class BillsTableSeeder extends Seeder
             10,
             5,
             2,
-            'C'
+            'Aberta'
         );
     }
 

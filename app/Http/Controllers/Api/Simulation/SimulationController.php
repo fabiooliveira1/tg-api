@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Http\Controllers\Api\BaseController;
 use App\Repositories\SimulationsRepository;
+use App\Repositories\AccountBanksRepository;
 use App\Repositories\BillsRepository;
 
 class SimulationController extends BaseController
@@ -14,7 +15,12 @@ class SimulationController extends BaseController
 
     public function getRepository()
     {
-        return app(SimulationsRepository::class);
+      return app(SimulationsRepository::class);
+    }
+
+    public function getAccountBanksRepository()
+    {
+      return app(AccountBanksRepository::class);
     }
 
     public function getBillsRepository()
@@ -57,7 +63,7 @@ class SimulationController extends BaseController
       try {
         $this->getRepository()->update($id, $request);
         $model = $this->getRepository()->findById($id);
-        if ($model->Sim_status == 'A') {
+        if ($model->Sim_status == 'Aprovada') {
           $simDate = new Carbon($model->Sim_dataPagtoSimulacao);
 
           foreach($model->bills as $bill) {
@@ -83,11 +89,19 @@ class SimulationController extends BaseController
 
             $billModel->fill([
               'Cta_totalConta' => round($simValue, 2),
-              'Cta_Status' => 'P'
+              'Cta_Status' => 'Paga'
             ]);
 
             $billModel->save();
           }
+
+          $bankAccountModel = $this->getAccountBanksRepository()->findById($model->Sim_idContaBancaria);
+
+          $bankAccountModel->fill([
+            'CtBc_Saldo' => $bankAccountModel->CtBc_Saldo - $model->Sim_valSimulacao
+          ]);
+
+          $bankAccountModel->save();
         }
         return json_encode(true);
       } catch (\Exception $e) {

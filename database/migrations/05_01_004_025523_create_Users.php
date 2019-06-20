@@ -16,9 +16,9 @@ class CreateUsers extends Migration
         Schema::create('Users', function (Blueprint $table) {
             $table->increments('User_idUsuario')->primaryKey();
 
-            $table->string('User_nivelAcesso', 10);
+            $table->string('User_nivelAcesso', 20);
             $table->string('User_matricula', 20)->unique();
-            $table->string('User_senha', 10);
+            $table->string('User_senha', 200);
             $table->string('User_nome', 50);
             $table->string('User_email', 100);
             $table->timestamp('email_verified_at')->nullable();

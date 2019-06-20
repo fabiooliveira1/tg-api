@@ -23,7 +23,7 @@ class CreateSimulations extends Migration
             $table->string('Sim_status', 20)->nullable();
             $table->timestamps();
 
-            $table->foreign('Sim_idContaBancaria')->references('CtBc_idContaBancaria')->on('BankingAccounts');
+            $table->foreign('Sim_idContaBancaria')->references('CtBc_idContaBancaria')->on('AccountBanks');
         });
     }
 

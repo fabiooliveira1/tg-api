@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBankingAccounts extends Migration
+class CreateAccountBanks extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateBankingAccounts extends Migration
      */
     public function up()
     {
-        Schema::create('BankingAccounts', function (Blueprint $table) {
+        Schema::create('AccountBanks', function (Blueprint $table) {
             $table->increments('CtBc_idContaBancaria')->primaryKey();
             $table->integer('CtBc_idAgencia')->unsigned();
 
@@ -21,7 +21,7 @@ class CreateBankingAccounts extends Migration
             $table->double('CtBc_Saldo', 12, 2);
             $table->timestamps();
 
-            $table->foreign('CtBc_idAgencia')->references('AgBc_idAgencia')->on('BankingAgencies')->onDelete('cascade');
+            $table->foreign('CtBc_idAgencia')->references('AgBc_idAgencia')->on('AgencyBanks')->onDelete('cascade');
         });
     }
 
@@ -32,6 +32,6 @@ class CreateBankingAccounts extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('BankingAccounts');
+        Schema::dropIfExists('AccountBanks');
     }
 }

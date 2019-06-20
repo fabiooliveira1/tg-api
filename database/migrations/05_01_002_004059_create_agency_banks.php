@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBankingAgencies extends Migration
+class CreateAgencyBanks extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateBankingAgencies extends Migration
      */
     public function up()
     {
-        Schema::create('BankingAgencies', function (Blueprint $table) {
+        Schema::create('AgencyBanks', function (Blueprint $table) {
             $table->increments('AgBc_idAgencia')->primaryKey();
             $table->integer('AgBc_idBanco')->unsigned();
 
@@ -35,6 +35,6 @@ class CreateBankingAgencies extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('BankingAgencies');
+        Schema::dropIfExists('AgencyBanks');
     }
 }

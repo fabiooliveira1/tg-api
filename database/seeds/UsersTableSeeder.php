@@ -13,11 +13,11 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $this->store(1, '10001', 'A', 'Senha_1', 'Levi Munhoz', 'Levi@fatec.com');
-        $this->store(2, '20002', 'B', 'Senha_2', 'Cesar Munari', 'Cesar@fatec.com');
-        $this->store(3, '30003', 'C', 'Senha_3', 'Maria Angelica', 'Maria@fatec.com');
-        $this->store(4, '40004', 'D', 'Senha_4', 'Miranda', 'Miranda@fatec.com');
-        $this->store(5, '50005', 'E', 'Senha_5', 'Maze Cardoso', 'Maze@fatec.com');
+        $this->store(1, '10001', 'Administrador', 'Senha_1', 'Fábio Oliveira', 'fabio.aurelio@m2print.com');
+        $this->store(2, '20002', 'Gerente', 'Senha_2', 'Marco Aurélio', 'marco.aurelio@m2print.com');
+        $this->store(3, '30003', 'Gerente', 'Senha_3', 'Fábio Ferreira', 'fabio.ferreira@m2print.com');
+        $this->store(4, '40004', 'Analista', 'Senha_4', 'Bruno Araújo', 'bruno.araujo@m2print.com');
+        $this->store(5, '50005', 'Analista', 'Senha_5', 'Aleksander Pettherson', 'aleksander.pettherson@m2print.com');
     }
 
     public function store($id, $matricula, $nvAcesso, $key, $name, $email)

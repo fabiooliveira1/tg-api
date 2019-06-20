@@ -37,10 +37,10 @@ class Bill extends BaseModel
         parent::boot();
 
         static::creating(function ($model) {
-            $model->Cta_Status = 'A';
+            $model->Cta_Status = 'Aberta';
         });
         static::deleting(function ($model) {
-            if ($model->Cta_Status == 'P') {
+            if ($model->Cta_Status == 'Paga') {
                 throw new \Exception('Não é possível apagar contas já pagas!');
             }
 

@@ -47,10 +47,10 @@ class RenegotiationController extends BaseController
       try {
         $this->getRepository()->update($id, $request);
         $model = $this->getRepository()->findById($id);
-        if ($model->Rng_Status == 'A') {
+        if ($model->Rng_Status == 'Aprovada') {
             $bill = $this->getBillsRepository()->findById($model->Rng_idConta);
             $bill = $bill->fill([
-                'Cta_Status' => 'R',
+                'Cta_Status' => 'Renegociada',
                 'Cta_valConta' => $model->Rng_valProposta,
                 'Cta_dataVencimento' => $model->Rng_vencProposta,
             ]);

@@ -6,8 +6,7 @@ use App\Models\BaseModel;
 
 class AccountBank extends BaseModel
 {
-
-    protected $table = 'BankingAccounts';
+    protected $table = 'AccountBanks';
     protected $primaryKey = 'CtBc_idContaBancaria';
 
     public $fillable = [

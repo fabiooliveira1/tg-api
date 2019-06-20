@@ -24,12 +24,12 @@ class Simulation extends BaseModel
         parent::boot();
 
         static::deleting(function ($model) {
-            if ($model->Sim_status == 'A')
+            if ($model->Sim_status == 'Aprovada')
                 throw new \Exception('Não é possível apagar simulações já aprovadas!', 422);
         });
 
         static::creating(function ($model) {
-            $model->Sim_status = 'P';
+            $model->Sim_status = 'Pendente';
         });
 
         static::created(function ($model) {

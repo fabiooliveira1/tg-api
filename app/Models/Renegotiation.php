@@ -30,7 +30,7 @@ class Renegotiation extends BaseModel
         parent::boot();
 
         static::creating(function ($model) {
-            $model->Rng_Status = 'P';
+            $model->Rng_Status = 'Pendente';
         });
         static::created(function ($model) {
 
@@ -47,7 +47,7 @@ class Renegotiation extends BaseModel
         });
 
         static::deleting(function ($model) {
-            if ($model->Rng_Status == 'A')
+            if ($model->Rng_Status == 'Aprovada')
                 throw new \Exception('Não é possível apagar renegociações aprovadas!', 422);
         });
     }

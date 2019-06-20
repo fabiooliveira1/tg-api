@@ -12,7 +12,13 @@ class BillRequest extends Request
     public function rules()
     {
         $validation = [
-            'requireds' => 'required'
+            'requireds'             => 'required',
+            'Cta_descrConta'        => 'required',
+            'Cta_idGrupo'           => 'required',
+            'Cta_idFornecedor'      => 'required',
+            'Cta_valConta'          => 'required',
+            'Cta_dataEmissao'       => 'required',
+            'Cta_dataVencimento'    => 'required',
         ];
         $requireds = $this->requireds ?? [];
 
@@ -25,9 +31,9 @@ class BillRequest extends Request
     public function messages()
     {
         return [
-            'Cta_idUser.required'           => 'Precisa informar o id do usuário',
-            'Cta_idGrupo.required'          => 'Necessário informar o id do grupo',
-            'Cta_idFornecedor.required'     => 'Necessário informar o id do fornecedor',
+            'Cta_idUser.required'           => 'Precisa informar o usuário',
+            'Cta_idGrupo.required'          => 'Necessário informar o grupo',
+            'Cta_idFornecedor.required'     => 'Necessário informar o fornecedor',
             'Cta_descrConta.required'       => 'Informar a descrição com no máximo 100 caracteres',
             'Cta_dataEmissao.required'      => 'Necessário informar a data de emissão',
             'Cta_dataVencimento.required'   => 'Necessário informar a data de vencimento',
