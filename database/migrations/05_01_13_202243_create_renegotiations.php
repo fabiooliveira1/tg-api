@@ -18,13 +18,13 @@ class CreateRenegotiations extends Migration
             $table->integer('Rng_idConta')->unsigned();
             $table->integer('Rng_idContato')->unsigned();
 
-            $table->double('Rng_valProposta', 8, 2);
+            $table->double('Rng_valProposta', 12, 2);
             $table->date('Rng_vencProposta');
-            $table->double('Rng_valAntigo', 8, 2);
+            $table->double('Rng_valAntigo', 12, 2);
             $table->date('Rng_vencAntigo');
-            $table->string('Rng_descrProposta', 100)->nullable();
+            $table->string('Rng_descrProposta', 500)->nullable();
             $table->string('Rng_Iniciativa', 50)->nullable();
-            $table->string('Rng_Status', 1)->nullable();
+            $table->string('Rng_Status', 20)->nullable();
             $table->timestamps();
 
             $table->foreign('Rng_idConta')->references('Cta_idConta')->on('Bills')->onDelete('cascade');

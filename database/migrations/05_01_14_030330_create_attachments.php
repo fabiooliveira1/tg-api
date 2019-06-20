@@ -17,7 +17,9 @@ class CreateAttachments extends Migration
             $table->increments('Anx_idAnexo')->primaryKey();
             $table->integer('Anx_idConta')->unsigned();
 
-            $table->binary('Anx_conteudo');
+            $table->string('Anx_nome', 30);
+            $table->string('Anx_formato', 10);
+            $table->string('Anx_endereco', 300);
             $table->timestamps();
 
             $table->foreign('Anx_idConta')->references('Cta_idConta')->on('Bills')->onDelete('cascade');

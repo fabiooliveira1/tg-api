@@ -20,8 +20,8 @@ class CreateSuppliers extends Migration
             $table->string('Forn_CNPJ', 30);
             $table->string('Forn_RazaoSocial', 100);
             $table->string('Forn_NomeFantasia', 100)->nullable();
-            $table->string('Forn_InscrEstadual', 20);
-            $table->string('Forn_Endereco', 35)->nullable();
+            $table->string('Forn_InscrEstadual', 100);
+            $table->string('Forn_Endereco', 150)->nullable();
             $table->string('Forn_Bairro', 50)->nullable();
             $table->string('Forn_Cidade', 50)->nullable();
             $table->string('Forn_UF', 2)->nullable();

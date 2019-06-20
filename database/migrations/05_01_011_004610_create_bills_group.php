@@ -18,7 +18,7 @@ class CreateBillsGroup extends Migration
             $table->integer('GrCt_idRisco')->unsigned();
 
             $table->String('GrCt_NomeGrupo', 50);
-            $table->String('GrCt_DescrGrupo', 100);
+            $table->String('GrCt_DescrGrupo', 300);
             $table->timestamps();
 
             $table->foreign('GrCt_idRisco')->references('Rsc_idRisco')->on('Risks');
