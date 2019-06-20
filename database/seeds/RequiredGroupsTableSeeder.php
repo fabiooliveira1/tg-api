@@ -14,10 +14,6 @@ class RequiredGroupsTableSeeder extends Seeder
     public function run()
     {
         $this->store(1, 1, 1);
-        $this->store(2, 1, 2);
-        $this->store(3, 1, 3);
-        $this->store(4, 2, 1);
-        $this->store(5, 2, 2);
     }
 
     public function store($id, $idRequired, $idGroup)
