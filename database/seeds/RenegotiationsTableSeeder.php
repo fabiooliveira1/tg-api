@@ -13,9 +13,9 @@ class RenegotiationsTableSeeder extends Seeder
      */
     public function run()
     {
-        $this->store(1, 1, 1, 1000, '2019-05-10', 1500, '2019-05-15', 'Reneg 1', 'M2 Print 1', 'A');
-        $this->store(2, 2, 2, 2000, '2019-05-10', 1700, '2019-05-15', 'Reneg 2', 'M2 Print 2', 'B');
-        $this->store(3, 3, 3, 3000, '2019-05-10', 1900, '2019-05-15', 'Reneg 3', 'M2 Print 3', 'C');
+        // $this->store(1, 1, 1, 1000, '2019-05-10', 1500, '2019-05-15', 'Reneg 1', 'M2 Print 1', 'A');
+        // $this->store(2, 2, 2, 2000, '2019-05-10', 1700, '2019-05-15', 'Reneg 2', 'M2 Print 2', 'B');
+        // $this->store(3, 3, 3, 3000, '2019-05-10', 1900, '2019-05-15', 'Reneg 3', 'M2 Print 3', 'C');
     }
 
     public function store(
