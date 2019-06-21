@@ -13,9 +13,9 @@ class SimulationsTableSeeder extends Seeder
      */
     public function run()
     {
-        $this->store(1, 1, '2019-05-10', '1000', '2000', 'Pendente');
-        $this->store(2, 1, '2019-05-10', '2000', '4000', 'Aprovado');
-        $this->store(3, 2, '2019-05-10', '3000', '6000', 'Rejeitado');
+        // $this->store(1, 1, '2019-05-10', '1000', '2000', 'Pendente');
+        // $this->store(2, 1, '2019-05-10', '2000', '4000', 'Aprovado');
+        // $this->store(3, 2, '2019-05-10', '3000', '6000', 'Rejeitado');
     }
 
     public function store($id, $idCc, $dtPgSim, $valSim, $valTotal, $status)

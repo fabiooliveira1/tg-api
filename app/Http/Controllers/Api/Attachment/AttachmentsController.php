@@ -9,8 +9,6 @@ use App\Repositories\AttachmentsRepository;
 
 class AttachmentsController extends BaseController
 {
-    public $requestName = 'AttachmentRequest';
-
     private $image_ext = ['jpg', 'jpeg', 'png'];
     private $document_ext = ['doc', 'docx', 'pdf', 'odt', 'xls', 'xlsx'];
 

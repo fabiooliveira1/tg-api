@@ -17,7 +17,6 @@ class PaymentWaysTableSeeder extends Seeder
         $this->store(2, 'Boleto');
         $this->store(3, 'Faturado');
         $this->store(4, 'Credito');
-        $this->store(5, 'Parcelado');
     }
 
     public function store($id, $desc)

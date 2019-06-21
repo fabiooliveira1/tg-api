@@ -14,7 +14,7 @@ class RisksTableSeeder extends Seeder
     public function run()
     {
         $this->store(1, 'Baixo');
-        $this->store(2, 'Medio');
+        $this->store(2, 'Médio');
         $this->store(3, 'Alto');
     }
 
