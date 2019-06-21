@@ -22,15 +22,16 @@ class BaseRepository
     public function create($request)
     {
         $model = $this->getModel();
-        $model->fill(is_array($request) ? $request : $request->all());
-        return $model->save();
+        $model = $model->create(is_array($request) ? $request : $request->all());
+        return $model;
     }
 
     public function update($id, $request)
     {
         $model = $this->findById($id);
         $model->fill(is_array($request) ? $request : $request->all());
-        return $model->save();
+        $model->save();
+        return $model;
     }
 
     public function delete($id)

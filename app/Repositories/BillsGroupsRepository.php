@@ -33,7 +33,7 @@ class BillsGroupsRepository extends BaseRepository
         $model->save();
         $model->requireds()->sync($request->get('requireds'));
 
-        return true;
+        return $model;
     }
 
     public function update($id, $request)
@@ -43,6 +43,6 @@ class BillsGroupsRepository extends BaseRepository
         $model->save();
         $model->requireds()->sync($request->get('requireds'));
 
-        return true;
+        return $model;
     }
 }

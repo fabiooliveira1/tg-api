@@ -25,4 +25,9 @@ class BillsController extends BaseController
       }
       return $model->get();
     }
+
+    public function show($id)
+    {
+      return $this->getRepository()->findById($id)->load('attachments');
+    }
 }

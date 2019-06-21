@@ -17,6 +17,38 @@ class AttachmentsController extends BaseController
         return app(AttachmentsRepository::class);
     }
 
+    public function add($bill, Request $request)
+    {
+        $idConta = $request->get('id');
+
+        $fl = intval($request->get('filesLength'));
+
+        for ($i = 0; $i < $fl; $i++) {
+            $file = $request->file('files_'.$i.'_file');
+            $fullName = explode('.', $request->get('files_'.$i.'_name'));
+            $name = $fullName[0];
+            $ext = $fullName[1] ?? 'null';
+            $path = $idConta . '/' . $ext . '/';
+
+            $all_ext = implode(',', array_merge($this->image_ext, $this->document_ext));
+            if (strpos($all_ext, $ext) === false) {
+                continue;
+            }
+
+            if (Storage::putFileAs('/public/' . $path, $file, implode('.', $fullName))) {
+
+                $this->getRepository()->create([
+                    'Anx_idConta' => $idConta,
+                    'Anx_endereco' => Storage::url($path . implode('.', $fullName)),
+                    'Anx_nome' => $name,
+                    'Anx_formato' => $ext
+                ]);
+            }
+        }
+
+        return json_encode(true);
+    }
+
     public function manage($bill, Request $request)
     {
         $idConta = $request->get('id');
