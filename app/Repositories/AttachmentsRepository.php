@@ -15,13 +15,9 @@ class AttachmentsRepository extends BaseRepository
     {
         $model = $this->getModel();
 
-        // if ($request->filled('status')) {
-        //     $model->whereRng_Status($request->get('status'));
-        // }
-
-        // if ($request->filled('status_s')) {
-        //     $model->whereIn('Rng_Status', $request->get('status_s'));
-        // }
+        if ($request->filled('Anx_idConta')) {
+            $model = $model->where('Anx_idConta', $request->get('Anx_idConta'));
+        }
 
         return $model;
     }

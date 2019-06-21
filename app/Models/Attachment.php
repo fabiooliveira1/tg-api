@@ -7,10 +7,13 @@ use App\Models\BaseModel;
 class Attachment extends BaseModel
 {
     protected $table = 'Attachments';
-    protected $primaryKey = 'Anx_idConta';
+    protected $primaryKey = 'Anx_idAnexo';
 
     public $fillable = [
-        'Anx_conteudo'
+        'Anx_idConta',
+        'Anx_endereco',
+        'Anx_nome',
+        'Anx_formato',
     ];
 
     public $dates = ['created_at', 'updated_at'];

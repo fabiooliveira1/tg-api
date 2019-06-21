@@ -44,9 +44,7 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function ($route) {
     //Rota de Anexos
     Route::group(['namespace' => 'Attachment', 'prefix' => 'attachment'], function ($route) {
         $route->get('/', 'AttachmentsController@index');
-        $route->get('/{attachment}', 'AttachmentsController@show');
-        $route->post('/', 'AttachmentsController@create');
-        $route->put('/{attachment}', 'AttachmentsController@update');
+        $route->post('/{bill}', 'AttachmentsController@manage');
         $route->delete('/{attachment}', 'AttachmentsController@delete');
     });
 

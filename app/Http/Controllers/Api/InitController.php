@@ -22,7 +22,6 @@ class InitController extends Controller
 
   public function index()
   {
-    logger('oi');
     return [
       'requireds' => $this->getRequiredsRepository()->getModel()->all(),
       'risks' => $this->getRisksRepository()->getModel()->all(),
