@@ -16,185 +16,185 @@ class SuppliersTableSeeder extends Seeder
         $this->store(
             1,
             1,
-            '10.332.802/0001-52',
+            '10332802000152',
             'M2 Print LTDA',
             'M2 Print',
-            '487.436.245.783',
+            '487436245783',
             'Rua Leonardo Braz de Paula Lerco',
             'Jardim Residencial Morada das Flores',
             'Sorocaba',
             'SP',
-            '18087-758',
-            'Banco do Brasil S.A.',
+            '18087758',
+            '001',
             '0995',
-            '12345-6'
+            '123456'
         );
 
         $this->store(
             2,
             3,
-            '12.334.804/0001-54',
+            '12334804000154',
             'Silva Papeis EPP',
             'Papeis Silva',
-            '247.326.125.831',
+            '247326125831',
             'Rua José Stilitano',
             'Jardim Leocádia',
             'Sorocaba',
             'SP',
-            '18082-123',
-            'Banco Santander S.A.',
+            '18082123',
+            '033',
             '3323',
-            '33771-4'
+            '337714'
         );
 
         $this->store(
             3,
             3,
-            '01.432.702/0001-63',
+            '01432702000163',
             'Chapas Andrade EPP',
             'Chapas Andrade',
-            '345.268.123.982',
+            '345268123982',
             'Rua Benedito Ferreira Telles',
             'Vila São Caetano',
             'Sorocaba',
             'SP',
-            '18055-127',
-            'Itaú Unibanco S.A.',
+            '18055127',
+            '652',
             '0995',
-            '12345-6'
+            '123456'
         );
 
         $this->store(
             4,
             3,
-            '23.636.303/0033-12',
+            '23636303003312',
             'Francisco Tintas Gráficas EPP',
             'Chico Tintas',
-            '127.138.349.281',
+            '127138349281',
             'Rua Joana Maria Pereira',
             'Vila Adélia',
             'Sorocaba',
             'SP',
-            '18080-900',
-            'Banco do Brasil S.A.',
+            '18080900',
+            '001',
             '0995',
-            '44352-5'
+            '443525'
         );
 
         $this->store(
             5,
             2,
-            '71.122.832/0005-92',
+            '71122832000592',
             'Logística Lins Guimaraes',
             'Logística Lins',
-            '223.766.145.287',
+            '223766145287',
             'Rua Fernandes Vieira',
             'Jardim dos Barões',
             'Sorocaba',
             'SP',
-            '18060-890',
-            'Banco Bradesco S.A.',
+            '18060890',
+            '237',
             '0995',
-            '12345-6'
+            '123456'
         );
 
         $this->store(
             6,
             2,
-            '17.832.702/0013-32',
+            '17832702001332',
             'New Man Computadores e Eletrônicos EPP',
             'New Man Computadores e Eletrônicos',
-            '513.413.343.613',
+            '513413343613',
             'Rua Tabajaras',
             'Mooca',
             'São Paulo',
             'SP',
-            '03121-010',
-            'Banco do Brasil S.A.',
+            '03121010',
+            '001',
             '0328',
-            '09345-4'
+            '093454'
         );
 
         $this->store(
             7,
             1,
-            '43.862.252/0015-38',
+            '43862252001538',
             'Lunga Cá EPP',
             'Lunga Cá',
-            '263.473.393.644',
+            '263473393644',
             'Rua José Carlos de Campos',
             'Vila Vasques',
             'Votorantim',
             'SP',
-            '18110-130',
-            'Banco do Brasil S.A.',
+            '18110130',
+            '001',
             '0898',
-            '12045-8'
+            '120458'
         );
 
         $this->store(
             8,
             1,
-            '72.652.452/1001-23',
+            '72652452100123',
             'Carlos Refrigerações EPP',
             'Carlos Refrigerações',
-            '116.633.319.127',
+            '116633319127',
             'Rua Angelino Francisco Parri',
             'Parque Bela Vista',
             'Votorantim',
             'SP',
-            '18110-490',
-            'Itaú Unibanco S.A.',
+            '18110490',
+            '652',
             '0238',
-            '01073-5'
+            '010735'
         );
 
         $this->store(
             9,
             1,
-            '27.681.556/0006-11',
+            '27681556000611',
             'Francis Móveis e Estofados EPP',
             'Francis Móveis e Estofados',
-            '566.235.312.845',
+            '566235312845',
             'Rua José Bonifácio',
             'Jardim Brasil',
             'Atibaia',
             'SP',
-            '12940-210',
-            'Banco Santander S.A.',
+            '12940210',
+            '033',
             '4423',
-            '01775-0'
+            '017750'
         );
 
         $this->store(
             10,
             1,
-            '36.792.445/0003-84',
+            '36792445000384',
             'Almeida Cadeiras EPP',
             'Almeida Cadeiras',
-            '246.457.214.481',
+            '246457214481',
             'Rua Jussara Adorno Gonçalves Gil',
             'Jardim Santa Catarina',
             'Sorocaba',
             'SP',
-            '18079-462',
-            'Banco Santander S.A.',
+            '18079462',
+            '033',
             '3323',
-            '01377-5'
+            '013775'
         );
 
         $this->store(
             11,
             2,
-            '71.480.560/0001-39',
+            '71480560000139',
             'SERVICO AUTONOMO DE AGUA E ESGOTO',
             'SAAE',
-            '669.573.983.111',
+            '669573983111',
             'AVENIDA PEREIRA DA SILVA',
             'Jardim Santa Rosália',
             'Sorocaba',
             'SP',
-            '18095-340',
+            '18095340',
             '',
             '',
             ''
@@ -203,15 +203,15 @@ class SuppliersTableSeeder extends Seeder
         $this->store(
             12,
             2,
-            '46.634.044/0001-74',
+            '46634044000174',
             'PREFEITURA MUNICIPAL DE SOROCABA',
             'PMS',
-            '669.573.983.111',
+            '669573983111',
             'AVENIDA Engenheiro Carlos Reinaldo Mendes',
             'Alto da Boa Vista',
             'Sorocaba',
             'SP',
-            '18013-280',
+            '18013280',
             '',
             '',
             ''

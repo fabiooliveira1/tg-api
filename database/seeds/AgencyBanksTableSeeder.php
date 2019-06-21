@@ -13,11 +13,11 @@ class AgencyBanksTableSeeder extends Seeder
      */
     public function run()
     {
-        $this->store(1, 8, '0095', 'Votorantim', 'Ana Carolina', '15 98810-1010', 'anacarolina@bb.com.br');
-        $this->store(2, 8, '0094', 'Sorocaba', 'Denilce Veloso', '15 98810-2020', 'denilceveloso@bb.com.br');
-        $this->store(3, 1, '1234', 'Itu', 'Edméia Soares', '15 98810-3030', 'edmeiasoares@itau-unibanco.com.br');
-        $this->store(4, 1, '1235', 'Salto', 'Carlos Dias', '15 98810-4040', 'carlosdias@itau-unibanco.com.br');
-        $this->store(5, 2, '4567', 'Boituva', 'Francisco Carlos', '15 98810-5050',  'franciscocarlos@gruposantander.com');
+        $this->store(1, 8, '0095', 'Votorantim', 'Ana Carolina', '15 988101010', 'anacarolina@bb.com.br');
+        $this->store(2, 8, '0094', 'Sorocaba', 'Denilce Veloso', '15 988102020', 'denilceveloso@bb.com.br');
+        $this->store(3, 1, '1234', 'Itu', 'Edméia Soares', '15 988103030', 'edmeiasoares@itau-unibanco.com.br');
+        $this->store(4, 1, '1235', 'Salto', 'Carlos Dias', '15 988104040', 'carlosdias@itau-unibanco.com.br');
+        $this->store(5, 2, '4567', 'Boituva', 'Francisco Carlos', '15 988105050',  'franciscocarlos@gruposantander.com');
     }
 
     public function store($id, $idBank, $num, $nameAg, $nameGer, $phone, $email)
