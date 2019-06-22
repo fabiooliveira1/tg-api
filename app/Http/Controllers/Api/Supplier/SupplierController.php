@@ -13,4 +13,9 @@ class SupplierController extends BaseController
     {
         return app(SuppliersRepository::class);
     }
+
+    public function show($id)
+    {
+      return $this->getRepository()->findById($id)->load('paymentWays');
+    }
 }

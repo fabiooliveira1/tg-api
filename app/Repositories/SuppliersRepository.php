@@ -26,12 +26,21 @@ class SuppliersRepository extends BaseRepository
         return $model;
     }
 
-    public function sync($model, $payment)
+    public function create($request)
     {
-        // $required = [1, 2, 3, 4 ,5]
-        $model->payment->sync($payment);
-
-        return $model->with('FrPg_idFormaPgto');
+        $model = $this->getModel();
+        $model = $model->create(is_array($request) ? $request : $request->all());
+        $model->paymentWays()->sync($request->get('payment_ways'));
+        return $model;
     }
 
+    public function update($id, $request)
+    {
+        $model = $this->findById($id);
+        $model->fill($request->all());
+        $model->save();
+        $model->paymentWays()->sync($request->get('payment_ways'));
+
+        return $model;
+    }
 }

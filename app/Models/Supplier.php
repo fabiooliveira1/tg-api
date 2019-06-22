@@ -30,18 +30,25 @@ class Supplier extends BaseModel
     public static function boot()
     {
         parent::boot();
+
+        static::deleting(function ($model) {
+            if ($model->hasRelatedRecords()) {
+                throw \Exception('Has related records');
+            }
+            $model->deleteRelations();
+        });
     }
-
-    // public function deleteRelations()
-    // {
-    //     $this->risks()->delete();
-
-    //     return true;
-    // }
 
     public function hasRelatedRecords()
     {
         return $this->bills()->count() > 0;
+    }
+
+    public function deleteRelations()
+    {
+        $this->paymentWays()->detach();
+
+        return true;
     }
 
     public function risks()
@@ -56,7 +63,7 @@ class Supplier extends BaseModel
 
     public function paymentWays()
     {
-        return $this->hasMany(PaymentWay::class, 'FrPg_idFormaPgto', 'Forn_idFornecedor');
+        return $this->belongsToMany(PaymentWay::class, 'PaymentSupplier', 'idSupplier', 'idPaymentWay');
     }
 
 }
