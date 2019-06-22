@@ -20,7 +20,7 @@ class AgencyBankRequest extends FormRequest
             'AgBc_nomeAgencia'  => 'required'
         ];
 
-        $alter = ['AgBc_numAgencia'   => 'required|unique:BankingAgencies'];
+        $alter = ['AgBc_numAgencia'   => 'required|unique:AgencyBanks'];
 
         if ($this->isMethod('PUT')) {
             return $validacao;

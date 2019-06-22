@@ -20,7 +20,7 @@ class AccountBankRequest extends FormRequest
             'CtBc_Saldo'            => 'required'
         ];
 
-        $alter = ['CtBc_numContaBancaria'   => 'required|unique:BankingAccounts'];
+        $alter = ['CtBc_numContaBancaria'   => 'required|unique:AccountBanks'];
 
         if ($this->isMethod('PUT')) {
             return $validacao;

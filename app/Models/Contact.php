@@ -28,6 +28,11 @@ class Contact extends BaseModel
         });
     }
 
+    public function hasRelatedRecords()
+    {
+        return $this->renegotiations()->count() > 0;
+    }
+
     public function supplier()
     {
         return $this->belongsTo(Supplier::class, 'Cnt_idFornecedor', 'Forn_idFornecedor');
@@ -44,10 +49,5 @@ class Contact extends BaseModel
 
     //     return true;
     // }
-
-    public function hasRelatedRecords()
-    {
-        return $this->renegotiations()->count() > 0;
-    }
 
 }

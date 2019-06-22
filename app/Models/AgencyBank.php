@@ -20,6 +20,16 @@ class AgencyBank extends BaseModel
 
     public $dates = ['created_at', 'updated_at'];
 
+    public static function boot()
+    {
+        parent::boot();
+    }
+
+    public function hasRelatedRecords()
+    {
+        return $this->accountsBank()->count() > 0;
+    }
+
     public function bank()
     {
         return $this->belongsTo(Bank::class, 'AgBc_idBanco', 'Bc_idBanco');
@@ -28,16 +38,5 @@ class AgencyBank extends BaseModel
     public function accountsBank()
     {
         return $this->hasMany(AccountBank::class, 'CtBc_idAgencia', 'AgBc_idAgencia');
-    }
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::deleting(function($agency) { // before delete() method call this
-            $agency->accountsBank()->delete();
-            // do the rest of the cleanup...
-       });
-
     }
 }
