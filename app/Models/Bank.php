@@ -19,10 +19,11 @@ class Bank extends BaseModel
     public static function boot()
     {
         parent::boot();
-
-        static::deleting(function($bank) { // before delete() method call this
-             $bank->agencyBanks()->delete();
-       });
+    }
+    
+    public function hasRelatedRecords()
+    {
+        return $this->agencyBanks()->count() > 0;
     }
 
     public function agencyBanks()
