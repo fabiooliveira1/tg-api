@@ -21,11 +21,21 @@ class Contact extends BaseModel
     public static function boot()
     {
         parent::boot();
+        static::deleting(function ($model) {
+            if ($model->hasRelatedRecords()) {
+                throw \Exception('Has related records');
+            }
+        });
     }
 
     public function supplier()
     {
         return $this->belongsTo(Supplier::class, 'Cnt_idFornecedor', 'Forn_idFornecedor');
+    }
+
+    public function renegotiations()
+    {
+        return $this->hasMany(Renegotiation::class, 'Rng_idContato', 'Cnt_idContato');
     }
 
     // public function deleteRelations()
@@ -35,9 +45,9 @@ class Contact extends BaseModel
     //     return true;
     // }
 
-    // public function hasRelatedRecords()
-    // {
-    //     return $this->supplier()->count() > 0;
-    // }
+    public function hasRelatedRecords()
+    {
+        return $this->renegotiations()->count() > 0;
+    }
 
 }
