@@ -28,6 +28,7 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api'], function ($route) {
         $route->get('/', 'AccountBanksController@index');
         $route->get('/{accountBank}', 'AccountBanksController@show');
         $route->post('/', 'AccountBanksController@create');
+        $route->put('/{accountBank}/amount', 'AccountBanksController@amount');
         $route->put('/{accountBank}', 'AccountBanksController@update');
         $route->delete('/{accountBank}', 'AccountBanksController@delete');
     });
