@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Simulation;
-// use Carbon\Carbon;
+use Carbon\Carbon;
 
 class SimulationsRepository extends BaseRepository
 {
@@ -15,13 +15,19 @@ class SimulationsRepository extends BaseRepository
     {
         $model = $this->getModel();
 
-        // if ($request->filled('status')) {
-        //     $model->whereSim_status($request->get('status'));
-        // }
+        if ($request->filled('Sim_status')) {
+            $model = $model->where('Sim_status', $request->get('Sim_status'));
+        }
 
-        // if ($request->filled('status_s')) {
-        //     $model->whereIn('Sim_status', $request->get('status_s'));
-        // }
+        if ($request->filled('created_at')) {
+            $date = json_decode($request->get('created_at'));
+            if($date->from) {
+                $model = $model->whereDate('created_at', '>=', new Carbon($date->from));
+            }
+            if($date->to) {
+                $model = $model->whereDate('created_at', '<=', new Carbon($date->to));
+            }
+        }
 
         return $model;
     }
