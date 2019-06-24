@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\BillsGroup;
-// use Carbon\Carbon;
+use Carbon\Carbon;
 
 class BillsGroupsRepository extends BaseRepository
 {
@@ -15,13 +15,33 @@ class BillsGroupsRepository extends BaseRepository
     {
         $model = $this->getModel();
 
-        // if ($request->filled('status')) {
-        //     $model->whereRng_Status($request->get('status'));
+        // if ($request->filled('Cta_descrConta')) {
+        //     $model = $model->where('Cta_descrConta', 'like',  '%'.$request->get('Cta_descrConta').'%');
         // }
 
-        // if ($request->filled('status_s')) {
-        //     $model->whereIn('Rng_Status', $request->get('status_s'));
+        // if ($request->filled('Cta_Status')) {
+        //     $model = $model->where('Cta_Status', $request->get('Cta_Status'));
         // }
+
+        // if ($request->filled('Cta_idFornecedor')) {
+        //     $model = $model->where('Cta_idFornecedor', $request->get('Cta_idFornecedor'));
+        // }
+
+        // if ($request->filled('Cta_idGrupo')) {
+        //     $model = $model->where('Cta_idGrupo', $request->get('Cta_idGrupo'));
+        // }
+
+        // if ($request->filled('Cta_dataVencimento')) {
+        //     if(isset($dueDate->from)) {
+        //         $model = $model->whereDate('Cta_dataVencimento', '>=', new Carbon($dueDate->from));
+        //     }
+        //     if(isset($dueDate->to)) {
+        //         $model = $model->whereDate('Cta_dataVencimento', '<=', new Carbon($dueDate->to));
+        //     }
+        // }
+
+        // logger($model-toSql());
+
 
         return $model;
     }
