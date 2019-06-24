@@ -39,11 +39,11 @@ class Bill extends BaseModel
         static::creating(function ($model) {
             $model->Cta_Status = 'Aberta';
         });
-        static::updating(function ($model) {
-            if ($model->Cta_Status == 'Paga') {
-                throw new \Exception('Não é possível alterar contas já pagas!');
-            }
-        });
+        // static::updating(function ($model) {
+        //     if ($model->Cta_Status == 'Paga') {
+        //         throw new \Exception('Não é possível alterar contas já pagas!');
+        //     }
+        // });
         static::deleting(function ($model) {
             if ($model->Cta_Status == 'Paga') {
                 throw new \Exception('Não é possível apagar contas já pagas!');
@@ -55,11 +55,9 @@ class Bill extends BaseModel
 
             $model->attachments()->delete();
             $model->renegotiations()->delete();
-            // do the rest of the cleanup...
         });
     }
 
-    // Rever regras
     public function hasRelatedRecords()
     {
         return $this->simulations()->count() > 0;

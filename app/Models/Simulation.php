@@ -26,10 +26,10 @@ class Simulation extends BaseModel
     {
         parent::boot();
 
-        static::updating(function ($model) {
-            if ($model->Sim_status != 'Pendente')
-                throw new \Exception('Não é possível alterar simulações encerradas!', 422);
-        });
+        // static::updating(function ($model) {
+        //     if ($model->Sim_status != 'Pendente')
+        //         throw new \Exception('Não é possível alterar simulações encerradas!', 422);
+        // });
 
         static::deleting(function ($model) {
             if ($model->Sim_status == 'Aprovada')

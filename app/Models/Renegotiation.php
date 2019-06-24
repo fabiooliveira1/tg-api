@@ -30,10 +30,11 @@ class Renegotiation extends BaseModel
     {
         parent::boot();
 
-        static::updating(function ($model) {
-            if ($model->Rng_Status != 'Pendente')
-                throw new \Exception('Não é possível alterar renegociações encerradas!', 422);
-        });
+        // static::updating(function ($model) {
+        //     if ($model->Rng_Status != 'Pendente') {
+        //         throw new \Exception('Não é possível alterar renegociações encerradas!', 422);
+        //     }
+        // });
 
         static::creating(function ($model) {
             $model->Rng_Status = 'Pendente';

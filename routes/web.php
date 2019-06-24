@@ -151,3 +151,11 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api', 'middleware' => 'customAu
         $route->delete('/{user}', 'UserController@delete');
     });
 });
+
+Route::group(['namespace' => 'Api', 'prefix' => 'api'], function ($route) {
+    //Rota de Renegociação
+    Route::group(['namespace' => 'Renegotiation', 'prefix' => 'renegotiation'], function ($route) {
+        $route->get('/{renegotiation}/token', 'RenegotiationController@showToken');
+        $route->put('/{renegotiation}/end', 'RenegotiationController@end');
+    });
+});
