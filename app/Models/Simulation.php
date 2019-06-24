@@ -3,6 +3,9 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\Notifications\SimulationMail;
+use Illuminate\Support\Facades\Mail;
+use App\Models\User;
 
 class Simulation extends BaseModel
 {
@@ -23,6 +26,11 @@ class Simulation extends BaseModel
     {
         parent::boot();
 
+        static::updating(function ($model) {
+            if ($model->Sim_status != 'Pendente')
+                throw new \Exception('Não é possível alterar simulações encerradas!', 422);
+        });
+
         static::deleting(function ($model) {
             if ($model->Sim_status == 'Aprovada')
                 throw new \Exception('Não é possível apagar simulações já aprovadas!', 422);
@@ -33,7 +41,15 @@ class Simulation extends BaseModel
         });
 
         static::created(function ($model) {
-            // Envia email $model
+            $managers = User::where('User_nivelAcesso', 'Gerente')->get();
+            foreach ($managers as $manager) {
+                $data = [
+                    'name' => $manager->User_nome,
+                    'email' => $manager->User_email
+                ];
+
+                Mail::send(new SimulationMail($data));
+            }
         });
     }
 
