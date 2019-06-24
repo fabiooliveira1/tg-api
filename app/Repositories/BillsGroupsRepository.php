@@ -15,33 +15,13 @@ class BillsGroupsRepository extends BaseRepository
     {
         $model = $this->getModel();
 
-        // if ($request->filled('Cta_descrConta')) {
-        //     $model = $model->where('Cta_descrConta', 'like',  '%'.$request->get('Cta_descrConta').'%');
-        // }
+        if ($request->filled('GrCt_NomeGrupo')) {
+            $model = $model->where('GrCt_NomeGrupo', 'like',  '%'.$request->get('GrCt_NomeGrupo').'%');
+        }
 
-        // if ($request->filled('Cta_Status')) {
-        //     $model = $model->where('Cta_Status', $request->get('Cta_Status'));
-        // }
-
-        // if ($request->filled('Cta_idFornecedor')) {
-        //     $model = $model->where('Cta_idFornecedor', $request->get('Cta_idFornecedor'));
-        // }
-
-        // if ($request->filled('Cta_idGrupo')) {
-        //     $model = $model->where('Cta_idGrupo', $request->get('Cta_idGrupo'));
-        // }
-
-        // if ($request->filled('Cta_dataVencimento')) {
-        //     if(isset($dueDate->from)) {
-        //         $model = $model->whereDate('Cta_dataVencimento', '>=', new Carbon($dueDate->from));
-        //     }
-        //     if(isset($dueDate->to)) {
-        //         $model = $model->whereDate('Cta_dataVencimento', '<=', new Carbon($dueDate->to));
-        //     }
-        // }
-
-        // logger($model-toSql());
-
+        if ($request->filled('GrCt_idRisco')) {
+            $model = $model->where('GrCt_idRisco', $request->get('GrCt_idRisco'));
+        }
 
         return $model;
     }
