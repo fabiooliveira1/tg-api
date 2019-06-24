@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\BaseModel;
 use App\Notifications\SendEmail;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Crypt;
 
 class Renegotiation extends BaseModel
 {
@@ -45,7 +46,7 @@ class Renegotiation extends BaseModel
                 'nameSupplier' => $model->contact->supplier->Forn_NomeFantasia,
                 'numBill' => $model->bill->Cta_numConta,
                 'descBill' => $model->bill->Cta_descrConta,
-                'token' => $model->Rng_idProposta
+                'token' => Crypt::encryptString($model->Rng_idProposta . 'M2Print')
             ];
 
             Mail::send(new SendEmail($data));

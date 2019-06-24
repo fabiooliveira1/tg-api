@@ -96,6 +96,7 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api', 'middleware' => 'customAu
     //Rota de Renegociação
     Route::group(['namespace' => 'Renegotiation', 'prefix' => 'renegotiation'], function ($route) {
         $route->get('/', 'RenegotiationController@index');
+        $route->get('/{renegotiation}/token', 'RenegotiationController@showToken');
         $route->get('/{renegotiation}', 'RenegotiationController@show');
         // $route->get('/{renegotiation}', 'EmailController@sendEmail');
         $route->post('/', 'RenegotiationController@create');

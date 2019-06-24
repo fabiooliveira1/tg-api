@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Repositories\RenegotiationsRepository;
 use App\Repositories\BillsRepository;
+use Illuminate\Support\Facades\Crypt;
 
 class RenegotiationController extends BaseController
 {
@@ -35,6 +36,16 @@ class RenegotiationController extends BaseController
     public function show($id)
     {
       $model = $this->getRepository()->findById($id)
+        ->load(['bill', 'contact', 'contact.supplier']);
+  
+      return $model;
+    }
+
+    public function showToken($token)
+    {
+      $decrypted = Crypt::decryptString($token);
+      $decrypted = explode('M2Print', $decrypted);
+      $model = $this->getRepository()->findById($decrypted[0])
         ->load(['bill', 'contact', 'contact.supplier']);
   
       return $model;
