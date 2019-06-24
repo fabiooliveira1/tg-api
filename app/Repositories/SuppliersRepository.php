@@ -15,13 +15,17 @@ class SuppliersRepository extends BaseRepository
     {
         $model = $this->getModel();
 
-        // if ($request->filled('status')) {
-        //     $model->whereCtaStatus($request->get('status'));
-        // }
+        if ($request->filled('Forn_NomeFantasia')) {
+            $model = $model->where('Forn_NomeFantasia', 'like',  '%'.$request->get('Forn_NomeFantasia').'%');
+        }
 
-        // if ($request->filled('status_s')) {
-        //     $model->whereIn('cta_status', $request->get('status_s'));
-        // }
+        if ($request->filled('Forn_CNPJ')) {
+            $model = $model->where('Forn_CNPJ', 'like',  '%'.$request->get('Forn_CNPJ').'%');
+        }
+
+        if ($request->filled('Forn_idRisco')) {
+            $model = $model->where('Forn_idRisco', $request->get('Forn_idRisco'));
+        }
 
         return $model;
     }
