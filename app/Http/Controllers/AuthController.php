@@ -36,6 +36,7 @@ class AuthController extends Controller
       return [
         'email' => $model->User_email,
         'name' => $model->User_nome,
+        'role' => $model->User_nivelAcesso,
         'token' => Crypt::encryptString($model->User_email . 'M2Print' . $model->User_matricula)
       ];
     } catch (\Exception $e) {
