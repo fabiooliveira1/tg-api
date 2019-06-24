@@ -14,25 +14,23 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        $validacao = [
+
+        if ($this->isMethod('PUT')) {
+            return [
+                'User_nivelAcesso'  => 'required',
+                'User_matricula'    => 'required',
+                'User_nome'         => 'required',
+                'User_email'        => 'required'
+            ];
+        }
+
+        return [
             'User_nivelAcesso'  => 'required',
             'User_matricula'    => 'required',
             'User_senha'        => 'required',
             'User_nome'         => 'required',
-            'User_email'        => 'required'
-        ];
-
-        $alter = [
-            'User_idUsuario'    => 'unique:Users',
-            'User_matricula'    => 'required|unique:Users',
             'User_email'        => 'required|unique:Users'
         ];
-
-        if ($this->isMethod('PUT')) {
-            return $validacao;
-        } else {
-            return array_replace($validacao, $alter);
-        }
     }
 
     public function messages()

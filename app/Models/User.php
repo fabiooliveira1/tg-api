@@ -29,8 +29,13 @@ class User extends BaseModel
         parent::boot();
     }
 
+    public function hasRelatedRecords()
+    {
+        return $this->bills()->count() > 0;
+    }
+
     public function bills()
     {
-        return $this->hasMany(Bill::class, 'Cta_idConta', 'User_idUsuario');
+        return $this->hasMany(Bill::class, 'Cta_idUser', 'User_idUsuario');
     }
 }

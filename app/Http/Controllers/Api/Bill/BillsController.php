@@ -30,4 +30,18 @@ class BillsController extends BaseController
     {
       return $this->getRepository()->findById($id)->load('attachments');
     }
+
+    public function create()
+    {
+      $request = $this->callRequest();
+  
+      try {
+        $user = $this->getUser($request)->User_idUsuario;
+        $request->merge(['Cta_idUser' => $user]);
+
+        return json_encode($this->getRepository()->create($request));
+      } catch (\Exception $e) {
+        return response($e->getMessage(), 422);
+      }
+    }
 }
