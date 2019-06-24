@@ -89,6 +89,7 @@ class SimulationController extends BaseController
 
             $billModel->fill([
               'Cta_totalConta' => round($simValue, 2),
+              'Cta_dataPagto' => $simDate,
               'Cta_Status' => 'Paga'
             ]);
 

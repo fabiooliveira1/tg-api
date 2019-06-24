@@ -12,6 +12,7 @@
 */
 Route::group(['namespace' => 'Api', 'prefix' => 'api'], function ($route) {
     // Init route for vuex store
+    Route::get('report', 'InitController@report');
     Route::get('init/dashboard', 'InitController@dashboard');
     Route::get('init', 'InitController@index');
 
