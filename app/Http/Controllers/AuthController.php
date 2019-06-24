@@ -1,41 +1,46 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
 use App;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Crypt;
-use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use App\Repositories\UsersRepository;
 
-class BaseController extends Controller
+class AuthController extends Controller
 {
-  public $requestName;
-
-  public function getUser(Request $request)
-  {
-    $token = $request->header('Authorization');$decrypted = Crypt::decryptString($token);
-    $decrypted = explode('M2Print', $decrypted);
-    $result = User::where('User_email', $decrypted[0])
-      ->where('User_matricula', $decrypted[1])
-      ->first();
-
-    return $result;
-  }
-
   public function getRepository()
   {
-    return null;
+      return app(UsersRepository::class);
   }
 
-  public function index(Request $request)
+  public function login(Request $request)
   {
-    $model = $this->getRepository()->filter($request);
+    try {
+      if (!$request->filled('email')) {
+        throw new \Exception('Campo de email faltando');
+      }
+      if (!$request->filled('password')) {
+        throw new \Exception('Campo de senha faltando');
+      }
 
-    if ($request->filled('page')) {
-      return $model->paginate($request->get('paginate') ?? 10);
+      $model = $this->getRepository()->getModel()
+        ->where('User_email', $request->get('email'))
+        ->first();
+
+      if (!$model || !Hash::check($request->get('password'), $model->User_senha)) {
+        throw new \Exception('Email e/ou senha incorretos');
+      }
+
+      return [
+        'email' => $model->User_email,
+        'name' => $model->User_nome,
+        'token' => Crypt::encryptString($model->User_email . 'M2Print' . $model->User_matricula)
+      ];
+    } catch (\Exception $e) {
+      return response($e->getMessage(), 401);
     }
-    return $model->get();
   }
 
   public function show($id)

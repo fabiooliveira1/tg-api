@@ -10,7 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['namespace' => 'Api', 'prefix' => 'api'], function ($route) {
+
+Route::group(['prefix' => 'auth'], function ($route) {
+    Route::post('login', 'AuthController@login');
+});
+
+Route::group(['namespace' => 'Api', 'prefix' => 'api', 'middleware' => 'customAuth'], function ($route) {
     // Init route for vuex store
     Route::get('report', 'InitController@report');
     Route::get('init/dashboard', 'InitController@dashboard');

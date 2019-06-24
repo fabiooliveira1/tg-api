@@ -18,6 +18,10 @@ class User extends BaseModel
         // 'email_verified_at'
     ];
 
+    public $hidden = [
+        'User_senha'
+    ];
+
     public $dates = ['created_at', 'updated_at'];
 
     public static function boot()
