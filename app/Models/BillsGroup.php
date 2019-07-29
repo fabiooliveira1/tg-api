@@ -43,7 +43,7 @@ class BillsGroup extends BaseModel
 
     public function bills()
     {
-        return $this->hasMany(Bill::class, 'Cta_idConta', 'GrCt_idGrupo');
+        return $this->hasMany(Bill::class, 'Cta_idGrupo', 'GrCt_idGrupo');
     }
 
     public function risks()
